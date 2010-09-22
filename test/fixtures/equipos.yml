@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  area_id: 1
+  tipo_equipo_id: 1
+  subtipo_equipo_id: 1
+  modelo: MyString
+  mara: MyString
+  serial: MyString
+  placa: MyString
+  adquisicion_id: 1
+  valor: 1.5
+  responsable_id: 1
+
+two:
+  area_id: 1
+  tipo_equipo_id: 1
+  subtipo_equipo_id: 1
+  modelo: MyString
+  mara: MyString
+  serial: MyString
+  placa: MyString
+  adquisicion_id: 1
+  valor: 1.5
+  responsable_id: 1

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  estado_id: 1
+  equipo_id: 1
+  resultado: MyString
+
+two:
+  estado_id: 1
+  equipo_id: 1
+  resultado: MyString

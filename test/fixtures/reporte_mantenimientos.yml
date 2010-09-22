@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  equipo_id: 1
+  fecha_inicio: 2010-09-21
+  fecha_fin: 2010-09-21
+  tipo_mantenimiento_id: 1
+  evaluacion_diagnostico: MyText
+  descripcion_servicio: MyText
+  agenda_id: 1
+
+two:
+  equipo_id: 1
+  fecha_inicio: 2010-09-21
+  fecha_fin: 2010-09-21
+  tipo_mantenimiento_id: 1
+  evaluacion_diagnostico: MyText
+  descripcion_servicio: MyText
+  agenda_id: 1

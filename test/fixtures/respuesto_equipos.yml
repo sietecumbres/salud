@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  equipo_id: 1
+  repuesto_id: 1
+  cantidad: 
+
+two:
+  equipo_id: 1
+  repuesto_id: 1
+  cantidad: 

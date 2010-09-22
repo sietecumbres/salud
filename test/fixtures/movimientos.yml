@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  origen: MyString
+  destino: MyString
+  fecha_movimiento: 2010-09-21
+  observaciones: MyText
+
+two:
+  origen: MyString
+  destino: MyString
+  fecha_movimiento: 2010-09-21
+  observaciones: MyText

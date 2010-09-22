@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  equipo_id: 1
+  fecha_compra: 2010-09-21
+  fecha_instalacion: 2010-09-21
+  fabricante_id: 1
+  proveedor_id: 1
+  garantia: 2010-09-21
+  manual_operacion: false
+  voltaje: 1.5
+  amperaje: 1.5
+  potencia: 1.5
+  frecuencia: 1.5
+
+two:
+  equipo_id: 1
+  fecha_compra: 2010-09-21
+  fecha_instalacion: 2010-09-21
+  fabricante_id: 1
+  proveedor_id: 1
+  garantia: 2010-09-21
+  manual_operacion: false
+  voltaje: 1.5
+  amperaje: 1.5
+  potencia: 1.5
+  frecuencia: 1.5

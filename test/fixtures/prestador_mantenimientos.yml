@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  empresa: MyString
+  responsable_id: 1
+  cargo: 
+  documento: MyString
+
+two:
+  empresa: MyString
+  responsable_id: 1
+  cargo: 
+  documento: MyString

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha_programacion: 2010-09-21
+  fecha_ejecucion: 2010-09-21
+  tipo_mantenimiento_id: 1
+  equipo_id: 1
+
+two:
+  fecha_programacion: 2010-09-21
+  fecha_ejecucion: 2010-09-21
+  tipo_mantenimiento_id: 1
+  equipo_id: 1
