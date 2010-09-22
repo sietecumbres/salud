@@ -1,2 +1,3 @@
 class Estado < ActiveRecord::Base
-end
+  has_many :estado_equipos
+end:through => :appointments 
