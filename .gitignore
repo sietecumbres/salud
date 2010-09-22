@@ -1,1 +1,10 @@
+log/*.log
+tmp/**/*
+config/database.yml
+config/eltiempo.yml
+config/heroku_env.rb
+db/*.sqlite3
+db/schema.rb
+.DS_Store
+nbproject
 *.*~
