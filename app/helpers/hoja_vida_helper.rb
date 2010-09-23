@@ -1,0 +1,2 @@
+module HojaVidaHelper
+end

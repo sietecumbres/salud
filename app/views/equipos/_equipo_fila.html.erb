@@ -8,5 +8,5 @@
 	<td><%= equipo.tipo_adquisicion.nombre %></td>
 	<td><%= equipo.valor %></td>
 	<td><%= equipo.responsable.nombre %></td>
-	<td>Hoja de vida</td>
+	<td><%= link_to 'Hoja de Vida', hoja_vida_path(equipo.id) %></td>
 </tr>

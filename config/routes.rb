@@ -1,6 +1,7 @@
 Salud::Application.routes.draw do
-  
+
   match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
+  match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
