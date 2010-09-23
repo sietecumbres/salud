@@ -1,2 +1,12 @@
 es:
-  
+  device:
+    device:           equipo
+    type:             tipo
+    subtype:          subtipo
+    model:            modelo
+    brand:            marca
+    serial:           serial
+    stock:            inventario
+    type_acquisition: tipo de aquisición
+    amount:           valor
+    responsible:      responsable

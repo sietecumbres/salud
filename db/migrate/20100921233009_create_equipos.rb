@@ -5,10 +5,10 @@ class CreateEquipos < ActiveRecord::Migration
       t.integer :tipo_equipo_id
       t.integer :subtipo_equipo_id
       t.string :modelo
-      t.string :mara
+      t.string :marca
       t.string :serial
       t.string :placa
-      t.integer :adquisicion_id
+      t.integer :tipo_adquisicion_id
       t.float :valor
       t.integer :responsable_id
 

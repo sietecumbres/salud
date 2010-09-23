@@ -1,5 +1,94 @@
-<table>
-	<tr>
-		<td></td>
-	</tr>
-</table>
+<div class="forms">
+  <p>
+    <label>Area</label>
+    <select name="area" size="1">
+      <option value="a">Area 1</option>
+      <option value="b">Area 2</option>
+      <option value="c">Area 3</option>
+      <option value="a">Area 4</option>
+      <option value="b">Area 5</option>
+      <option value="c">Area 6</option>
+    </select>
+  </p>
+  <p>
+    <label>Tipo</label>
+    <select name="tipo" size="1">
+      <option value="a">Alto Riesgo</option>
+      <option value="b">Riesgo Moderado</option>
+      <option value="c">Bajo Riesgo</option>
+    </select>
+  </p>
+  <p>
+    <label>Subtipo</label>
+    <select name="subtipo" size="1">
+      <option value="xx">xxxx</option>
+      <option value="xx">xxxx</option>
+      <option value="xx">xxxx</option>
+    </select>
+  </p>
+  <p>
+    <label>Tipo de Adquisición</label>
+    <select name="adquisicion" size="1">
+      <option value="a">Propiedad por compra</option>
+      <option value="b">Comodato</option>
+      <option value="c">Leasing</option>
+      <option value="d">Arriendo</option>
+      <option value="e">Otro</option>
+    </select>
+  </p>
+  <p>
+    <label>Responsable</label>
+    <select name="responsable" size="1">
+      <option value="a">Pepito Pérez</option>
+      <option value="b">Fulano</option>
+      <option value="c">Pernao</option>
+      <option value="d">Merengano</option>
+    </select>
+  </p>
+  <p>
+    <label>Modelo</label>
+    <input id="modelo" class="autocomplete" type="text" name="modelo">
+  </p>
+  <p>
+    <label>Marca</label>
+    <input id="marca" class="autocomplete" type="text" name="marca">
+  </p>
+  <p>
+    <label>Serial</label>
+    <input id="serial" class="autocomplete" type="text" name="serial">
+  </p>
+  <p>
+    <label>Placa</label>
+    <input id="placa" class="autocomplete" type="text" name="placa">
+  </p>
+  <p>
+    <label>Entre valores: </label>
+    <label>Mínimo</label>
+    <input type="text" name="valor_min">
+    <label>Máximo</label>
+    <input type="text" name="valor_max">
+  </p>
+</div>
+<div class="inventario">
+	<table>
+    <thead>
+			<tr>
+				<td>Tipo</td>
+				<td>Subtipo</td>
+				<td>Modelo</td>
+				<td>Marca</td>
+				<td># de Serial</td>
+				<td># de Inventario ó Placa</td>
+				<td>Tipo de Tenencia ó Adquisición</td>
+				<td>Valor</td>
+				<td>Responsable</td>
+				<td>Hoja de Vida</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% @equipos.each do |equipo| %>
+				<%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
+			<% end %>
+		</tbody>
+	</table>
+</div>
