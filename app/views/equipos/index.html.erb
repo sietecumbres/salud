@@ -70,25 +70,28 @@
   </p>
 </div>
 <div class="inventario">
-	<table>
+<br />
+<br />
+  <table border="1">
     <thead>
-			<tr>
-				<td>Tipo</td>
-				<td>Subtipo</td>
-				<td>Modelo</td>
-				<td>Marca</td>
-				<td># de Serial</td>
-				<td># de Inventario ó Placa</td>
-				<td>Tipo de Tenencia ó Adquisición</td>
-				<td>Valor</td>
-				<td>Responsable</td>
-				<td>Hoja de Vida</td>
-			</tr>
-		</thead>
-		<tbody>
-			<% @equipos.each do |equipo| %>
-				<%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
-			<% end %>
-		</tbody>
-	</table>
+      <tr>
+	<td>Tipo</td>
+	<td>Subtipo</td>
+	<td>Modelo</td>
+	<td>Marca</td>
+	<td># de Serial</td>
+	<td># de Inventario ó Placa</td>
+	<td>Tipo de Tenencia ó Adquisición</td>
+	<td>Valor</td>
+	<td>Responsable</td>
+	<td>Hoja de Vida</td>
+        <td>Agenda</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @equipos.each do |equipo| %>
+        <%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
+      <% end %>
+    </tbody>
+  </table>
 </div>

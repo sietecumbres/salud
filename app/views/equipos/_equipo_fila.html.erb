@@ -1,12 +1,13 @@
 <tr>
-	<td><%= equipo.tipo_equipo.nombre %></td>
-	<td><%= equipo.subtipo_equipo.nombre %></td>
-	<td><%= equipo.modelo %></td>
-	<td><%= equipo.marca %></td>
-	<td><%= equipo.serial %></td>
-	<td><%= equipo.placa %></td>
-	<td><%= equipo.tipo_adquisicion.nombre %></td>
-	<td><%= equipo.valor %></td>
-	<td><%= equipo.responsable.nombre %></td>
-	<td><%= link_to 'Hoja de Vida', hoja_vida_path(equipo.id) %></td>
+  <td><%= equipo.tipo_equipo.nombre %></td>
+  <td><%= equipo.subtipo_equipo.nombre %></td>
+  <td><%= equipo.modelo %></td>
+  <td><%= equipo.marca %></td>
+  <td><%= equipo.serial %></td>
+  <td><%= equipo.placa %></td>
+  <td><%= equipo.tipo_adquisicion.nombre %></td>
+  <td><%= equipo.valor %></td>
+  <td><%= equipo.responsable.nombre %></td>
+  <td><%= link_to 'Hoja de Vida', hoja_vida_path(equipo.id) %></td>
+  <td><%= link_to 'Agenda', agenda_path(equipo.id) %></td>
 </tr>

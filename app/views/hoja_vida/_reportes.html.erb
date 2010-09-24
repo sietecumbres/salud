@@ -1,0 +1,26 @@
+<h2>Reportes</h2>
+<p>Búsqueda por fechas</p>
+<p>
+  <label>Fecha mínima</label>
+  <input id="defaultPopup" class="hasDatepick" type="text" name="min_fecha"></input>
+</p>
+<p>
+  <label>Fecha máxima</label>
+  <input type="text" name="max_fecha"></input>
+</p>
+<table border="1">
+  <tr>
+    <td>Fecha de inicio</td>
+    <td>Fecha de finalización</td>
+    <td>Tipo de mantenimiento</td>
+    <td>Evaluación</td>
+    <td>Descripción</td>
+  </tr>
+  <tr>
+    <td><%= reporte_mantenimiento.fecha_inicio %></td>
+    <td><%= reporte_mantenimiento.fecha_fin %></td>
+    <td><%= reporte_mantenimiento.tipo_mantenimiento.nombre %></td>
+    <td><%= reporte_mantenimiento.evaluacion_diagnostico %></td>
+    <td><%= reporte_mantenimiento.descripcion_servicio %></td>
+</tr>
+</table>
