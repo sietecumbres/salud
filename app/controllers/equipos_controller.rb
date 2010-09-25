@@ -1,7 +1,7 @@
 class EquiposController < ApplicationController
   before_filter :get_options, :only => [:index, :search]
   def index
-    @equipos = Equipo.all
+    
   end
   
   def search
@@ -13,8 +13,12 @@ class EquiposController < ApplicationController
     condiciones.merge({:subtipo_equipo_id => params[:busqueda][:subtipo_equipo_id]}) unless params[:busqueda][:subtipo_equipo_id].nil?
     condiciones.merge({:tipo_adquisicion_id => adquisicion}) unless adquisicion.nil?
     condiciones.merge({:responsable_id => params[:busqueda][:persona_id]}) unless params[:busqueda][:persona_id].nil?
-
-    @equipos = Equipo.where(condiciones)
+    condiciones.merge({:modelo => params[:busqueda][:modelo]}) unless params[:busqueda][:modelo].nil?
+    condiciones.merge({:marca => params[:busqueda][:marca]}) unless params[:busqueda][:marca].nil?
+    condiciones.merge({:serial => params[:busqueda][:serial]}) unless params[:busqueda][:serial].nil?
+    condiciones.merge({:placa => params[:busqueda][:placa]}) unless params[:busqueda][:placa].nil?
+     logger.debug "condiciones #{condiciones.inspect}"
+    @equipos_search = Equipo.where(condiciones)
 
     render :action => :index
   end
@@ -33,7 +37,7 @@ class EquiposController < ApplicationController
       @adquisiciones = TipoAdquisicion.all
       @responsables = Persona.all
       @areas = Area.all
-
+       @equipos = Equipo.all
       @adquisiciones << TipoAdquisicion.new({:id => '', :nombre => 'Otro'})
     end
 end
