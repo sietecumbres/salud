@@ -11,6 +11,10 @@ class EquiposController < ApplicationController
   end
   
   def search
+    
+  end
+  
+  def autocomplete
     equipos = Equipos.select('modelo').where(['modelo like ?%', params[:q]])
     logger.debug "equipos => #{equipos.inspect}"
     render :text => equipo.join(","), :layout => false
