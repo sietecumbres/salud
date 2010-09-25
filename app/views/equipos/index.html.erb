@@ -22,12 +22,7 @@
   </p>
   <p>
     <label>Responsable</label>
-    <select name="responsable" size="1">
-      <option value="a">Pepito Pérez</option>
-      <option value="b">Fulano</option>
-      <option value="c">Pernao</option>
-      <option value="d">Merengano</option>
-    </select>
+    <%= f.select 'persona_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}) %>
   </p>
   <p>
     <label>Modelo</label>
