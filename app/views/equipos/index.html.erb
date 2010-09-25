@@ -1,51 +1,54 @@
-<% form_for 'busqueda', :url => {:controller => :equipos, :action => :search} do |f| %>
+<% form_for 'busqueda', :url => equipos_search_url do |f| %>
 <div class="forms">
   <p>
     <label>Area</label>
-    <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}) %>
+    <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
   </p>
   <p>
     <label>Tipo</label>
-    <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}) %>
+    <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}), {:include_blank => 'Seleccionar'} %>
   </p>
   <p>
     <label>Subtipo</label>
-    <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}) %>
+    <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}), {:include_blank => 'Seleccionar'} %>
   </p>
   <p>
     <label>Tipo de Adquisición</label>
     <%= f.select 'tipo_adquisicion_id', options_for_select(@adquisiciones.collect{|adquisicion| [adquisicion.nombre, adquisicion.id]}), :html => {:class => 'tipo-adquisicion'} %>
 		<div id="otro-adquisicion" style="display:none;">
 			<label>Cual </label>
-			<%= text_field_tag 'otro_tipo_adquisicion' %>
+			<%= f.text_field(:otro_adquisicion, :class => 'autocomplete') %>
 		</div>
   </p>
   <p>
     <label>Responsable</label>
-    <%= f.select 'persona_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}) %>
+    <%= f.select 'persona_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
   </p>
   <p>
     <label>Modelo</label>
-    <input id="modelo" class="autocomplete" type="text" name="modelo">
+    <%= f.text_field(:modelo, :class => 'autocomplete') %>
   </p>
   <p>
     <label>Marca</label>
-    <input id="marca" class="autocomplete" type="text" name="marca">
+    <%= f.text_field(:marca, :class => 'autocomplete') %>
   </p>
   <p>
     <label>Serial</label>
-    <input id="serial" class="autocomplete" type="text" name="serial">
+    <%= f.text_field(:serial, :class => 'autocomplete') %>
   </p>
   <p>
     <label>Placa</label>
-    <input id="placa" class="autocomplete" type="text" name="placa">
+    <%= f.text_field(:placa, :class => 'autocomplete') %>
   </p>
   <p>
     <label>Entre valores: </label>
     <label>Mínimo</label>
-    <input type="text" name="valor_min">
+    <%= f.text_field(:valor_min, :class => 'autocomplete') %>
     <label>Máximo</label>
-    <input type="text" name="valor_max">
+    <%= f.text_field(:valor_max, :class => 'autocomplete') %>
+  </p>
+  <p>
+    <%= submit_tag 'Buscar' %>
   </p>
 </div>
 <% end %>

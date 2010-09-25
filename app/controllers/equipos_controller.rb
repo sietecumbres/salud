@@ -5,12 +5,17 @@ class EquiposController < ApplicationController
   end
   
   def search
-    persona = Persona.where(:id => params[:busqueda][:persona_id])
-    tipo = TipoEquipo.where(:id => params[:busqueda][:tipo_equipo_id])
-    subtipo = SubtipoEquipo.where(:id => params[:busqueda][:subtipo_equipo_id])
-    adquisicion = TipoAdquisicion.where(:id => params[:busqueda][:tipo_adquisicion_id])
-    otro = TipoAdquisicion.where(:id => params[:busqueda][:persona_id])
-    @equipos = Equipo.all
+    t = Equipo.arel_table
+    adquisicion = params[:busqueda][:tipo_adquisicion_id].nil? ?  params[:busqueda][:otro_adquisicion] :  params[:busqueda][:tipo_adquisicion_id]
+    condiciones = {}
+    condiciones.merge({:area_id => params[:busqueda][:area_id]}) unless params[:busqueda][:area_id].nil?
+    condiciones.merge({:tipo_equipo_id => params[:busqueda][:tipo_equipo_id]}) unless params[:busqueda][:tipo_equipo_id].nil?
+    condiciones.merge({:subtipo_equipo_id => params[:busqueda][:subtipo_equipo_id]}) unless params[:busqueda][:subtipo_equipo_id].nil?
+    condiciones.merge({:tipo_adquisicion_id => adquisicion}) unless adquisicion.nil?
+    condiciones.merge({:responsable_id => params[:busqueda][:persona_id]}) unless params[:busqueda][:persona_id].nil?
+
+    @equipos = Equipo.where(condiciones)
+
     render :action => :index
   end
   
