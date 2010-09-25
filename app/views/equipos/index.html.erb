@@ -1,4 +1,4 @@
-<% form_for 'busqueda', :url => equipos_search_url do |f| %>
+<% form_for @busqueda, :url => equipos_search_url do |f| %>
 <div class="forms">
   <p>
     <label>Area</label>
@@ -17,12 +17,12 @@
     <%= f.select 'tipo_adquisicion_id', options_for_select(@adquisiciones.collect{|adquisicion| [adquisicion.nombre, adquisicion.id]}), :html => {:class => 'tipo-adquisicion'} %>
 		<div id="otro-adquisicion" style="display:none;">
 			<label>Cual </label>
-			<%= f.text_field(:otro_adquisicion, :class => 'autocomplete') %>
+			<%= text_field_tag(:otro_adquisicion) %>
 		</div>
   </p>
   <p>
     <label>Responsable</label>
-    <%= f.select 'persona_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
+    <%= f.select 'responsable_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
   </p>
   <p>
     <label>Modelo</label>
@@ -43,9 +43,9 @@
   <p>
     <label>Entre valores: </label>
     <label>Mínimo</label>
-    <%= f.text_field(:valor_min) %>
+    <%= text_field_tag(:valor_min) %>
     <label>Máximo</label>
-    <%= f.text_field(:valor_max) %>
+    <%= text_field_tag(:valor_max) %>
   </p>
   <p>
     <%= submit_tag 'Buscar' %>
