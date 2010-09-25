@@ -5,6 +5,15 @@ $(document).ready(function(){
 		$(".autocomplete").autocomplete('/equipos/search');
                 $('#popupDatepicker').datepick();
                 $('#inlineDatepicker').datepick({onSelect: showDate});
+
+		$("#busqueda_tipo_adquisicion_id").change(function(){
+			if(!$(this).val()){
+				$("#otro-adquisicion").show();
+			}
+			else{
+				$("#otro-adquisicion").hide();
+			}
+		});
   });
 
 function showDate(date) {

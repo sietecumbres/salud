@@ -1,40 +1,24 @@
+<% form_for 'busqueda', :url => {:controller => :equipos, :action => :search} do |f| %>
 <div class="forms">
   <p>
     <label>Area</label>
-    <select name="area" size="1">
-      <option value="a">Area 1</option>
-      <option value="b">Area 2</option>
-      <option value="c">Area 3</option>
-      <option value="a">Area 4</option>
-      <option value="b">Area 5</option>
-      <option value="c">Area 6</option>
-    </select>
+    <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}) %>
   </p>
   <p>
     <label>Tipo</label>
-    <select name="tipo" size="1">
-      <option value="a">Alto Riesgo</option>
-      <option value="b">Riesgo Moderado</option>
-      <option value="c">Bajo Riesgo</option>
-    </select>
+    <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}) %>
   </p>
   <p>
     <label>Subtipo</label>
-    <select name="subtipo" size="1">
-      <option value="xx">xxxx</option>
-      <option value="xx">xxxx</option>
-      <option value="xx">xxxx</option>
-    </select>
+    <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}) %>
   </p>
   <p>
     <label>Tipo de Adquisición</label>
-    <select name="adquisicion" size="1">
-      <option value="a">Propiedad por compra</option>
-      <option value="b">Comodato</option>
-      <option value="c">Leasing</option>
-      <option value="d">Arriendo</option>
-      <option value="e">Otro</option>
-    </select>
+    <%= f.select 'tipo_adquisicion_id', options_for_select(@adquisiciones.collect{|adquisicion| [adquisicion.nombre, adquisicion.id]}), :html => {:class => 'tipo-adquisicion'} %>
+		<div id="otro-adquisicion" style="display:none;">
+			<label>Cual </label>
+			<%= text_field_tag 'otro_tipo_adquisicion' %>
+		</div>
   </p>
   <p>
     <label>Responsable</label>
@@ -69,6 +53,7 @@
     <input type="text" name="valor_max">
   </p>
 </div>
+<% end %>
 <div class="inventario">
 <br />
 <br />
