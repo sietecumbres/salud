@@ -26,26 +26,26 @@
   </p>
   <p>
     <label>Modelo</label>
-    <%= f.text_field(:modelo, :class => 'autocomplete') %>
+    <%= f.text_field(:modelo, :class => 'autocomplete', 'data-remote' => 'modelo') %>
   </p>
   <p>
     <label>Marca</label>
-    <%= f.text_field(:marca, :class => 'autocomplete') %>
+    <%= f.text_field(:marca, :class => 'autocomplete', 'data-remote' => 'marca') %>
   </p>
   <p>
     <label>Serial</label>
-    <%= f.text_field(:serial, :class => 'autocomplete') %>
+    <%= f.text_field(:serial, :class => 'autocomplete', 'data-remote' => 'serial') %>
   </p>
   <p>
     <label>Placa</label>
-    <%= f.text_field(:placa, :class => 'autocomplete') %>
+    <%= f.text_field(:placa, :class => 'autocomplete', 'data-remote' => 'placa') %>
   </p>
   <p>
     <label>Entre valores: </label>
     <label>Mínimo</label>
-    <%= f.text_field(:valor_min, :class => 'autocomplete') %>
+    <%= f.text_field(:valor_min) %>
     <label>Máximo</label>
-    <%= f.text_field(:valor_max, :class => 'autocomplete') %>
+    <%= f.text_field(:valor_max) %>
   </p>
   <p>
     <%= submit_tag 'Buscar' %>

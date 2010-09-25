@@ -22,7 +22,7 @@ class EquiposController < ApplicationController
   def autocomplete
     field = params[:term].to_sym
     t = Equipo.arel_table
-    equipos = Equipo.select(field).where(t[field].matches("#{params[:q]}%")).map{|equipo| equipo.modelo}
+    equipos = Equipo.select(field).where(t[field].matches("%#{params[:q]}%")).map{|equipo| equipo.attributes[field.to_s]}
     render :text => equipos.join(","), :layout => false
   end
 
