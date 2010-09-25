@@ -3,4 +3,10 @@
 $(document).ready(function(){
     var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
 		$(".autocomplete").autocomplete('/equipos/search');
+                $('#popupDatepicker').datepick();
+                $('#inlineDatepicker').datepick({onSelect: showDate});
   });
+
+function showDate(date) {
+	alert('The date chosen is ' + date);
+}
