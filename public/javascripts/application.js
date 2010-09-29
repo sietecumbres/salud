@@ -4,19 +4,20 @@ $(document).ready(function(){
 		var param =  "";
     var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
 		$(".autocomplete").click(function(){
-			param = $(this).attr("data-remote");
+			autocomplete_fields($(this).attr("data-remote"));
 		});
 		$(".autocomplete").focus(function(){
-			param = $(this).attr("data-remote");
+			autocomplete_fields($(this).attr("data-remote"));
 		});
 		
-		$(".autocomplete").autocomplete('/equipos/autocomplete', {extraParams: {term: function(){
+		/*$(".autocomplete").autocomplete('/equipos/autocomplete', {extraParams: {term: function(){
 					return param;}
 				}
 			});
+			*/
+			
 		
-                $('#popupDatepicker').datepick();
-                $('#inlineDatepicker').datepick({onSelect: showDate});
+      $('.datepicker').datepicker($.datepicker.regional["es"]);
 
 		$("#busqueda_tipo_adquisicion_id").change(function(){
 			if(!$(this).val()){
@@ -28,6 +29,15 @@ $(document).ready(function(){
 		});
   });
 
-function showDate(date) {
-	alert('The date chosen is ' + date);
+function autocomplete_fields(table){
+	$(".autocomplete").autocomplete({
+		source: function(req, add){
+			$.getJSON("/equipos/autocomplete?table="+table, req, function(data){
+				var suggestions = [];
+				$.each(data, function(i, val){
+					suggestions.push(val);
+				});
+				add(suggestions);
+			});}
+	});
 }

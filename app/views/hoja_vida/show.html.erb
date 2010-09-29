@@ -1,40 +1,39 @@
-
 <div class="equipo">
   <table border="1">
     <tr>
-      <td>Tipo</td>>
+      <td>Tipo</td>
       <td><%= @equipo.tipo_equipo.nombre %></td>
     </tr>
     <tr>
-      <td>Subtipo</td>>
+      <td>Subtipo</td>
       <td><%= @equipo.subtipo_equipo.nombre %></td>
     </tr>
     <tr>
-      <td>Modelo</td>>
+      <td>Modelo</td>
       <td><%= @equipo.modelo %></td>
     </tr>
     <tr>
-      <td>Marca</td>>
+      <td>Marca</td>
       <td><%= @equipo.marca %></td>
     </tr>
     <tr>
-      <td>No. serial</td>>
+      <td>No. serial</td>
       <td><%= @equipo.serial %></td>
     </tr>
     <tr>
-      <td>No. Inventario o Placa</td>>
+      <td>No. Inventario o Placa</td>
       <td><%= @equipo.placa %></td>
     </tr>
     <tr>
-      <td>Tipo de tenencia o adquisición</td>>
+      <td>Tipo de tenencia o adquisición</td>
       <td><%= @equipo.tipo_adquisicion.nombre %></td>
     </tr>
     <tr>
-      <td>Valor</td>>
+      <td>Valor</td>
       <td><%= @equipo.valor %></td>
     </tr>
     <tr>
-      <td>Responsable</td>>
+      <td>Responsable</td>
       <td><%= @equipo.responsable.nombre %></td>
     </tr>
   </table>
@@ -85,7 +84,24 @@
   </table>
 </div>
 <div class="reportes">
-  <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
-    <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
-  <% end %>
+	<h2>Reportes</h2>
+	<p>Búsqueda por fechas</p>
+	<p>
+	  <label>Fecha mínima</label>
+		<%= text_field_tag 'min_date', nil, :class => 'datepicker' %>
+	</p>
+	<p>
+	  <label>Fecha máxima</label>
+	  <input type="text" name="max_fecha"></input>
+	</p>
+	<table border="1">
+	  <tr>
+	    <td>Fecha de inicio</td>
+	    <td>Fecha de finalización</td>
+	    <td>Tipo de mantenimiento</td>
+	    <td>Evaluación</td>
+	    <td>Descripción</td>
+	  </tr>
+    <%= render :partial => 'hoja_vida/reportes', :collection => @equipo.reporte_mantenimientos %>
+	</table>
 </div>
