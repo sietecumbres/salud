@@ -10,14 +10,7 @@ $(document).ready(function(){
 			autocomplete_fields($(this).attr("data-remote"));
 		});
 		
-		/*$(".autocomplete").autocomplete('/equipos/autocomplete', {extraParams: {term: function(){
-					return param;}
-				}
-			});
-			*/
-			
-		
-      $('.datepicker').datepicker($.datepicker.regional["es"]);
+   $('.datepicker').datepicker();
 
 		$("#busqueda_tipo_adquisicion_id").change(function(){
 			if(!$(this).val()){
@@ -38,6 +31,7 @@ function autocomplete_fields(table){
 					suggestions.push(val);
 				});
 				add(suggestions);
-			});}
+			});},
+			minLength: 1
 	});
 }
