@@ -20,8 +20,21 @@ $(document).ready(function(){
 				$("#otro-adquisicion").hide();
 			}
 		});
+		$("#reporte_mantenimiento_tipo_mantenimiento_id").change(function(){
+			if(!$(this).val()){
+				$("#otro-mantenimiento").show();
+			}
+			else{
+				$("#otro-mantenimiento").hide();
+			}
+		});
 		
 		$('a[rel*=facebox]').facebox();
+                
+                $(".radio").click(function(){
+                    //alert($(this).val());
+                    $.facebox({ div: '#add_avaluacion' });
+                });
   });
 
 function autocomplete_fields(table){

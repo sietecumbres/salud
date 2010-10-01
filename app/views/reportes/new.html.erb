@@ -1,2 +1,37 @@
-<h1>Reportes#new</h1>
-<p>Find me in app/views/reportes/new.html.erb</p>
+<% form_for @reporte, :url => reportes_create_url do |f| %>
+  <p>
+    <label><%= params {:id} %></label>
+  </p>
+  <p>
+    <label>Fecha de ingreso</label>
+    <%= text_field_tag 'f_ingreso', nil, :class => 'datepicker' %>
+  </p>
+  <p>
+    <label>Fecha de salida</label>
+    <%= text_field_tag 'f_salida', nil, :class => 'datepicker' %>
+  </p>
+  <p>
+    <label>Tipo de Mantenimiento</label>
+    <%= f.select 'tipo_mantenimiento_id', options_for_select(@mantenimientos.collect{|mantenimiento| [mantenimiento.nombre, mantenimiento.id]}), :html => {:class => 'tipo-mantenimiento'} %>
+      <div id="otro-mantenimiento" style="display:none;">
+        <label>Cual </label>
+        <%= text_field_tag(:otro_mantenimiento) %>
+      </div>
+  </p>
+  <div class="estados">
+    <table border="1">
+      <tr>
+        <td>PRUEBA CUALITATIVA</td>
+        <td>Ap.</td>
+        <td>Rp.</td>
+        <td>N/A</td>
+      </tr>
+      <% @estados.each do |estado| %>
+        <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
+      <% end %>
+    </table>
+    <div id="add_avaluacion" style="display: none;">
+      <%= text_field_tag(:add_eval) %>
+    </div>
+  </div>
+<% end %>

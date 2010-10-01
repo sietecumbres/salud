@@ -12,6 +12,8 @@ Salud::Application.routes.draw do
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
   match '/equipo/:id/agenda' => 'agenda#show', :via => :get, :as => :agenda
   match '/equipo/:id/reporte' => 'reportes#show', :via => :get, :as => :reporte
+  match '/equipo/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
+  match '/equipo/:id/reporte/create' => 'resportes#create', :via => :post, :as => :create_reporte
 	match '/equipo/:id/agenda/new' => 'agenda#new', :via => :get, :as => :new_agenda
 
   # The priority is based upon order of creation:

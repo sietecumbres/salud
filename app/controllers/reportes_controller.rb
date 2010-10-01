@@ -4,6 +4,12 @@ class ReportesController < ApplicationController
   end
 
   def new
+    @reporte = ReporteMantenimiento.new
+    @mantenimientos = TipoMantenimiento.all
+    @estados = Estado.all
+    @responsables = Persona.all
+    @equipos = Equipo.all
+    @mantenimientos << TipoMantenimiento.new({:id => '', :nombre => 'Otro'})
   end
 
   def create

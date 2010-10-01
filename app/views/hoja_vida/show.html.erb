@@ -94,6 +94,9 @@
 	  <label>Fecha máxima</label>
 	  <%= text_field_tag 'max_date', nil, :class => 'datepicker' %>
 	</p>
+        <p>
+          <%= link_to 'Ingresar reporte', reportes_new_path(@equipo.id) %>
+        </p>
 	<table border="1">
 	  <tr>
 	    <td>Fecha de inicio</td>
