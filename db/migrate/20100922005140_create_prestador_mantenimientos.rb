@@ -5,6 +5,7 @@ class CreatePrestadorMantenimientos < ActiveRecord::Migration
       t.integer :responsable_id
       t.string :cargo
       t.string :documento
+      t.integer :reporte_mantenimiento_id
 
       t.timestamps
     end

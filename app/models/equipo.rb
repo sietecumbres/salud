@@ -8,5 +8,4 @@ class Equipo < ActiveRecord::Base
   has_many :estado_equipos
   has_many :movimientos
   has_many :reporte_mantenimientos
-  has_many :repuesto_equipos
 end

@@ -1,0 +1,130 @@
+<div class="reporte">
+  <div class="n_reporte">
+    <p><span>Reporte No. </span><%= @reporte.id %></p>
+  </div>
+  <div class="tiempo">
+    <table class="tiempo" border="1">
+      <tr>
+        <td colspan="2">TIEMPO EMPLEADO EN EL MANTENIMIENTO</td>
+      </tr>
+      <tr>
+        <td>Fecha inicio</td>
+        <td>Fecha finalización</td>
+      </tr>
+      <tr>
+        <td><%= @reporte.fecha_inicio %></td>
+        <td><%= @reporte.fecha_fin %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="mantenimiento">
+    <table border="1">
+      <tr>
+        <td colspan="2">TIPO DE MANTENIMIENTO</td>
+      </tr>
+      <tr>
+        <td>PREVENTIVO:</td>
+        <td><% if @reporte.tipo_mantenimiento.id == 1 then %> SI <% else %> NO <% end %></td>
+      </tr>
+      <tr>
+        <td>CORRECTIVO:</td>
+        <td><% if @reporte.tipo_mantenimiento.id == 2 then %> SI <% else %> NO <% end %></td>
+      </tr>
+      <tr>
+        <td>PREDICTIVO:</td>
+        <td><% if @reporte.tipo_mantenimiento.id == 3 then %> SI <% else %> NO <% end %></td>
+      </tr>
+      <tr>
+        <td>OTRO:</td>
+        <td><% if @reporte.tipo_mantenimiento.id > 3 then %> <%= @reporte.tipo_mantenimiento.nombre %> <% else %> NO <% end %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="estados">
+    <table border="1">
+      <tr>
+        <td colspan="4">ESTADOS DEL EQUIPO</td>
+      </tr>
+      <tr>
+        <td>Prueba cualitativa</td>
+        <td>Resultado</td>
+      </tr>
+      <% @reporte.estado_equipos.each do |estado_equipo| %>
+      <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>
+      <% end %>
+    </table>
+  </div>
+  <div class="evaluacion">
+    <table border="1">
+      <tr>
+        <td>EVALUACIÓN Y DIAGNÓSTICO</td>
+      </tr>
+      <% @reporte.estado_equipos.each do |estado_equipo| %>
+      <%= render :partial => 'reportes/diagnostico', :locals => {:estado_equipo => estado_equipo} %>
+      <% end %>
+    </table>
+  </div>
+  <div class="descripcion">
+    <table border="1">
+      <tr>
+        <td>DESCRIPCIÓN DEL SERVICIO</td>
+      </tr>
+      <tr>
+        <td><%= @reporte.descripcion_servicio %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="repuestos">
+    <table border="1">
+      <tr>
+        <td colspan="3">MATERIALES, REPUESTOS E INSUMOS UTILIZADOS</td>
+      </tr>
+      <tr>
+        <td>Ref.</td>
+        <td>Cant.</td>
+        <td>Descripción</td>
+      </tr>
+      <% @reporte.repuesto_equipos.each do |repuesto_equipo| %>
+      <%= render :partial => 'reportes/repuestos', :locals => {:repuesto_equipo => repuesto_equipo} %>
+      <% end %>
+    </table>
+  </div>
+  <div class="prestador">
+    <table border="1">
+      <tr>
+        <td colspan="3">PRESTADOR DEL MANTENIMIENTO</td>
+      </tr>
+      <tr>
+        <td>Nombre</td>
+        <td><%= @reporte.prestador_mantenimiento.responsable.nombre %></td>
+      </tr>
+      <tr>
+        <td>Cargo</td>
+        <td><%= @reporte.prestador_mantenimiento.cargo %></td>
+      </tr>
+      <tr>
+        <td>Documento</td>
+        <td><%= @reporte.prestador_mantenimiento.documento %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="responsable">
+    <table border="1">
+      <tr>
+        <td colspan="3">RECIBIDO POR:</td>
+      </tr>
+      <tr>
+        <td>Nombre</td>
+        <td><%= @reporte.responsable.nombre %></td>
+      </tr>
+      <tr>
+        <td>Cargo</td>
+        <td><%= @reporte.responsable.cargo %></td>
+      </tr>
+      <tr>
+        <td>Documento</td>
+        <td><%= @reporte.responsable.documento %></td>
+      </tr>
+    </table>
+  </div>
+</div>

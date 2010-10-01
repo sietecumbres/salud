@@ -102,6 +102,8 @@
 	    <td>Evaluación</td>
 	    <td>Descripción</td>
 	  </tr>
-    <%= render :partial => 'hoja_vida/reportes', :collection => @equipo.reporte_mantenimientos %>
+          <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
+          <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
+          <% end %>
 	</table>
 </div>

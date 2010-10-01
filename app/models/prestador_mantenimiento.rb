@@ -1,3 +1,4 @@
 class PrestadorMantenimiento < ActiveRecord::Base
-  has_many :entrega_mantenimientos
+  belongs_to :reporte_mantenimiento
+  belongs_to :responsable, :class_name => "Persona"
 end

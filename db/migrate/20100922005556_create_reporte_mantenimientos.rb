@@ -5,9 +5,9 @@ class CreateReporteMantenimientos < ActiveRecord::Migration
       t.date :fecha_inicio
       t.date :fecha_fin
       t.integer :tipo_mantenimiento_id
-      t.text :evaluacion_diagnostico
       t.text :descripcion_servicio
       t.integer :agenda_id
+      t.integer :responsable_id
 
       t.timestamps
     end
