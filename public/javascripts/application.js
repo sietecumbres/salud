@@ -20,6 +20,8 @@ $(document).ready(function(){
 				$("#otro-adquisicion").hide();
 			}
 		});
+		
+		$('a[rel*=facebox]').facebox();
   });
 
 function autocomplete_fields(table){

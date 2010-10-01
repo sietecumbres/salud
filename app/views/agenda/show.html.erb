@@ -1,2 +1,4 @@
-<h1>Agenda#show</h1>
-<p>Find me in app/views/agenda/show.html.erb</p>
+<%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
+<div id="calendar">
+	<%= GoogleCalendarAdapter.iframe.html_safe %>
+</div>
