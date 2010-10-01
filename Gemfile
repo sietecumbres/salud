@@ -6,6 +6,8 @@ gem 'rails', '3.0.0'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'gdata4ruby'
+gem 'gcal4ruby'
 
 # Use unicorn as the web server
 # gem 'unicorn'
