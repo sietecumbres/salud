@@ -7,6 +7,7 @@ class ReportesController < ApplicationController
     @reporte = ReporteMantenimiento.new
     @mantenimientos = TipoMantenimiento.all
     @estados = Estado.all
+    @repuestos = Repuesto.all
     @responsables = Persona.all
     @equipos = Equipo.all
     @mantenimientos << TipoMantenimiento.new({:id => '', :nombre => 'Otro'})

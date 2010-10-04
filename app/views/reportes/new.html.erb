@@ -30,8 +30,45 @@
         <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
       <% end %>
     </table>
-    <div id="add_avaluacion" style="display: none;">
-      <%= text_field_tag(:add_eval) %>
+    <div id="add_evaluacion" style="display: none;">
+      <p>
+        <label>Ingrese una descripción: </label>
+        <%= text_field_tag(:add_eval, "", :class => "add_eval") %>
+      </p>
+      <%= submit_tag "Guardar descripción", :class => "to_eval" %>
     </div>
+  </div>
+  <div class="evaluacion">
+    <span>Ingrese la evaluación y el diagnóstico</span>
+    <div class="rp_evaluacion" style="display: none">
+
+    </div>
+    <div class="extra">
+      <p>
+        <%= text_area_tag(:extra_eval, nil, :size => "80x5") %>
+      </p>
+    </div>
+  </div>
+  <div class="descripcion">
+    <span>Ingrese la descripción del servicio</span>
+    <p>
+      <%= text_area_tag(:extra_eval, nil, :size => "80x5") %>
+    </p>
+  </div>
+  <div class="repuestos">
+    <p>MATERIALES, REPUESTOS E INSUMOS</p>
+    <input type="button" class="add_repuesto" name="Adicionar" value="Adicionar"></input>
+    <table border="1">
+      <tr>
+        <td>REF.</td>
+        <td>CANT.</td>
+        <td>DESCRIPCIÓN</td>
+      </tr>
+      <tr class="hide_repuesto" style="display: none">
+        <td><%= select_tag 'repuesto_equipos_id', options_for_select(@repuestos.collect{|repuesto| [repuesto.referencia, repuesto.id]}), :html => {:class => 'repuesto'} %></td>
+        <td><%= text_field_tag(:cant, "", :class => "cantidad") %></td>
+        <td><%= text_field_tag(:descripcion, "", :class => "descripcion") %></td>
+      </tr>
+    </table>
   </div>
 <% end %>

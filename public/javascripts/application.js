@@ -1,6 +1,15 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+
+
+
 $(document).ready(function(){
+
+    $(document).bind('loading.facebox', function() {
+        $(document).unbind('keydown.facebox');
+        $('#facebox_overlay').unbind('click');
+    });
+
 		var param =  "";
     var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
 		$(".autocomplete").click(function(){
@@ -33,7 +42,16 @@ $(document).ready(function(){
                 
                 $(".radio").click(function(){
                     //alert($(this).val());
-                    $.facebox({ div: '#add_avaluacion' });
+                    $.facebox({div: '#add_evaluacion'});
+                });
+
+                $(".to_eval").live('click', function(){
+                   alert($("#add_eval").val());
+                });
+
+                //Funcion para desplegar el formulario de ingreso de repuestos
+                $(".add_repuesto").click(function(){
+                   $(".hide_repuesto").show();
                 });
   });
 
