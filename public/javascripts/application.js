@@ -1,6 +1,15 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
+
+
+
 $(document).ready(function(){
+
+    $(document).bind('loading.facebox', function() {
+        $(document).unbind('keydown.facebox');
+        $('#facebox_overlay').unbind('click');
+    });
+
 		var param =  "";
     var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
 		$(".autocomplete").click(function(){
@@ -30,11 +39,28 @@ $(document).ready(function(){
 		});
 		
 		$('a[rel*=facebox]').facebox();
-                
-  $(".radio").click(function(){
-  //alert($(this).val());
-  $.facebox({ div: '#add_avaluacion' });
-  });
+       
+    $(".radio").click(function(){
+        //alert($(this).val());
+        $.facebox({div: '#add_evaluacion'});
+    });
+
+    $(".to_eval").live('click', function(){
+        alert($("#add_eval").val());
+        var eval = $("#add_eval").val();
+        $("#extra_eval").show();
+        $('#eval').val(eval);
+    });
+
+    //Funcion para desplegar el formulario de ingreso de repuestos
+    $(".add_repuesto").click(function(){
+        $(".hide_repuesto").show();
+    });
+
+    //Funcion para buscar por documento de identidad
+    $(".search_cc").click(function(){
+        $(".info").show();
+    });
   
   $(document).bind('reveal.facebox', function(){
     $('.datepicker').datepicker();
