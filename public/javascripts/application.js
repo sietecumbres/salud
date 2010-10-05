@@ -46,12 +46,20 @@ $(document).ready(function(){
                 });
 
                 $(".to_eval").live('click', function(){
-                   alert($("#add_eval").val());
+                    alert($("#add_eval").val());
+                    var eval = $("#add_eval").val();
+                    $("#extra_eval").show();
+                    $('#eval').val(eval);
                 });
 
                 //Funcion para desplegar el formulario de ingreso de repuestos
                 $(".add_repuesto").click(function(){
-                   $(".hide_repuesto").show();
+                    $(".hide_repuesto").show();
+                });
+
+                //Funcion para buscar por documento de identidad
+                $(".search_cc").click(function(){
+                    $(".info").show();
                 });
   });
 

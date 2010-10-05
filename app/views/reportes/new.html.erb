@@ -33,26 +33,26 @@
     <div id="add_evaluacion" style="display: none;">
       <p>
         <label>Ingrese una descripción: </label>
-        <%= text_field_tag(:add_eval, "", :class => "add_eval") %>
+        <%= text_field_tag(:add_eval, "Ingrese un comentario", :class => "add_eval") %>
       </p>
-      <%= submit_tag "Guardar descripción", :class => "to_eval" %>
+      <input type="button" class="to_eval" name="add_descripcion" value="Guardar descripción"></input>
     </div>
   </div>
   <div class="evaluacion">
     <span>Ingrese la evaluación y el diagnóstico</span>
     <div class="rp_evaluacion" style="display: none">
-
+      <%= text_area_tag(:extra_eval) %>
     </div>
     <div class="extra">
       <p>
-        <%= text_area_tag(:extra_eval, nil, :size => "80x5") %>
+        <%= text_area_tag(:eval, nil, :size => "80x5") %>
       </p>
     </div>
   </div>
   <div class="descripcion">
     <span>Ingrese la descripción del servicio</span>
     <p>
-      <%= text_area_tag(:extra_eval, nil, :size => "80x5") %>
+      <%= text_area_tag(:descripcion, nil, :size => "80x5") %>
     </p>
   </div>
   <div class="repuestos">
@@ -70,5 +70,22 @@
         <td><%= text_field_tag(:descripcion, "", :class => "descripcion") %></td>
       </tr>
     </table>
+  </div>
+  <div class="responsable">
+    <p>Prestador del mantenimiento</p>
+    <p><span>Nombre: </span><%= text_field_tag(:nombre) %></p>
+    <p><span>Cargo: </span><%= text_field_tag(:cargo) %></p>
+    <p><span>Documento: </span><%= text_field_tag(:documento) %></p>
+  </div>
+  <div class="recibido">
+    <p>Prestador del mantenimiento</p>
+    <p>
+      <span>Documento: </span><%= text_field_tag(:documento) %>
+      <input type="button" class="buscar_cc" name="Buscar" value="Buscar"></input>
+    </p>
+    <div class="info" style="display: none">
+      <p><span>Nombre: </span><%= text_field_tag(:nombre, nil, :disable => true) %></p>
+      <p><span>Cargo: </span><%= text_field_tag(:cargo, nil, :disable => true) %></p>
+    </div>
   </div>
 <% end %>
