@@ -6,6 +6,11 @@ class CreateAgendas < ActiveRecord::Migration
       t.integer :tipo_mantenimiento_id
       t.integer :equipo_id
 
+			
+			#gcalendar fields
+			t.string :event_id
+			
+			
       t.timestamps
     end
   end

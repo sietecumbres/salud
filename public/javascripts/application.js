@@ -31,11 +31,15 @@ $(document).ready(function(){
 		
 		$('a[rel*=facebox]').facebox();
                 
-                $(".radio").click(function(){
-                    //alert($(this).val());
-                    $.facebox({ div: '#add_avaluacion' });
-                });
+  $(".radio").click(function(){
+  //alert($(this).val());
+  $.facebox({ div: '#add_avaluacion' });
   });
+  
+  $(document).bind('reveal.facebox', function(){
+    $('.datepicker').datepicker();
+  });
+});
 
 function autocomplete_fields(table){
 	$(".autocomplete").autocomplete({

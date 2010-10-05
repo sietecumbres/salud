@@ -15,6 +15,7 @@ Salud::Application.routes.draw do
   match '/equipo/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:id/reporte/create' => 'resportes#create', :via => :post, :as => :create_reporte
 	match '/equipo/:id/agenda/new' => 'agenda#new', :via => :get, :as => :new_agenda
+	match '/equipo/:id/agenda/new' => 'agenda#create', :via => :post, :as => :create_agenda
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -26,6 +26,22 @@ class GoogleCalendarAdapter
 			})
 		end
 		
+		def add_event(agenda)
+			cal = get_calendar
+			event =  GCal4Ruby::Event.new(cal.service, 
+																		{
+																			:calendar => cal,
+																			:title => "Mantenimiento #{agenda.tipo_mantenimiento.nombre} para el equipo #{agenda.equipo.placa}",
+																			:start_time => Time.parse(agenda.fecha_programacion.to_s),
+																			:end_time => Time.parse(agenda.fecha_programacion.to_s)
+																		})
+			event.all_day = true
+			
+			event.save if agenda.save
+			agenda.event_id = event.id
+			agenda.save
+		end
+		
 	end
 	
 end
