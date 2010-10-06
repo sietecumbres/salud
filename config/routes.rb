@@ -1,19 +1,14 @@
 Salud::Application.routes.draw do
 
-  get "reportes/show"
-
-  get "reportes/new"
-
-  get "reportes/create"
-
   match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipos/search' => 'equipos#search', :via => :post
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
   match '/equipo/:id/agenda' => 'agenda#show', :via => :get, :as => :agenda
-  match '/equipo/:id/reporte' => 'reportes#show', :via => :get, :as => :reporte
+  match '/equipo/:id/reporte' => 'reportes#show', :via => :get, :as => :reporte_mantenimientos
   match '/equipo/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
-  match '/equipo/:id/reporte/create' => 'resportes#create', :via => :post, :as => :create_reporte
+  match '/equipo/:id/reporte/create' => 'reportes#create', :via => :post, :as => :create_reporte
+	match '/find_by_cc' => 'reportes#find_by_cc', :via => :post, :as => :find_by_cc
 	match '/equipo/:id/agenda/new' => 'agenda#new', :via => :get, :as => :new_agenda
 	match '/equipo/:id/agenda/new' => 'agenda#create', :via => :post, :as => :create_agenda
 

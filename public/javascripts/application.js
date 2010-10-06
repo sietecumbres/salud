@@ -1,13 +1,12 @@
 // Place your application-specific JavaScript functions and classes here
 // This file is automatically included by javascript_include_tag :defaults
-
+var estado_id = "";
 
 
 $(document).ready(function(){
 
     $(document).bind('loading.facebox', function() {
         $(document).unbind('keydown.facebox');
-        $('#facebox_overlay').unbind('click');
     });
 
 		var param =  "";
@@ -41,15 +40,15 @@ $(document).ready(function(){
 		$('a[rel*=facebox]').facebox();
        
     $(".radio").click(function(){
-        //alert($(this).val());
-        $.facebox({div: '#add_evaluacion'});
+				estado_id = $(this).attr("data-remote");
+				$.facebox($("#div-evaluacion").val());
     });
 
-    $(".to_eval").live('click', function(){
-        alert($("#add_eval").val());
-        var eval = $("#add_eval").val();
-        $("#extra_eval").show();
-        $('#eval').val(eval);
+    $("#to-eval").live('click', function(){
+        var eval = $("#add-eval").val();
+        $(".rp_evaluacion").show();
+        $('#extra_eval').append(estado_id + " " + eval + "\n");
+				$(document).trigger('close.facebox');
     });
 
     //Funcion para desplegar el formulario de ingreso de repuestos
@@ -58,8 +57,20 @@ $(document).ready(function(){
     });
 
     //Funcion para buscar por documento de identidad
-    $(".search_cc").click(function(){
-        $(".info").show();
+    $("#buscar-cc").click(function(){
+			alert($("#buscar-documento").val());
+			$.ajax({
+							url: "/find_by_cc", 
+							data: ({documento: $("#buscar-documento").val()}),
+							type: "POST",
+							dataType: "json",
+							success: function(data){
+												if(data != "error"){
+	        								$("#info-recibe").show();
+													alert(data.persona.nombre);
+												}
+									}			
+							});
     });
   
   $(document).bind('reveal.facebox', function(){

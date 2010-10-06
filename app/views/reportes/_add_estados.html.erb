@@ -1,6 +1,6 @@
   <tr>
     <td><%= "#{estado.id}. #{estado.nombre}" %></td>
     <td><%= radio_button_tag "resultado#{estado.id}", "Ap#{estado.id}" %></td>
-    <td><%= radio_button_tag "resultado#{estado.id}", "Rp#{estado.id}", false, :class => 'radio' %></td>
+    <td><%= radio_button_tag "resultado#{estado.id}", "Rp#{estado.id}", false, :class => 'radio', 'data-remote' => estado.id %></td>
     <td><%= radio_button_tag "resultado#{estado.id}", "N/A#{estado.id}", true %></td>
   </tr>

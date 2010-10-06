@@ -1,4 +1,4 @@
-<% form_for @reporte, :url => reportes_create_url do |f| %>
+<%= form_for @reporte, create_reporte_url do |f| %>
   <p>
     <label><%= params {:id} %></label>
   </p>
@@ -19,6 +19,7 @@
       </div>
   </p>
   <div class="estados">
+		<input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
     <table border="1">
       <tr>
         <td>PRUEBA CUALITATIVA</td>
@@ -30,13 +31,6 @@
         <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
       <% end %>
     </table>
-    <div id="add_evaluacion" style="display: none;">
-      <p>
-        <label>Ingrese una descripción: </label>
-        <%= text_field_tag(:add_eval, "Ingrese un comentario", :class => "add_eval") %>
-      </p>
-      <input type="button" class="to_eval" name="add_descripcion" value="Guardar descripción"></input>
-    </div>
   </div>
   <div class="evaluacion">
     <span>Ingrese la evaluación y el diagnóstico</span>
@@ -80,10 +74,11 @@
   <div class="recibido">
     <p>Prestador del mantenimiento</p>
     <p>
-      <span>Documento: </span><%= text_field_tag(:documento) %>
-      <input type="button" class="buscar_cc" name="Buscar" value="Buscar"></input>
+      <span>Documento: </span>
+			<input type="text" id='buscar-documento' />	
+      <input type="button" id="buscar-cc" name="Buscar" value="Buscar"></input>
     </p>
-    <div class="info" style="display: none">
+    <div id="info-recibe" style="display: none">
       <p><span>Nombre: </span><%= text_field_tag(:nombre, nil, :disable => true) %></p>
       <p><span>Cargo: </span><%= text_field_tag(:cargo, nil, :disable => true) %></p>
     </div>
