@@ -2,6 +2,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   #before_filter :set_locale
   
+	def current_equipo
+		@current_equipo ||= Equipo.find(params[:id])
+		@current_equipo 
+	end
+	
   protected
     def set_locale
       session[:locale] = params[:locale] if params[:locale]

@@ -1,5 +1,6 @@
 class AgendaController < ApplicationController
   def show
+		@agendas = current_equipo.agendas
   end
 	
 	def new

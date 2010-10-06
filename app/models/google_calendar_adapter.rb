@@ -33,7 +33,7 @@ class GoogleCalendarAdapter
 																			:calendar => cal,
 																			:title => "Mantenimiento #{agenda.tipo_mantenimiento.nombre} para el equipo #{agenda.equipo.placa}",
 																			:start_time => Time.parse(agenda.fecha_programacion.to_s),
-																			:end_time => Time.parse(agenda.fecha_programacion.to_s)
+																			:end_time => Time.parse((agenda.fecha_programacion + 1.day - 1.minute).to_s)
 																		})
 			event.all_day = true
 			

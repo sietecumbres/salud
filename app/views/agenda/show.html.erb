@@ -1,3 +1,11 @@
+<table>
+<%- @agendas.each do |agenda| %>
+	<tr>
+		<td><%= agenda.fecha_programacion.to_s%></td>
+		<td><%= agenda.tipo_mantenimiento.nombre %></td>
+	</tr>
+<% end %>
+</table>
 <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
 <div id="calendar">
 	<%= GoogleCalendarAdapter.iframe.html_safe %>
