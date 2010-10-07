@@ -58,19 +58,33 @@ $(document).ready(function(){
 
     //Funcion para buscar por documento de identidad
     $("#buscar-cc").click(function(){
-			alert($("#buscar-documento").val());
-			$.ajax({
-							url: "/find_by_cc", 
-							data: ({documento: $("#buscar-documento").val()}),
-							type: "POST",
-							dataType: "json",
-							success: function(data){
-												if(data != "error"){
-	        								$("#info-recibe").show();
-													alert(data.persona.nombre);
-												}
-									}			
-							});
+        $.ajax({
+            url: "/find_by_cc",
+            data: ({documento: $("#buscar-documento").val()}),
+            type: "POST",
+            dataType: "json",
+            success: function(data){
+                if(data != "error"){
+                    $("#info-recibe").show();
+                    $("#recibe_nombre").val(data.persona.nombre);
+                    $("#recibe_cargo").val(data.persona.cargo);
+                }
+            }
+        });
+    });
+
+    //Función para almacenar el estado equipo cada que se haga clic en un radio
+    $(".r_normal").click(function(){
+        $.ajax({
+            url: "/add_estado_equipo",
+            data: ({resultado: $(this).val(), estado: $(this).attr("data-remote"), reporte: $("#reporte-id").val()}),
+            type: "POST",
+            dataType: "json",
+            success: function(data){
+                //alert($("#resultado1").val());
+		alert(data);
+            }
+        });
     });
   
   $(document).bind('reveal.facebox', function(){
