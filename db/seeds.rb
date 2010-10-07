@@ -233,19 +233,19 @@ estado_equipo2.evaluacion = ''
 estado_equipo2.save
 
 repuesto = Repuesto.new
-repuesto.description = 'Carcaza para espectofotometro'
+repuesto.descripcion = 'Carcaza para espectofotometro'
 repuesto.referencia = 'ZP67890'
 repuesto.save
 repuesto1 = Repuesto.new
-repuesto1.description = 'Cable recubierto de cobre'
+repuesto1.descripcion = 'Cable recubierto de cobre'
 repuesto1.referencia = 'UTF8'
 repuesto1.save
 repuesto2 = Repuesto.new
-repuesto2.description = 'Interruptor para aparatos'
+repuesto2.descripcion = 'Interruptor para aparatos'
 repuesto2.referencia = 'FIN123'
 repuesto2.save
 repuesto3 = Repuesto.new
-repuesto3.description = 'Relee de uso simple'
+repuesto3.descripcion = 'Relee de uso simple'
 repuesto3.referencia = 'R3L33'
 repuesto3.save
 
