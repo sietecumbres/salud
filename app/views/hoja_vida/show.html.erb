@@ -1,4 +1,6 @@
+<%= link_to 'Regresar al listado de equipos', equipos_path %>
 <div class="equipo">
+  <h2>Información general</h2>
   <table border="1">
     <tr>
       <td>Tipo</td>
@@ -39,7 +41,7 @@
   </table>
 </div>
 <div class="datasheet">
-  <h2>Hoja de Vida del equipo</h2>
+  <h2>Hoja de vida</h2>
   <table border="1">
     <tr>
       <td>Fecha de compra</td>
@@ -87,11 +89,11 @@
 	<h2>Reportes</h2>
 	<p>Búsqueda por fechas</p>
 	<p>
-	  <label>Fecha mínima</label>
+	  <label>Fecha de inicio</label>
 		<%= text_field_tag 'min_date', nil, :class => 'datepicker' %>
 	</p>
 	<p>
-	  <label>Fecha máxima</label>
+	  <label>Fecha de finalización</label>
 	  <%= text_field_tag 'max_date', nil, :class => 'datepicker' %>
 	</p>
         <p>
