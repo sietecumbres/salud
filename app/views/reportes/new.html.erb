@@ -37,10 +37,11 @@
 	</div>
 
   <div class="evaluacion">
-    <span>Ingrese la evaluación y el diagnóstico</span>
     <div class="rp_evaluacion" style="display: none">
+      <p>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</p>
       <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
     </div>
+    <span>Ingrese la evaluación y el diagnóstico</span>
     <div class="extra">
       <p>
         <%= text_area_tag(:eval, nil, :size => "80x5") %>
