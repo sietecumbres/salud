@@ -46,7 +46,7 @@ $(document).ready(function(){
 
     //Funcion para desplegar el formulario de ingreso de repuestos
     $(".add_repuesto").click(function(){
-        $(".hide_repuesto").show();
+        $.facebox($("#div-repuestos").val());
     });
 
     //Funcion para buscar por documento de identidad
@@ -68,26 +68,21 @@ $(document).ready(function(){
 
     //Función para almacenar el estado equipo cada que se haga clic en un radio
 	$(".r_normal").click(function(){
-		if($("#estado-"+$(this).attr("data-remote")).length == 0){
-			$("#evaluacion-estados").append("<input type='hidden' name='estados[" + $(this).attr("data-remote") + "][eval]' value='' id='estado-" + $(this).attr("data-remote") + "' />");
-		}
-		else{
-			$("#estado-"+$(this).attr("data-remote")).val("");
-		}
+		$("#estado-"+$(this).attr("data-remote")).val("");
 	});
 		
 	$("#to-eval").live('click', function(){
-		if($("#estado-"+estado_id).length == 0){
-			$("#evaluacion-estados").append("<input type='hidden' name='estados[" + estado_id + "][eval]' value='" +  $("#add-eval").val() + "' id='estado-" + estado_id + "' />");
-		}
-		else{
-			$("#estado-"+estado_id).val($("#add-eval").val());
-		}
+		$("#estado-"+estado_id).val($("#add-eval").val());
     $(document).trigger('close.facebox');
 	});
 
-	$(".submit").click(function(){
-		alert($("#new_reporte_mantenimiento").serialize());
+	$("#agregar-repuesto").live('click', function(){
+		$("#tabla-repuestos").append("<tr>\
+																		<td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").text() + "</td>\
+																		<td>" + $("#cantidad").val() + "</td>\
+																		<td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").attr("data-remote") + "</td>\
+																	</tr>");
+		$("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#repuesto_id").val() + "]' value='" + $("#cantidad").val() + "' />");
 	});
   
   $(document).bind('reveal.facebox', function(){

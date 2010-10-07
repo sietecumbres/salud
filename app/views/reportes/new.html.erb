@@ -54,22 +54,24 @@
     </p>
   </div>
 
+
+
   <div class="repuestos">
+		<input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
     <p>MATERIALES, REPUESTOS E INSUMOS</p>
     <input type="button" class="add_repuesto" name="Adicionar" value="Adicionar"></input>
-    <table border="1">
+    <table border="1" id="tabla-repuestos">
       <tr>
         <td>REF.</td>
         <td>CANT.</td>
         <td>DESCRIPCIÓN</td>
       </tr>
-      <tr class="hide_repuesto" style="display: none">
-        <td><%= select_tag 'repuesto_equipos_id', options_for_select(@repuestos.collect{|repuesto| [repuesto.referencia, repuesto.id]}), :html => {:class => 'repuesto'} %></td>
-        <td><%= text_field_tag(:cant, "", :class => "cantidad") %></td>
-        <td><%= text_field_tag(:descripcion, "", :class => "descripcion") %></td>
-      </tr>
     </table>
   </div>
+	<div id="lista-repuestos"></div>
+	<input type="submit" value="aaaa"/>
+
+
   <div class="responsable">
     <p>Prestador del mantenimiento</p>
     <p><span>Nombre: </span><%= text_field_tag(:nombre) %></p>
