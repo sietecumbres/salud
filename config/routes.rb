@@ -6,6 +6,7 @@ Salud::Application.routes.draw do
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
   match '/equipo/:id/agenda' => 'agenda#show', :via => :get, :as => :agenda
   match '/equipo/:id/reporte' => 'reportes#show', :via => :get, :as => :reporte_mantenimientos
+	match '/equipo/:id/reporte' => 'reportes#create', :via => :post, :as => :reporte_mantenimientos
   match '/equipo/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:id/reporte/create' => 'reportes#create', :via => :post, :as => :create_reporte
   match '/equipo/:equipo_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte

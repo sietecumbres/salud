@@ -1,4 +1,4 @@
-<%= form_for :reporte, @reporte, create_reporte_url do |f| %>
+<%= form_for @reporte, create_reporte_url do |f| %>
   <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
   <p>
     <label>Fecha de ingreso</label>
@@ -16,6 +16,9 @@
         <%= text_field_tag(:otro_mantenimiento) %>
       </div>
   </p>
+
+
+
   <div class="estados">
     <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
     <table border="1">
@@ -30,6 +33,9 @@
       <% end %>
     </table>
   </div>
+	<div id="evaluacion-estados" style="display:none;">
+	</div>
+
   <div class="evaluacion">
     <span>Ingrese la evaluación y el diagnóstico</span>
     <div class="rp_evaluacion" style="display: none">
@@ -47,6 +53,7 @@
       <%= text_area_tag(:descripcion, nil, :size => "80x5") %>
     </p>
   </div>
+
   <div class="repuestos">
     <p>MATERIALES, REPUESTOS E INSUMOS</p>
     <input type="button" class="add_repuesto" name="Adicionar" value="Adicionar"></input>

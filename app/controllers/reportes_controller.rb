@@ -4,7 +4,7 @@ class ReportesController < ApplicationController
   end
 
   def new
-    @reporte = ReporteMantenimiento.create
+    @reporte = ReporteMantenimiento.new
     @mantenimientos = TipoMantenimiento.all
     @estados = Estado.all
     @repuestos = Repuesto.all

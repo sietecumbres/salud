@@ -1,6 +1,6 @@
   <tr>
     <td><%= "#{estado.id}. #{estado.nombre}" %></td>
-    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="Ap" name="<%= "Ap#{estado.id}" %>" data-remote="<%= estado.id %>" class="r_normal" /></td>
-    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="Rp" name="<%= "Ap#{estado.id}" %>" data-remote="<%= estado.id %>" class="radio" /></td>
-    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="N/A" name="<%= "Ap#{estado.id}" %>" data-remote="<%= estado.id %>" class="r_normal" /></td>
+    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="Ap" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" /></td>
+    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="Rp" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="radio" /></td>
+    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="N/A" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" /></td>
   </tr>
