@@ -46,6 +46,7 @@ $(document).ready(function(){
 
     //Funcion para adicionar la evaluacion si el estados es Reprobado
     $("#to-eval").live('click', function(){
+			$("#estado-"+estado_id).val($("#add-eval").val());
         var eval = $("#add-eval").val();
         $(".rp_evaluacion").show();
         $('#extra_eval').append(estado_id + " " + eval + "\n");
@@ -79,11 +80,6 @@ $(document).ready(function(){
 		$("#estado-"+$(this).attr("data-remote")).val("");
 	});
 		
-	$("#to-eval").live('click', function(){
-		$("#estado-"+estado_id).val($("#add-eval").val());
-    $(document).trigger('close.facebox');
-	});
-
 	$("#agregar-repuesto").live('click', function(){
 		$("#tabla-repuestos").append("<tr>\
 																		<td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").text() + "</td>\

@@ -1,9 +1,9 @@
 <tr>
 	<td><%= "#{estado.id}. #{estado.nombre}" %></td>
  	<td>
-		<input id="<%= "resultado#{estado.id}" %>" type="radio" value="Ap" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" checked="checked" />
+		<input id="<%= "resultado#{estado.id}" %>" type="radio" value="Ap" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" />
 		<input type='hidden' name="estados[<%= estado.id %>][eval]" value="" id="estado-<%= estado.id %>" />
 	</td>
     <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="Rp" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="radio" /></td>
-    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="N/A" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" /></td>
+    <td><input id="<%= "resultado#{estado.id}" %>" type="radio" value="N/A" name="<%= "estados[#{estado.id}[resultado]]" %>" data-remote="<%= estado.id %>" class="r_normal" checked="checked" /></td>
   </tr>
