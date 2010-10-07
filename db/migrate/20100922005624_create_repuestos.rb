@@ -2,7 +2,7 @@ class CreateRepuestos < ActiveRecord::Migration
   def self.up
     create_table :repuestos do |t|
       t.string :referencia
-      t.text :description
+      t.text :descripcion
 
       t.timestamps
     end
