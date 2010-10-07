@@ -44,6 +44,14 @@ $(document).ready(function(){
 				$.facebox($("#div-evaluacion").val());
     });
 
+    //Funcion para adicionar la evaluacion si el estados es Reprobado
+    $("#to-eval").live('click', function(){
+        var eval = $("#add-eval").val();
+        $(".rp_evaluacion").show();
+        $('#extra_eval').append(estado_id + " " + eval + "\n");
+        $(document).trigger('close.facebox');
+    });
+
     //Funcion para desplegar el formulario de ingreso de repuestos
     $(".add_repuesto").click(function(){
         $.facebox($("#div-repuestos").val());
