@@ -18,13 +18,15 @@
       <h1><a href="/">SALUD</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
-          <li><a href="#"><%= t("web-app-theme.profile", :default => "Perfil") %></a></li>
-          <li><a href="#"><%= t("web-app-theme.settings", :default => "Configuracion") %></a></li>
-          <li><a href="/logout" class="logout"><%= t("web-app-theme.logout", :default => "Salir") %></a></li>
         </ul>
       </div>
       <div id="main-navigation">
-        <ul class="wat-cf"></ul>
+        <ul class="wat-cf">
+          <li class="first"><a href="#block-text">Principal</a></li>
+          <li class="active"><a href="#block-text">Activa</a></li>
+          <li><a href="#block-login">Enlace 1</a></li>
+          <li><a href="#block-signup">Enlace 2</a></li>
+        </ul>
       </div>
     </div>
     <div id="wrapper" class="wat-cf">
