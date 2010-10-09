@@ -79,6 +79,7 @@ $(document).ready(function(){
     
     $("#agregar-repuesto").live('click', function(){
         $("#tabla-repuestos").append("<tr>\
+                                        <td></td>\
                                         <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").text() + "</td>\
                                         <td>" + $("#cantidad").val() + "</td>\
                                         <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").attr("data-remote") + "</td>\
