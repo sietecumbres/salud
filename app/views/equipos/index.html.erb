@@ -12,7 +12,7 @@
             </div>
             <div class="right">
                <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
-               <span class="description">Ex: web-app-theme</span>
+               <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -21,7 +21,7 @@
             </div>
             <div class="right">
               <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}), {:include_blank => 'Seleccionar'} %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -30,7 +30,7 @@
             </div>
             <div class="right">
               <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}), {:include_blank => 'Seleccionar'} %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -43,7 +43,7 @@
                   <label class = "label">Cual </label>
                   <%= text_field_tag(:otro_adquisicion) %>
                 </div>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -52,7 +52,7 @@
             </div>
             <div class="right">
               <%= f.select 'responsable_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -61,7 +61,7 @@
             </div>
             <div class="right">
               <%= f.text_field(:modelo, :class => 'autocomplete text_field', 'data-remote' => 'modelo') %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -70,7 +70,7 @@
             </div>
             <div class="right">
               <%= f.text_field(:marca, :class => 'autocomplete text_field', 'data-remote' => 'marca') %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -79,7 +79,7 @@
             </div>
             <div class="right">
               <%= f.text_field(:serial, :class => 'autocomplete text_field', 'data-remote' => 'serial') %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -88,7 +88,7 @@
             </div>
             <div class="right">
               <%= f.text_field(:placa, :class => 'autocomplete text_field', 'data-remote' => 'placa') %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <label class = "label">Entre valores: </label>
@@ -98,7 +98,7 @@
             </div>
             <div class="right">
               <%= text_field_tag :valor_min, nil, :class => "text_field" %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group wat-cf">
@@ -107,7 +107,7 @@
             </div>
             <div class="right">
               <%= text_field_tag :valor_max, nil, :class => "text_field" %>
-              <span class="description">Ex: web-app-theme</span>
+              <span class="description"></span>
             </div>
          </div>
          <div class="group navform wat-cf">
