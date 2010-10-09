@@ -1,19 +1,18 @@
 <div>
-<table>
-	
-  <tr>
-    <td>
-			<select id='repuesto_id'>
-				<%- @repuestos.collect do |repuesto| %>
-					<option value='<%= repuesto.id %>' data-remote='<%= repuesto.description %>' text='<%= repuesto.referencia %>'><%= repuesto.referencia %></option>
-				<% end %>
-			</select>
-		</td>
-    <td><input type='text' id='cantidad' class='cantidad'/></td>
-  </tr>
-	<tr>
-		<td colspan='2'>
-			<input type='button' value='Agregar' id='agregar-repuesto' /></td>
-	</tr>
-</table>
+  <table>
+    <tr>
+      <td>
+        <select id='repuesto_id'>
+          <%- @repuestos.collect do |repuesto| %>
+            <option value='<%= repuesto.id %>' data-remote='<%= repuesto.descripcion %>' text='<%= repuesto.referencia %>'><%= repuesto.referencia %></option>
+          <% end %>
+        </select>
+      </td>
+      <td><input type='text' id='cantidad' class='cantidad'/></td>
+    </tr>
+    <tr>
+      <td colspan='2'>
+        <input type='button' value='Agregar' id='agregar-repuesto' /></td>
+    </tr>
+  </table>
 </div>

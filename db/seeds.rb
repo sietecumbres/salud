@@ -134,8 +134,7 @@ reporte = ReporteMantenimiento.new
 reporte.agenda_id = agenda1.id
 reporte.descripcion_servicio = 'Servico de mantenimieno'
 reporte.equipo_id = equipo1.id
-reporte.fecha_fin = '2002/05/14'
-reporte.fecha_inicio = '2002/05/12'
+reporte.agenda = agenda1
 reporte.tipo_mantenimiento_id = mantenimiento2.id
 reporte.responsable_id = persona1.id
 reporte.save
@@ -143,8 +142,7 @@ reporte1 = ReporteMantenimiento.new
 reporte1.agenda_id = agenda.id
 reporte1.descripcion_servicio = 'Servico de mantenimieno'
 reporte1.equipo_id = equipo1.id
-reporte1.fecha_fin = '2002/05/13'
-reporte1.fecha_inicio = '2002/05/12'
+reporte1.agenda = agenda2
 reporte1.tipo_mantenimiento_id = mantenimiento.id
 reporte1.responsable_id = persona1.id
 reporte1.save

@@ -14,6 +14,20 @@ class ReportesController < ApplicationController
   end
 
   def create
+    mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] if params[:reporte_mantenimiento][:tipo_mantenimiento_id].blank?
+    reporte = ReporteMantenimiento.create(
+      {
+        :equipo_id => params[:equipo_id],
+        :tipo_mantenimiento_id => params[:reporte_mantenimiento][:tipo_mantenimiento_id].blank? ? mantenimiento.id : params[:reporte_mantenimiento][:tipo_mantenimiento_id],
+        :evaluacion_diagnostico => params[:eval],
+        :descripcion_servicio => params[:descripcion],
+        :agenda_id => params[:id]
+      }
+    )
+    params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
+    params[:repuestos].each { |repuesto, value| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) }
+
+
   end
 
 	def find_by_cc
