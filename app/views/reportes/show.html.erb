@@ -1,19 +1,22 @@
+<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
 <div class="reporte">
   <div class="n_reporte">
-    <p><span>Reporte No. </span><%= @reporte.id %></p>
+    <h2>Reporte No. <%= @reporte.id %></h2>
   </div>
   <div class="tiempo">
     <table class="tiempo" border="1">
       <tr>
-        <td colspan="2">TIEMPO EMPLEADO EN EL MANTENIMIENTO</td>
+        <td colspan="3">TIEMPO EMPLEADO EN EL MANTENIMIENTO</td>
       </tr>
       <tr>
         <td>Fecha inicio</td>
         <td>Fecha finalización</td>
+        <td>Duración</td>
       </tr>
       <tr>
         <td><%= @reporte.fecha_inicio %></td>
-        <td><%= @reporte.fecha_fin %></td>
+        <td><%= @reporte.fecha_fin %></td>        
+        <td><%= (@reporte.fecha_fin - @reporte.fecha_inicio).to_s %><span> días</span></td>
       </tr>
     </table>
   </div>
@@ -48,6 +51,7 @@
       <tr>
         <td>Prueba cualitativa</td>
         <td>Resultado</td>
+        <td>Evaluación</td>
       </tr>
       <% @reporte.estado_equipos.each do |estado_equipo| %>
       <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>

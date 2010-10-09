@@ -1,3 +1,4 @@
+<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
 <%= form_for @reporte, create_reporte_url do |f| %>
   <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
   <p>
@@ -8,9 +9,6 @@
         <%= text_field_tag(:otro_mantenimiento) %>
       </div>
   </p>
-
-
-
   <div class="estados">
     <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
     <table border="1">
@@ -33,7 +31,7 @@
       <p>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</p>
       <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
     </div>
-    <span>Ingrese la evaluación y el diagnóstico</span>
+    <span>Ingrese la evaluación y el diagnóstico general</span>
     <div class="extra">
       <p>
         <%= text_area_tag(:eval, nil, :size => "80x5") %>
