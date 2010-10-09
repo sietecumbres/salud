@@ -122,30 +122,30 @@
       <div class="inventario">
       <br />
       <br />
-        <table class="table">
-            <tr>
-              <th class="first">Tipo</th>
-              <th>Subtipo</th>
-              <th>Modelo</th>
-              <th>Marca</th>
-              <th># de Serial</th>
-              <th># de Inventario ó Placa</th>
-              <th>Tipo de Tenencia ó Adquisición</th>
-              <th>Valor</th>
-              <th>Responsable</th>
-              <th>Hoja de Vida</th>
-              <th class="last">Agenda</th>
-            </tr>
-          <tbody>
-            <% @equipos.each do |equipo| %>
-              <%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
-            <% end %>
-          </tbody>
-        </table>
+      <table class="table">
+          <tr>
+            <th class="first">Tipo</th>
+            <th>Subtipo</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th># de Serial</th>
+            <th># de Inventario ó Placa</th>
+            <th>Tipo de Tenencia ó Adquisición</th>
+            <th>Valor</th>
+            <th>Responsable</th>
+            <th>Hoja de Vida</th>
+            <th class="last">Agenda</th>
+          </tr>
+        <tbody>
+          <% @equipos.each do |equipo| %>
+            <%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
+          <% end %>
+        </tbody>
+      </table>
         <div class="actions-bar wat-cf">
           <div class="actions">
           </div>
-      </div>
+        </div>
       </div>
     </div>
   </div>
