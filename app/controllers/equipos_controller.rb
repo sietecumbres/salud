@@ -1,5 +1,7 @@
 class EquiposController < ApplicationController
+
   before_filter :get_options, :only => [:index, :search]
+
   def index
     @busqueda = Equipo.new unless @busqueda.present?
     logger.debug "Equipo => #{@busqueda.inspect}"
