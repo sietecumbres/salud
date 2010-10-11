@@ -93,15 +93,15 @@ $(document).ready(function(){
 });
 
 function autocomplete_fields(table){
-	$(".autocomplete").autocomplete({
-		source: function(req, add){
-			$.getJSON("/equipos/autocomplete?table="+table, req, function(data){
-				var suggestions = [];
-				$.each(data, function(i, val){
-					suggestions.push(val);
-				});
-				add(suggestions);
-			});},
-			minLength: 1
-	});
+  $(".autocomplete").autocomplete({
+    source: function(req, add){
+      $.getJSON("/equipos/autocomplete?table="+table, req, function(data){
+        var suggestions = [];
+        $.each(data, function(i, val){
+          suggestions.push(val);
+        });
+      add(suggestions);
+    });},
+    minLength: 1
+  });
 }
