@@ -38,46 +38,139 @@
       </p>
     </div>
   </div>
-  <div class="descripcion">
-    <span>Ingrese la descripción del servicio</span>
-    <p>
-      <%= text_area_tag(:descripcion, nil, :size => "80x5") %>
-    </p>
-  </div>
-
-
-
-  <div class="repuestos">
-    <input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
-    <p>MATERIALES, REPUESTOS E INSUMOS</p>
-    <a class="add_repuesto">Adicionar</a>
-    <table border="1" id="tabla-repuestos">
-      <tr>
-        <td>REF.</td>
-        <td>CANT.</td>
-        <td>DESCRIPCIÓN</td>
-      </tr>
-    </table>
-  </div>
-  <div id="lista-repuestos"></div>
-
-  <div class="responsable">
-    <p>Prestador del mantenimiento</p>
-    <p><span>Nombre: </span><%= text_field_tag(:nombre) %></p>
-    <p><span>Cargo: </span><%= text_field_tag(:cargo) %></p>
-    <p><span>Documento: </span><%= text_field_tag(:documento) %></p>
-  </div>
-  <div class="recibido">
-    <p>Recibido por:</p>
-    <p>
-      <span>Documento: </span>
-      <input type="text" id='buscar-documento' />
-      <input type="button" id="buscar-cc" name="Buscar" value="Buscar"></input>
-    </p>
-    <div id="info-recibe" style="display: none">
-      <p><span>Nombre: </span><%= text_field_tag(:recibe_nombre, nil, :disabled => "disabled") %></p>
-      <p><span>Cargo: </span><%= text_field_tag(:recibe_cargo, nil, :disabled => "disabled") %></p>
+  <div>
+  <div class="content">
+    <h2 class="title">INGRESAR REPORTE</h2>
+    <div class="inner">
+      <%= form_for @reporte, create_reporte_url, :html => { :class => :form } do |f| %>
+        <div class="forms">
+          <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
+          <div class="group wat-cf">
+            <div class="left">
+              <label class="label">Tipo de Mantenimiento</label>
+            </div>
+            <%= f.select 'tipo_mantenimiento_id', options_for_select(@mantenimientos.collect{|mantenimiento| [mantenimiento.nombre, mantenimiento.id]}), :html => {:class => 'tipo-mantenimiento'} %>
+            <div id="otro-mantenimiento" style="display:none;">
+              <label>Cual </label>
+              <%= text_field_tag(:otro_mantenimiento) %>
+            </div>
+          </div>
+          <div class="estados">
+            <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
+            <table class="table">
+              <tr>
+                <th class="first"></th>
+                <th>PRUEBA CUALITATIVA</th>
+                <th>Ap.</th>
+                <th>Rp.</th>
+                <th class="last">N/A</th>
+              </tr>
+              <% @estados.each do |estado| %>
+                <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
+              <% end %>
+            </table>
+          </div>
+          <div id="evaluacion-estados" style="display:none;">
+          </div>
+          <div class="evaluacion">
+            <div class="rp_evaluacion" style="display: none">
+              <h4>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</h4>
+              <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
+            </div>
+            <label class="label">Ingrese la evaluación y el diagnóstico general</label>
+            <div class="extra">
+              <p>
+                <%= text_area_tag(:eval, nil, :class =>  "text_area") %>
+              </p>
+            </div>
+          </div>
+          <div class="descripcion">
+            <label class="label">Ingrese la descripción del servicio</label>
+            <p>
+              <%= text_area_tag(:descripcion, nil, :class =>  "text_area") %>
+            </p>
+          </div>
+          <div class="repuestos">
+            <input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
+            <label class="label">MATERIALES, REPUESTOS E INSUMOS</label>
+            <a class="add_repuesto">Adicionar</a>
+            <table class="table" id="tabla-repuestos">
+              <tr>
+                <th class="first"></th>
+                <th>REFERENCIA.</th>
+                <th>CANTIDAD</th>
+                <th class="last">DESCRIPCIÓN</th>
+              </tr>
+            </table>
+          </div>
+          <div id="lista-repuestos"></div>
+          <br />
+          <div class="responsable">
+            <label class="label">Prestador del mantenimiento</label>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class="label">Nombre</label>
+              </div>
+              <div>
+                <%= text_field_tag(:nombre) %>
+              </div>
+            </div>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class="label">Cargo</label>
+              </div>
+              <div>
+                <%= text_field_tag(:cargo) %>
+              </div>
+            </div>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class="label">Documento</label>
+              </div>
+              <div>
+                <%= text_field_tag(:documento) %>
+              </div>
+            </div>
+          </div>
+          <div class="recibido">
+            <label class="label">Recibido por:</label>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class="label">Documento: </label>
+              </div>
+              <div>
+                <input type="text" id='buscar-documento' />
+                <input type="button" id="buscar-cc" name="Buscar" value="Buscar"></input>
+              </div>
+            </div>
+            <div id="info-recibe" style="display: none">
+              <div class="group wat-cf">
+                <div class="left">
+                  <label class="label">Nombre</label>
+                </div>
+                <div>
+                  <%= text_field_tag(:recibe_nombre, nil, :disabled => "disabled") %>
+                </div>
+              </div>
+              <div class="group wat-cf">
+                <div class="left">
+                  <label class="label">Cargo</label>
+                </div>
+                <div>
+                  <%= text_field_tag(:recibe_cargo, nil, :disabled => "disabled") %>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="group navform wat-cf">
+              <button class="button" type="submit">
+                <%= image_tag("web-app-theme/icons/tick.png") %> <%= "Guardar Reporte" %>
+              </button>
+            </div>
+        <% end %>
+        </div>
+      </div>
     </div>
   </div>
-  <input type="submit" value="Guardar Reporte" />
-<% end %>
+</div>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>

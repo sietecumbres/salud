@@ -14,7 +14,7 @@
                <%=  select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
                <span class="description"></span>
             </div>
-         </div>
+          </div>
          <div class="group wat-cf">
             <div class="left">
               <label class = "label">Tipo</label>
@@ -132,7 +132,10 @@
       <div class="inventario">
         <table class="table">
             <tr>
+<<<<<<< HEAD:app/views/equipos/index.html.erb
               <th class="first">Área</th>
+=======
+>>>>>>> 78a08caee4f7bd2c351fe93d0a0e33f200b22192:app/views/equipos/index.html.erb
               <th>Tipo</th>
               <th>Subtipo</th>
               <th>Modelo</th>
@@ -143,7 +146,7 @@
               <th>Valor</th>
               <th>Responsable</th>
               <th>Hoja de Vida</th>
-              <th class="last">Agenda</th>
+              <th>Agenda</th>
             </tr>
           <tbody>
             <% @equipos.each do |equipo| %>

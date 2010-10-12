@@ -4,15 +4,16 @@ Salud::Application.routes.draw do
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipos/search' => 'equipos#search', :via => :post
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
-  match '/equipo/:id/agenda' => 'agenda#show', :via => :get, :as => :agenda
-	#match '/equipo/:id/reporte' => 'reportes#create', :via => :post, :as => :reporte_mantenimientos
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#create', :via => :post, :as => :create_reporte
   match '/equipo/:equipo_id/agenda/:agenda_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte
 	match '/find_by_cc' => 'reportes#find_by_cc', :via => :post, :as => :find_by_cc
 	match '/add_estado_equipo' => 'reportes#add_estado_equipo', :via => :post, :as => :add_estado_equipo
-	match '/equipo/:id/agenda/new' => 'agenda#new', :via => :get, :as => :new_agenda
-	match '/equipo/:id/agenda/new' => 'agenda#create', :via => :post, :as => :create_agenda
+	match '/equipo/:id/agendas' => 'agenda#index', :via => :get, :as => :agendas
+	match '/equipo/:id/agendas/new' => 'agenda#new', :via => :get, :as => :new_agenda
+	match '/equipo/:id/agendas' => 'agenda#create', :via => :post, :as => :agendas
+	match '/equipo/:equipo_id/agendas/:id' => 'agenda#edit', :via => :get, :as => :edit_agenda
+	match '/equipo/:equipo_id/agendas/:id' => 'agenda#update', :via => :put, :as => :agenda
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

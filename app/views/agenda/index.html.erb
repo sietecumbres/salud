@@ -1,0 +1,10 @@
+<table>
+  <%- @agendas.each do |agenda| %>
+    <tr>
+      <td><%= agenda.fecha_programacion.to_s%></td>
+      <td><%= agenda.tipo_mantenimiento.nombre %></td>
+      <td><%= link_to 'editar', edit_agenda_path(params[:id], agenda), :rel => "facebox" %></td>
+    </tr>
+  <% end %>
+</table>
+<%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>

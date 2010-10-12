@@ -79,6 +79,7 @@ $(document).ready(function(){
     
     $("#agregar-repuesto").live('click', function(){
         $("#tabla-repuestos").append("<tr>\
+                                        <td></td>\
                                         <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").text() + "</td>\
                                         <td>" + $("#cantidad").val() + "</td>\
                                         <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").attr("data-remote") + "</td>\
@@ -92,15 +93,15 @@ $(document).ready(function(){
 });
 
 function autocomplete_fields(table){
-	$(".autocomplete").autocomplete({
-		source: function(req, add){
-			$.getJSON("/equipos/autocomplete?table="+table, req, function(data){
-				var suggestions = [];
-				$.each(data, function(i, val){
-					suggestions.push(val);
-				});
-				add(suggestions);
-			});},
-			minLength: 1
-	});
+  $(".autocomplete").autocomplete({
+    source: function(req, add){
+      $.getJSON("/equipos/autocomplete?table="+table, req, function(data){
+        var suggestions = [];
+        $.each(data, function(i, val){
+          suggestions.push(val);
+        });
+      add(suggestions);
+    });},
+    minLength: 1
+  });
 }

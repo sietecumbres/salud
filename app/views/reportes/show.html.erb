@@ -7,14 +7,14 @@
     <h2 class="title">Reporte No. <%= @reporte.id %></h2>
     <div class="inner form reporte">
       <div class="tiempo">
-        <table class="tiempo" border="1">
+        <h4>TIEMPO EMPLEADO EN EL MANTENIMIENTO</h4>
+        <table class="table">
           <tr>
-            <td colspan="3">TIEMPO EMPLEADO EN EL MANTENIMIENTO</td>
-          </tr>
-          <tr>
-            <td>Fecha inicio</td>
-            <td>Fecha finalización</td>
-            <td>Duración</td>
+            <th class="first"  ></th>
+            <th>Fecha inicio</th>
+            <th>Fecha finalización</th>
+            <th>Duración</th>
+            <th class="last">Duración</th>
           </tr>
           <tr>
             <td></td>
@@ -24,7 +24,8 @@
         </table>
       </div>
       <div class="mantenimiento">
-        <table border="1">
+        <h4>TIPO DE MANTENIMIENTO</h4>
+        <table class="table">
           <tr>
             <td>Tipo de mantenimiento</td>
             <td><%= @reporte.tipo_mantenimiento.nombre %></td>
@@ -32,89 +33,79 @@
         </table>
       </div>
       <div class="estados">
-        <table border="1">
+        <h4>ESTADOS DEL EQUIPO</h4>
+        <table class="table">
           <tr>
-            <td colspan="4">ESTADOS DEL EQUIPO</td>
-          </tr>
-          <tr>
-            <td>Prueba cualitativa</td>
-            <td>Resultado</td>
-            <td>Evaluación</td>
+            <th class="first"></th>
+            <th>Prueba cualitativa</th>
+            <th>Resultado</th>
+            <th class="last">Evaluación</th>
           </tr>
           <% @reporte.estado_equipos.each do |estado_equipo| %>
-          <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>
+            <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>
           <% end %>
         </table>
       </div>
       <div class="evaluacion">
-        <table border="1">
-          <tr>
-            <td>EVALUACIÓN Y DIAGNÓSTICO</td>
-          </tr>
+        <h4>EVALUACIÓN Y DIAGNÓSTICO</h4>
+        <table class="table">
           <% @reporte.estado_equipos.each do |estado_equipo| %>
-          <%= render :partial => 'reportes/diagnostico', :locals => {:estado_equipo => estado_equipo} %>
+            <%= render :partial => 'reportes/diagnostico', :locals => {:estado_equipo => estado_equipo} %>
           <% end %>
         </table>
       </div>
       <div class="descripcion">
-        <table border="1">
-          <tr>
-            <td>DESCRIPCIÓN DEL SERVICIO</td>
-          </tr>
+        <h4>DESCRIPCIÓN DEL SERVICIO</h4>
+        <table class="table">
           <tr>
             <td><%= @reporte.descripcion_servicio %></td>
           </tr>
         </table>
       </div>
       <div class="repuestos">
-        <table border="1">
+        <h4>MATERIALES, REPUESTOS E INSUMOS UTILIZADOS</h4>
+        <table class="table">
           <tr>
-            <td colspan="3">MATERIALES, REPUESTOS E INSUMOS UTILIZADOS</td>
-          </tr>
-          <tr>
-            <td>Ref.</td>
-            <td>Cant.</td>
-            <td>Descripción</td>
+            <th class="first"></th>
+            <th>Referencia</th>
+            <th>Cantidad</th>
+            <th class="last">Descripción</th>
           </tr>
           <% @reporte.repuesto_equipos.each do |repuesto_equipo| %>
-          <%= render :partial => 'reportes/repuestos', :locals => {:repuesto_equipo => repuesto_equipo} %>
+            <%= render :partial => 'reportes/repuestos', :locals => {:repuesto_equipo => repuesto_equipo} %>
           <% end %>
         </table>
       </div>
       <div class="prestador">
-        <table border="1">
+        <h4>PRESTADOR DEL MANTENIMIENTO</h4>
+        <table class="table">
           <tr>
-            <td colspan="3">PRESTADOR DEL MANTENIMIENTO</td>
+            <th class="first"></th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th class="last">Documento</th>
           </tr>
           <tr>
-            <td>Nombre</td>
             <td></td>
-          </tr>
-          <tr>
-            <td>Cargo</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Documento</td>
-            <td></td>
+            <td><%= @reporte.prestador_mantenimiento.responsable.nombre %></td>
+            <td><%= @reporte.prestador_mantenimiento.cargo %></td>
+            <td><%= @reporte.prestador_mantenimiento.documento %></td>
           </tr>
         </table>
       </div>
       <div class="responsable">
-        <table border="1">
+        <h4>RECIBIDO POR</h4>
+        <table class="table">
           <tr>
-            <td colspan="3">RECIBIDO POR:</td>
+            <th class="first"></th>
+            <th>Nombre</th>
+            <th>Cargo</th>
+            <th class="last">Documento</th>
           </tr>
           <tr>
-            <td>Nombre</td>
+            <td></td>
             <td><%= @reporte.responsable.nombre %></td>
-          </tr>
-          <tr>
-            <td>Cargo</td>
             <td><%= @reporte.responsable.cargo %></td>
-          </tr>
-          <tr>
-            <td>Documento</td>
             <td><%= @reporte.responsable.documento %></td>
           </tr>
         </table>
