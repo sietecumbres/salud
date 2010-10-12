@@ -1,6 +1,7 @@
 class AgendaController < ApplicationController
   def show
 		@agendas = current_equipo.agendas
+    @reporte = ReporteMantenimiento.find(params[:id])
   end
 	
 	def new

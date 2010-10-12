@@ -26,7 +26,7 @@ $(document).ready(function(){
             $("#otro-adquisicion").hide();
         }
     });
-    $("#reporte_mantenimiento_tipo_mantenimiento_id").change(function(){
+    $("#reporte_tipo_mantenimiento_id").change(function(){
         if(!$(this).val()){
             $("#otro-mantenimiento").show();
         }

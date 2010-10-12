@@ -6,6 +6,16 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+area = Area.new
+area.nombre = 'Radiología'
+area.save
+area1 = Area.new
+area1.nombre = 'Odontología'
+area1.save
+area2 = Area.new
+area2.nombre = 'Cardiología'
+area2.save
+
 adquisicion = TipoAdquisicion.new
 adquisicion.nombre = 'Comodato'
 adquisicion.save
@@ -49,6 +59,7 @@ persona1.documento = 12334556
 persona1.save
 
 equipo = Equipo.new
+equipo.area_id = area.id
 equipo.tipo_equipo_id = tipo_equipo.id
 equipo.subtipo_equipo_id = subtipo_equipo.id
 equipo.modelo = 'aaa'
@@ -60,6 +71,7 @@ equipo.valor = 1
 equipo.responsable_id = persona.id
 equipo.save
 equipo1 = Equipo.new
+equipo1.area_id = area2.id
 equipo1.tipo_equipo_id = tipo_equipo1.id
 equipo1.subtipo_equipo_id = subtipo_equipo1.id
 equipo1.modelo = 'bbb'

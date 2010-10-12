@@ -1,5 +1,5 @@
 <%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
-<%= form_for @reporte, create_reporte_url do |f| %>
+<%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
   <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
   <p>
     <label>Tipo de Mantenimiento</label>
