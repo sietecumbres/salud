@@ -1,0 +1,16 @@
+<%= form_for @agenda do |f| %>
+<fieldset>
+	<legend>Asignar Agenda</legend>
+	<p>
+		<label>Fecha</label>
+		<%= f.text_field 'fecha_programacion', :class => 'datepicker' %>
+	</p>
+	<p>
+		<label>Tipo de Mantenimiento</label>
+    <%= f.select 'tipo_mantenimiento_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}) %>
+	</p>
+	<p>
+		<%= submit_tag 'Programar' %>
+	</p>
+</fieldset>
+<% end %>

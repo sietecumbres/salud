@@ -3,6 +3,7 @@
     <tr>
       <td><%= agenda.fecha_programacion.to_s%></td>
       <td><%= agenda.tipo_mantenimiento.nombre %></td>
+      <td><%= link_to 'editar', edit_agenda_path(params[:id], agenda), :rel => "facebox" %></td>
     </tr>
   <% end %>
 </table>

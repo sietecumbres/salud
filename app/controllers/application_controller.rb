@@ -1,9 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   #before_filter :set_locale
-  
+	
 	def current_equipo
-		@current_equipo ||= Equipo.find(params[:id])
+		@current_equipo = Equipo.find(params[:equipo_id]) if params[:equipo_id]
+		@current_equipo ||= Equipo.find(params[:id]) if params[:id]
 		@current_equipo 
 	end
 	
