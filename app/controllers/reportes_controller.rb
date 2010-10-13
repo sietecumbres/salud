@@ -15,21 +15,22 @@ class ReportesController < ApplicationController
   end
 
   def create
-    mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] if params[:reporte_mantenimiento][:tipo_mantenimiento_id].blank?
-    print persona = Persona.find(:first, :conditions => ['documento = ?', params[:documento]])
-    logger.debug "Responsable => #{persona.inspect}"
+    mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] unless params[:otro_mantenimiento]
+    persona = Persona.find(:first, :conditions => ['documento = ?', params[:buscar_documento]])
+    logger.debug "Otro mantenimiento => #{params[:otro_mantenimiento]}"
+    logger.debug "Mantenimiento => #{mantenimiento.inspect}"
     reporte = ReporteMantenimiento.create(
       {
         :equipo_id => params[:equipo_id],
-        :tipo_mantenimiento_id => params[:reporte_mantenimiento][:tipo_mantenimiento_id].blank? ? mantenimiento.id : params[:reporte_mantenimiento][:tipo_mantenimiento_id],
+        :tipo_mantenimiento_id => mantenimiento.nil? ? params[:reporte][:tipo_mantenimiento_id] : mantenimiento.id,
         :evaluacion_diagnostico => params[:eval],
         :descripcion_servicio => params[:descripcion],
         :agenda_id => params[:id],
-        :responsable_id => params[:reporte_mantenimiento][:responsable_id].blnak? ? persona.id : params[:reporte_mantenimiento][:responsable_id]
+        :responsable_id => persona.id
       }
     )
     params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
-    params[:repuestos].each { |repuesto, value| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) }
+    params[:repuestos].each { |repuesto, value| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) } if params[:respuestos]
 
 
   end

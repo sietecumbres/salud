@@ -5,7 +5,7 @@
   <div class="content">
     <h2 class="title">INGRESAR REPORTE</h2>
     <div class="inner">
-      <%= form_for @reporte, create_reporte_url, :html => { :class => :form } do |f| %>
+      <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
         <div class="forms">
           <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
           <div class="group wat-cf">
@@ -102,7 +102,7 @@
                 <label class="label">Documento: </label>
               </div>
               <div>
-                <input type="text" id='buscar-documento' />
+                <input type="text" id='buscar-documento' name="buscar_documento" />
                 <input type="button" id="buscar-cc" name="Buscar" value="Buscar"></input>
               </div>
             </div>
