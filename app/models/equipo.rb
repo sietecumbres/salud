@@ -14,8 +14,8 @@ class Equipo < ActiveRecord::Base
 		self.agendas.reject{|agenda| agenda.fecha_programacion.year != year}.sort_by { |agenda| agenda.fecha_programacion.month }
 	end
 
-	def tipo_mantenimientos
-		self.agendas.select(:tipo_mantenimiento_id).group(:tipo_mantenimiento_id).collect{|agenda| agenda.tipo_mantenimiento.nombre}
+	def tipos_mantenimiento
+		self.agendas.select(:tipo_mantenimiento_id).group(:tipo_mantenimiento_id).collect{|agenda| agenda.tipo_mantenimiento}
 	end
 	
 end

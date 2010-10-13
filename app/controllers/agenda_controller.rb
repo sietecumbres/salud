@@ -1,9 +1,8 @@
 class AgendaController < ApplicationController
 
 	def index
-		@equipos = Equipo.all
 		@agendas = current_equipo.agendas
-    @reporte = ReporteMantenimiento.find(params[:id])
+    @reporte = ReporteMantenimiento.where(:id => params[:id]).first
   end
 	
 	def new
@@ -38,5 +37,9 @@ class AgendaController < ApplicationController
 		@agenda = current_equipo.agendas.where(:id => params[:id]).first
 		@agenda.destroy
 		redirect_to agendas_path(current_equipo)
+	end
+
+	def general
+		@equipos = Equipo.all
 	end
 end
