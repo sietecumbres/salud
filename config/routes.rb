@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :tipo_mantenimientos
+
   match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipos/search' => 'equipos#search', :via => :post
