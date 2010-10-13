@@ -8,7 +8,7 @@
         <div class="forms">
           <div class="group wat-cf">
             <div class="left">
-              <label class = "label">Area</label>
+              <label class = "label">Área</label>
             </div>
             <div class="right">
                <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
@@ -132,6 +132,7 @@
       <div class="inventario">
         <table class="table">
             <tr>
+              <th class="first">Área</th>
               <th>Tipo</th>
               <th>Subtipo</th>
               <th>Modelo</th>

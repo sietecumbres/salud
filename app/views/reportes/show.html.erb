@@ -13,15 +13,13 @@
             <th class="first"  ></th>
             <th>Fecha inicio</th>
             <th>Fecha finalización</th>
-            <th>Duración</th>
             <th class="last">Duración</th>
           </tr>
           <tr>
             <td></td>
-            <td><%= @reporte.fecha_inicio %></td>
-            <td><%= @reporte.fecha_fin %></td>
-            <td><%= (@reporte.fecha_fin - @reporte.fecha_inicio).to_s %><span> días</span></td>
-            <td></td>
+            <td><%= @reporte.agenda.fecha_ejecucion %></td>
+            <td><%= @reporte.agenda.fecha_finalizacion %></td>
+            <td><%= dur = (@reporte.agenda.fecha_finalizacion - @reporte.agenda.fecha_ejecucion).to_i %></td>
           </tr>
         </table>
       </div>
@@ -29,18 +27,8 @@
         <h4>TIPO DE MANTENIMIENTO</h4>
         <table class="table">
           <tr>
-            <th class="first"></th>
-            <th>Preventivo</th>
-            <th>Correctivo</th>
-            <th>Predictivo</th>
-            <th class="last">Otro</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td><% if @reporte.tipo_mantenimiento.id == 1 then %> SI <% else %> NO <% end %></td>
-            <td><% if @reporte.tipo_mantenimiento.id == 2 then %> SI <% else %> NO <% end %></td>
-            <td><% if @reporte.tipo_mantenimiento.id == 3 then %> SI <% else %> NO <% end %></td>
-            <td><% if @reporte.tipo_mantenimiento.id > 3 then %> <%= @reporte.tipo_mantenimiento.nombre %> <% else %> NO <% end %></td>
+            <td>Tipo de mantenimiento</td>
+            <td><%= @reporte.tipo_mantenimiento.nombre %></td>
           </tr>
         </table>
       </div>

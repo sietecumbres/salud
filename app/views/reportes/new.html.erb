@@ -1,7 +1,44 @@
 <%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
-<div class="block">
-  <div class="secondary-navigation">
+<%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
+  <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
+  <p>
+    <label>Tipo de Mantenimiento</label>
+    <%= f.select 'tipo_mantenimiento_id', options_for_select(@mantenimientos.collect{|mantenimiento| [mantenimiento.nombre, mantenimiento.id]}), :html => {:class => 'tipo-mantenimiento'} %>
+      <div id="otro-mantenimiento" style="display:none;">
+        <label>Cual </label>
+        <%= text_field_tag(:otro_mantenimiento) %>
+      </div>
+  </p>
+  <div class="estados">
+    <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
+    <table border="1">
+      <tr>
+        <td>PRUEBA CUALITATIVA</td>
+        <td>Ap.</td>
+        <td>Rp.</td>
+        <td>N/A</td>
+      </tr>
+      <% @estados.each do |estado| %>
+        <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
+      <% end %>
+    </table>
   </div>
+  <div id="evaluacion-estados" style="display:none;">
+  </div>
+
+  <div class="evaluacion">
+    <div class="rp_evaluacion" style="display: none">
+      <p>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</p>
+      <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
+    </div>
+    <span>Ingrese la evaluación y el diagnóstico general</span>
+    <div class="extra">
+      <p>
+        <%= text_area_tag(:eval, nil, :size => "80x5") %>
+      </p>
+    </div>
+  </div>
+  <div>
   <div class="content">
     <h2 class="title">INGRESAR REPORTE</h2>
     <div class="inner">

@@ -3,6 +3,7 @@ class AgendaController < ApplicationController
 	def index
 		@equipos = Equipo.all
 		@agendas = current_equipo.agendas
+    @reporte = ReporteMantenimiento.find(params[:id])
   end
 	
 	def new

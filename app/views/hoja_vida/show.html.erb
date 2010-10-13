@@ -7,6 +7,10 @@
     <h2 class="title">Información General del Equipo</h2>
     <div class="inner form equipo">
       <div class="group wat-cf">
+        <div class="left"><label class = "label">Área</label></div>
+        <div class="right"><%= @equipo.area.nombre %></div>
+     </div>
+      <div class="group wat-cf">
         <div class="left"><label class = "label">Tipo</label></div>
         <div class="right"><%= @equipo.tipo_equipo.nombre %></div>
      </div>
@@ -53,7 +57,7 @@
     <h2 class="title">Hoja de Vida del Equipo</h2>
     <div class="inner form datasheet">
       <div class="group wat-cf">
-        <div class="left"><label class = "label">Fecha de CompraTipo</label></div>
+        <div class="left"><label class = "label">Fecha de Compra</label></div>
         <div class="right"><%= @equipo.hoja_vida.fecha_compra %></div>
       </div>
       <div class="group wat-cf">
@@ -70,7 +74,7 @@
       </div>
       <div class="group wat-cf">
         <div class="left"><label class = "label">Garantia</label></div>
-        <div class="right"><%= @equipo.hoja_vida.garantia %></div>
+        <div class="right">Inició el <%= @equipo.hoja_vida.fecha_instalacion %> y finaliza el <%= @equipo.hoja_vida.garantia %></div>
       </div>
       <div class="group wat-cf">
         <div class="left"><label class = "label">Manual de Operación</label></div>

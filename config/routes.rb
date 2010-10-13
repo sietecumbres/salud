@@ -4,11 +4,9 @@ Salud::Application.routes.draw do
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipos/search' => 'equipos#search', :via => :post
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
-  match '/equipo/:id/reporte' => 'reportes#show', :via => :get, :as => :reporte_mantenimientos
-	match '/equipo/:id/reporte' => 'reportes#create', :via => :post, :as => :reporte_mantenimientos
-  match '/equipo/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
-  match '/equipo/:id/reporte/create' => 'reportes#create', :via => :post, :as => :create_reporte
-  match '/equipo/:equipo_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte
+  match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
+  match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#create', :via => :post, :as => :create_reporte
+  match '/equipo/:equipo_id/agenda/:agenda_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte
 	match '/find_by_cc' => 'reportes#find_by_cc', :via => :post, :as => :find_by_cc
 	match '/add_estado_equipo' => 'reportes#add_estado_equipo', :via => :post, :as => :add_estado_equipo
 	match '/equipo/:id/agendas' => 'agenda#index', :via => :get, :as => :agendas

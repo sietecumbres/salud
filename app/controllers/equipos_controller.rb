@@ -3,15 +3,14 @@ class EquiposController < ApplicationController
   before_filter :get_options, :only => [:index, :search]
 
   def index
-    @busqueda = Equipo.new unless @busqueda.present?
+    @busqueda = Equipo.new params[:equipo] unless params[:equipo]
+    @busqueda ||= Equipo.new
     logger.debug "Equipo => #{@busqueda.inspect}"
   end
   
   def search
     @busqueda = Equipo.new params[:equipo]
-    #valor = Equipo.find_by_sql("select equipos.* from equipos where valor between ? and ?",
-                               #params[:valor_min], params[:valor_max])
-    #valor = Equipo.where(["valor >= ? and valor <= ?", params[:valor_min], params[:valor_max]]).all
+    logger.debug "Equipo => #{@busqueda.inspect}"
     adquisicion = params[:equipo][:tipo_adquisicion_id].empty? ?  params[:otro_adquisicion] :  params[:equipo][:tipo_adquisicion_id]
     condiciones = {}
     condiciones = condiciones.merge({:area_id => params[:equipo][:area_id]}) unless params[:equipo][:area_id].empty?
@@ -23,9 +22,8 @@ class EquiposController < ApplicationController
     condiciones = condiciones.merge({:marca => params[:equipo][:marca]}) unless params[:equipo][:marca].empty?
     condiciones = condiciones.merge({:serial => params[:equipo][:serial]}) unless params[:equipo][:serial].empty?
     condiciones = condiciones.merge({:placa => params[:equipo][:placa]}) unless params[:equipo][:placa].empty?
-    #condiciones = condiciones.merge({:valor => valor}) unless valor.empty?
     @equipos = Equipo.where(condiciones).all
-    @equipos.reject!{|equipo| equipo.valor < params[:valor_min].to_i or equipo.valor > params[:valor_max].to_i}
+    @equipos.reject!{|equipo| equipo.valor < params[:valor_min].to_i or equipo.valor > params[:valor_max].to_i} unless params[:valor_min].empty? and params[:valor_max].empty?
     render :action => :index
   end
   
@@ -34,9 +32,6 @@ class EquiposController < ApplicationController
     t = Equipo.arel_table
     equipos = Equipo.select(field).where(t[field].matches("%#{params[:term]}%")).map{|equipo| equipo.attributes[field.to_s]}
     render :json => equipos.to_json, :layout => false
-  end
-
-  def buscar_por_valor
   end
 
   protected
