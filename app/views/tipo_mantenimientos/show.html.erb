@@ -1,0 +1,27 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", tipo_mantenimientos_path  %></li>
+      <li><%= link_to "Nuevo", new_tipo_mantenimiento_path %></li>
+    </ul>
+  </div>          
+  <div class="content">
+    <div class="inner">
+        <p>
+          <b>Nombre</b>
+          <%= @tipo_mantenimiento.nombre %>
+        </p>
+
+        <p>
+          <b>Color</b>
+          <%= @tipo_mantenimiento.color %>
+        </p>
+      <div class="wat-cf">
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "Editar") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_tipo_mantenimiento_path(@tipo_mantenimiento), :class => "button" %>
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "Eliminar") + " " + t("web-app-theme.delete", :default => "Eliminar"), tipo_mantenimiento_path(@tipo_mantenimiento), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro ?")}" %>
+      </div>      
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
