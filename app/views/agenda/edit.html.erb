@@ -1,1 +1,1 @@
-<%= render :partial => 'agenda/agenda_form' %>
+<%= render :partial => 'agenda/agenda_form', :locals => {:url => agenda_path(params[:equipo_id], params[:id])} %>

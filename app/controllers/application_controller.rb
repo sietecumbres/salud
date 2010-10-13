@@ -3,8 +3,14 @@ class ApplicationController < ActionController::Base
   #before_filter :set_locale
 	
 	def current_equipo
-		@current_equipo = Equipo.find(params[:equipo_id]) if params[:equipo_id]
-		@current_equipo ||= Equipo.find(params[:id]) if params[:id]
+		if params[:equipo_id]
+			logger.debug "Equipo id => #{params[:equipo_id]}"
+			@current_equipo = Equipo.find(params[:equipo_id])
+		elsif params[:id]
+			logger.debug "Id => #{params[:id]}"
+			@current_equipo = Equipo.find(params[:id])
+		end
+
 		@current_equipo 
 	end
 	
