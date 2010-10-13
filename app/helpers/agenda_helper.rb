@@ -1,17 +1,34 @@
 module AgendaHelper
 
-	def build_calendar_row(equipos)
+	def build_calendar_row(equipos, year = Date.today.year)
 		str = ""
 
 		equipos.each do |equipo|
 			str << "<tr><td>#{equipo.placa}</td>"
 
-			fill_year(equipo.agendas_for_year(2010)).each do |agenda|
+			fill_year(equipo.agendas_for_year(year)).each do |agenda|
 				str << "<td>#{agenda}</td>"
 			end
 			str << "</tr>"
 		end
 		
+		str.html_safe
+	end
+
+	def build_equipo_calendar_row(equipo, year = Date.today.year)
+		str = ""
+
+		equipo.tipos_mantenimiento.each do |tipo|
+			str << "<tr><td>#{tipo.nombre}</td>"
+
+			agendas = equipo.agendas_for_year(year).reject{|agenda| tipo != agenda.tipo_mantenimiento}
+			fill_year(agendas).each do |agenda|
+				str << "<td>#{agenda}</td>"
+			end
+
+			str << "</tr>"
+		end
+
 		str.html_safe
 	end
 

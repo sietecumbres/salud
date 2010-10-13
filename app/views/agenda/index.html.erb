@@ -17,3 +17,4 @@
 </table>
 <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
 <%= render :partial => 'agenda/calendar', :locals => {:equipos => @equipos} %>
+<%= render :partial => 'agenda/equipo_calendar', :locals => {:equipo => current_equipo} %>

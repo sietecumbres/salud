@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   #before_filter :set_locale
+	helper_method :current_equipo
 	
 	def current_equipo
 		if params[:equipo_id]
