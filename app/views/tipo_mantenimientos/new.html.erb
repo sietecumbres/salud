@@ -1,0 +1,18 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Lista", tipo_mantenimientos_path  %></li>
+      <li><%= link_to "Nuevo", new_tipo_mantenimiento_path %></li>
+    </ul>
+  </div>        
+  <div class="content">            
+    <h2 class="title">Nuevo Tipo de Mantenimiento</h2>
+    <div class="inner">
+      <%= form_for :tipo_mantenimiento, :url => tipo_mantenimientos_path, :html => { :class => :form } do |f| -%>
+        <%= render :partial => "form", :locals => {:f => f} %>
+      <% end -%>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
