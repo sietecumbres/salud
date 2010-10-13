@@ -1,19 +1,43 @@
-<table>
-  <%- @agendas.each do |agenda| %>
-    <tr>
-      <td><%= agenda.fecha_programacion.to_s%></td>
-      <td><%= agenda.tipo_mantenimiento.nombre %></td>
-      <td><%= link_to 'editar', edit_agenda_path(params[:id], agenda), :rel => "facebox" %></td>
-      <td><%= link_to 'eliminar', agenda_path(params[:id], agenda), :confirm => "¿Está seguro que desea eliminar la agenda?", :method => :delete %></td>
-      <td>
-	<% if agenda.reporte_mantenimiento == nil then %>
-	  <%= link_to 'Crear reporte', new_reporte_path(agenda.equipo_id, agenda.id) %>
-	<% else %>
-	  <%= link_to 'Ver reporte', reporte_path(agenda.equipo_id, agenda.id, agenda.reporte_mantenimiento.id) %>
-	<% end %>
-      </td>
-    </tr>
-  <% end %>
-</table>
-<%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
+<div class="block">
+  <div class="secondary-navigation">
+  </div>
+  <div class="content">
+    <h2 class="title">Agendas</h2>
+    <div class="inner">
+      <div class="inventario">
+        <table class="table">
+          <tr>
+            <th class="first"></th>
+            <th>Fecha de Programación</th>
+            <th>Tipo de Mantenimiento</th>
+            <th colspan="3">Opciones</th>
+            <th class="last"></th>
+          </tr>
+          <%- @agendas.each do |agenda| %>
+            <tr>
+              <td></td>
+              <td><%= agenda.fecha_programacion.to_s%></td>
+              <td><%= agenda.tipo_mantenimiento.nombre %></td>
+              <td><%= link_to 'editar', edit_agenda_path(params[:id], agenda), :rel => "facebox" %></td>
+              <td><%= link_to 'eliminar', agenda_path(params[:id], agenda), :confirm => "¿Está seguro que desea eliminar la agenda?", :method => :delete %></td>
+              <td>
+                <% if agenda.reporte_mantenimiento == nil then %>
+                  <%= link_to 'Crear reporte', new_reporte_path(agenda.equipo_id, agenda.id) %>
+                <% else %>
+                  <%= link_to 'Ver reporte', reporte_path(agenda.equipo_id, agenda.id, agenda.reporte_mantenimiento.id) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </table>
+        <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
+        <div class="actions-bar wat-cf">
+          <div class="actions">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <%= render :partial => 'agenda/calendar', :locals => {:equipos => @equipos} %>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
