@@ -19,7 +19,7 @@
             <td></td>
             <td><%= @reporte.agenda.fecha_ejecucion %></td>
             <td><%= @reporte.agenda.fecha_finalizacion %></td>
-            <td><%= dur = (@reporte.agenda.fecha_finalizacion - @reporte.agenda.fecha_ejecucion).to_i %></td>
+            <td></td>
           </tr>
         </table>
       </div>
@@ -81,12 +81,14 @@
         <table class="table">
           <tr>
             <th class="first"></th>
+            <th>Empresa</th>
             <th>Nombre</th>
             <th>Cargo</th>
             <th class="last">Documento</th>
           </tr>
           <tr>
             <td></td>
+            <td><%= @reporte.prestador_mantenimiento.empresa %></td>
             <td><%= @reporte.prestador_mantenimiento.responsable.nombre %></td>
             <td><%= @reporte.prestador_mantenimiento.cargo %></td>
             <td><%= @reporte.prestador_mantenimiento.documento %></td>

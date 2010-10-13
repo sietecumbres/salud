@@ -17,6 +17,7 @@ class ReportesController < ApplicationController
   def create
     mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] unless params[:otro_mantenimiento]
     persona = Persona.find(:first, :conditions => ['documento = ?', params[:buscar_documento]])
+    
     logger.debug "Otro mantenimiento => #{params[:otro_mantenimiento]}"
     logger.debug "Mantenimiento => #{mantenimiento.inspect}"
     reporte = ReporteMantenimiento.create(
@@ -31,8 +32,7 @@ class ReportesController < ApplicationController
     )
     params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
     params[:repuestos].each { |repuesto, value| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) } if params[:respuestos]
-
-
+    prestador = PrestadorMantenimiento.create :empresa => params[:empresa], :responsable_id => persona.id, :empresa => params[:empresa], :documento => params[:documento], :cargo => params[:cargo], :reporte_mantenimiento_id => reporte.id
   end
 
 	def find_by_cc
