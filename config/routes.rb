@@ -18,6 +18,8 @@ Salud::Application.routes.draw do
 	match '/equipo/:equipo_id/agendas/:id' => 'agenda#update', :via => :put, :as => :agenda
 	match '/equipo/:equipo_id/agendas/:id' => 'agenda#destroy', :via => :delete, :as => :agenda
 	match '/agenda' => 'agenda#general', :via => :get, :as => :agenda_general
+	match '/autogenerate' => 'agenda#autogenerate_form', :via => :get, :as => :autogenerar_agenda_form
+	match '/autogenerate' => 'agenda#autogenerate', :via => :post, :as => :autogenerar_agenda
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
