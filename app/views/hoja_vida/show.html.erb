@@ -104,7 +104,7 @@
   <div class="secondary-navigation">
   </div>
   <div class="content">
-    <h2 class="title">Reportes</h2>
+    <h2 class="title">Reportes de mantenimientos</h2>
     <div class="inner">
       <div class="reportes">
         <h4 class="title">Busqueda por Fechas</h4>
@@ -138,7 +138,8 @@
             <th>Fecha de finalización</th>
             <th>Tipo de mantenimiento</th>
             <th>Evaluación</th>
-            <th class="last">Descripción</th>
+            <th>Descripción</th>
+            <th class="last">Ver detalle</th>
           </tr>
           <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
             <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
