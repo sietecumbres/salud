@@ -1,5 +1,17 @@
 Salud::Application.routes.draw do
 
+  root :to => 'users#index'
+
+  get "users/index"
+
+  resources :users
+  resources :user_sessions
+
+  match 'login' => "user_sessions#new",      :as => :login
+  match 'logout' => "user_sessions#destroy", :as => :logout
+
+  get "user_sessions/new"
+
   resources :tipo_mantenimientos
 
   match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
