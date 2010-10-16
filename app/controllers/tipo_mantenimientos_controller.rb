@@ -1,5 +1,7 @@
 class TipoMantenimientosController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @tipo_mantenimientos = TipoMantenimiento.all
   end

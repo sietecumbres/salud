@@ -282,3 +282,8 @@ prestador.empresa = 'J-Médicas'
 prestador.reporte_mantenimiento_id = reporte.id
 prestador.responsable_id = persona.id
 prestador.save
+
+usuario = User.new
+usuario.login = 'admin'
+usuario.password = 'admin'
+usuario.save

@@ -1,4 +1,7 @@
 class ReportesController < ApplicationController
+
+  before_filter :require_user
+  
   def show
     @reporte = ReporteMantenimiento.find(params[:id])
   end
@@ -31,7 +34,7 @@ class ReportesController < ApplicationController
       }
     )
     params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
-    params[:repuestos].each { |repuesto, value| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) } if params[:respuestos]
+    params[:repuestos].each { |repuesto, cantidad| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) } if params[:repuestos]
     prestador = PrestadorMantenimiento.create :empresa => params[:empresa], :responsable_id => persona.id, :empresa => params[:empresa], :documento => params[:documento], :cargo => params[:cargo], :reporte_mantenimiento_id => reporte.id
   end
 

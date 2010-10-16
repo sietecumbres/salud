@@ -1,13 +1,16 @@
 <div class="block notice">
-  <h3>Bloque de Informacion</h3>
+  <h3>Informacion</h3>
   <div class="content">
-    <p>Contenido.</p>
+    <p><strong>Usuario: </strong><%= current_user.login %></p>
+    <p><strong>Fecha: </strong><%= Time.now.strftime("%d/%m/%Y") %></p>
+    <p><strong>Hora: </strong><%= Time.now.strftime("%H:%M:%S") %></p>
   </div>
 </div>
 <div class="block">
   <h3>Administración</h3>
   <ul class="navigation">
+    <li><%= link_to "Equipos", new_equipo_path  %></li>
     <li><%= link_to "Tipos de Mantenimiento", tipo_mantenimientos_path  %></li>
-    <li><a href="#">Usuarios</a></li>
+    <li><%= link_to "Usuarios", users_path  %></li>
   </ul>
 </div>

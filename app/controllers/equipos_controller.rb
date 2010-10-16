@@ -1,6 +1,6 @@
 class EquiposController < ApplicationController
 
-  before_filter :get_options, :only => [:index, :search]
+  before_filter :require_user, :get_options, :only => [:index, :search]
 
   def index
     @busqueda = Equipo.new params[:equipo] unless params[:equipo]
@@ -32,6 +32,10 @@ class EquiposController < ApplicationController
     t = Equipo.arel_table
     equipos = Equipo.select(field).where(t[field].matches("%#{params[:term]}%")).map{|equipo| equipo.attributes[field.to_s]}
     render :json => equipos.to_json, :layout => false
+  end
+
+  def new
+    @equipo = Equipo.new
   end
 
   protected

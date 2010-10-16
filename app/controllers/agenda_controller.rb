@@ -1,5 +1,7 @@
 class AgendaController < ApplicationController
 
+  before_filter :require_user
+
 	def index
 		@agendas = current_equipo.agendas
     @reporte = ReporteMantenimiento.where(:id => params[:id]).first

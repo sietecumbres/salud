@@ -1,10 +1,17 @@
 Salud::Application.routes.draw do
 
-  get "autogenerar/index"
+  root :to => 'user_sessions#new'
 
-  get "autogenerar/new"
-
+  resources :users
+  resources :user_sessions
   resources :tipo_mantenimientos
+  resources :equipos
+
+  match 'login' => "user_sessions#new",      :as => :login
+  match 'logout' => "user_sessions#destroy", :as => :logout
+
+  get "users/index"
+  get "user_sessions/new"
 
   match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida

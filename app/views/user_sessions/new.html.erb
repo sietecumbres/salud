@@ -1,0 +1,56 @@
+<%  if !@logged_in %>
+  <div class="block">
+    <div class="secondary-navigation">
+    </div>
+    <div class="content">
+      <h2 class="title">Inicio de Sesión</h2>
+      <div class="inner">
+        <%= form_for @user_session, :html => { :class => :form }, :url => {:action => "create"} do |f| %>
+          <%= f.error_messages %>
+          <div class="forms">
+            <div class="group wat-cf">
+              <div class="left">
+                <label class = "label">Nombre de Usuario</label>
+              </div>
+              <div class="right">
+                 <%= f.text_field :login %>
+                 <span class="description"></span>
+              </div>
+            </div>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class = "label">Contraseña</label>
+              </div>
+              <div class="right">
+                 <%= f.password_field :password %>
+                 <span class="description"></span>
+              </div>
+            </div>
+            <div class="group wat-cf">
+              <div class="left">
+                <label class = "label">Recordar mis datos</label>
+              </div>
+              <div class="right">
+                 <%= f.check_box :remember_me %>
+                 <span class="description"></span>
+              </div>
+            </div>
+            <%= f.submit "Continuar" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="block">
+    <div class="secondary-navigation">
+    </div>
+    <div class="content">
+      <h2 class="title">BIENVENIDO A SALUD</h2>
+      <div class="inner">
+
+      </div>
+    </div>
+  </div>
+<% end %>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar_login') -%>
