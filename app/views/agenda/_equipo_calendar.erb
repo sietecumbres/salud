@@ -1,3 +1,8 @@
+<br/>
+<span>Seleccione el a&ntilde;o:</span>
+<%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+<br/>
+<span>Agenda para el a&ntilde;o: <%= year %></span>
 <div class="block">
   <div class="secondary-navigation">
   </div>
@@ -25,7 +30,7 @@
             </tr>
           </thead>
           <tbody>
-            <%= build_equipo_calendar_row(equipo)  %>
+            <%= build_equipo_calendar_row(equipo, year)  %>
           </tbody>
         </table>
         </div>

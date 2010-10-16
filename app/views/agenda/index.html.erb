@@ -40,5 +40,5 @@
   </div>
 </div>
 
-<%= render :partial => 'agenda/equipo_calendar', :locals => {:equipo => current_equipo} %>
+<%= render :partial => 'agenda/equipo_calendar', :locals => {:equipo => current_equipo, :year => @year} %>
 <% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
