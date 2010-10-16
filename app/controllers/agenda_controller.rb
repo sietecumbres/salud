@@ -5,6 +5,7 @@ class AgendaController < ApplicationController
 	def index
 		@agendas = current_equipo.agendas
     @reporte = ReporteMantenimiento.where(:id => params[:id]).first
+		@year = params[:year].nil? ? Date.today.year : params[:year]
   end
 	
 	def new
