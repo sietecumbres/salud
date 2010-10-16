@@ -2,13 +2,38 @@
   <table>
     <tr>
       <td>
-        <select id='repuesto_id'>
-          <%- @repuestos.collect do |repuesto| %>
-            <option value='<%= repuesto.id %>' data-remote='<%= repuesto.descripcion %>' text='<%= repuesto.referencia %>'><%= repuesto.referencia %></option>
-          <% end %>
-        </select>
+        <div class='group wat-cf'>
+          <div class='left'>
+            <span class = 'label'>Referencia</span>
+          </div>
+          <div class='right'>
+            <input id='ref' type='text' name='referencia' class='autocomplete_repuestos text_field' data-remote='referencia' />
+            <span class='description'></span>
+          </div>
+        </div>
       </td>
-      <td><input type='text' id='cantidad' class='cantidad'/></td>
+      <td>        
+        <div class='group wat-cf'>
+          <div class='left'>
+            <span class = 'label'>Cantidad</span>
+          </div>
+          <div class='right'>
+            <input type='text' id='cantidad' class='cantidad'/>
+            <span class='description'></span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class='group wat-cf'>
+          <div class='left'>
+            <span class = 'label'>Descripción</span>
+          </div>
+          <div class='right'>
+            <input type='text' id='descripcion' class='descripcion'/>
+            <span class='description'></span>
+          </div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td colspan='2'>

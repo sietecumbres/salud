@@ -80,21 +80,35 @@ $(document).ready(function(){
     $("#agregar-repuesto").live('click', function(){
         $("#tabla-repuestos").append("<tr>\
                                         <td></td>\
-                                        <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").text() + "</td>\
+                                        <td>" + $("#ref").val() + "</td>\
                                         <td>" + $("#cantidad").val() + "</td>\
-                                        <td>" + $("#repuesto_id [value='" + $("#repuesto_id").val() + "']").attr("data-remote") + "</td>\
+                                        <td>" + $("#descripcion").val() + "</td>\
                                        </tr>");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#repuesto_id").val() + "]' value='" + $("#cantidad").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#ref").val() + "]' value='" + $("#cantidad").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#ref").val() + "]' value='" + $("#descripcion").val() + "' />");
     });
 
     $(document).bind('reveal.facebox', function(){
         $('.datepicker').datepicker();
     });
+
+  $(".autocomplete_repuestos").autocomplete({
+    source: function(req, add){
+      $.getJSON("/autocomplete_repuestos?table="+table, req, function(data){
+        var suggestions = [];
+        $.each(data, function(i, val){
+          suggestions.push(val);
+        });
+      add(suggestions);
+    });},
+    minLength: 1
+  });
 });
 
 function autocomplete_fields(table){
   $(".autocomplete").autocomplete({
     source: function(req, add){
+    alert("Entro al autocomplete");
       $.getJSON("/equipos/autocomplete?table="+table, req, function(data){
         var suggestions = [];
         $.each(data, function(i, val){

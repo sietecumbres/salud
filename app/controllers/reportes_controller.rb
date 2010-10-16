@@ -55,4 +55,11 @@ class ReportesController < ApplicationController
     render :text => "ok", :layout => false
   end
 
+  def autocomplete_repuestos
+    field = params[:table].to_sym
+    t = Repuesto.arel_table
+    repuestos = Repuesto.select(field).where(t[field].matches("%#{params[:term]}%")).map{|repuesto| repuesto.attributes[field.to_s]}
+    render :json => repuestos.to_json, :layout => false
+  end
+
 end
