@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SALUD</title>
+  <title>LABORATORIO DE SALUD PUBLICA</title>
   <%= stylesheet_link_tag "style", "web-app-theme/base", "web-app-theme/themes/djime-cerulean/style", "web-app-theme/override" %>
   <%#= javascript_include_tag :defaults, :cache => true %>
   <%= csrf_meta_tag %>
@@ -16,17 +16,18 @@
 <body>
   <div id="container">
     <div id="header">
-      <h1><a href="/">SALUD</a></h1>
+      <h1><a href="/">LABORATORIO DE SALUD PUBLICA</a></h1>
       <div id="user-navigation">
         <ul class="wat-cf">
         </ul>
       </div>
       <div id="main-navigation">
         <ul class="wat-cf">
-          <li class="first"><a href="#block-text">Inicio</a></li>
-          <li class="active"><%= link_to "Equipos", equipos_path %></li>
+          <li class="first active"><%= link_to "Inicio", :login %></li>
+          <li><%= link_to "Equipos", equipos_path %></li>
+          <li><%= link_to "Agenda General", agenda_general_path %></li>
           <li><a href="#block-login">Insumos</a></li>
-          <li><a href="#block-signup">Salir</a></li>
+          <li><%= link_to "Cerrar Sesión", :logout %></li>
         </ul>
       </div>
     </div>
@@ -42,7 +43,7 @@
         <%= yield %>
         <div id="footer">
           <div class="block">
-            <p>Salud <%= Time.now.year %></p>
+            <p>LABORATORIO DE SALUD PUBLICA - <%= Time.now.year %></p>
           </div>
         </div>
       </div>

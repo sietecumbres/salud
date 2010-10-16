@@ -1,4 +1,7 @@
 class ReportesController < ApplicationController
+
+  before_filter :require_user
+  
   def show
     @reporte = ReporteMantenimiento.find(params[:id])
   end
