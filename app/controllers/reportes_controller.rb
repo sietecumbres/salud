@@ -20,9 +20,9 @@ class ReportesController < ApplicationController
   def create
     mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] unless params[:otro_mantenimiento]
     persona = Persona.find(:first, :conditions => ['documento = ?', params[:buscar_documento]])
-    
+    repuesto = Repuesto.find(:first, :conditions => ['referencia = ?', params[:repuestos]])
     logger.debug "Otro mantenimiento => #{params[:otro_mantenimiento]}"
-    logger.debug "Mantenimiento => #{mantenimiento.inspect}"
+    logger.debug "repuestossssssssssssssssssssss => #{repuesto.inspect}"
     reporte = ReporteMantenimiento.create(
       {
         :equipo_id => params[:equipo_id],
@@ -34,7 +34,10 @@ class ReportesController < ApplicationController
       }
     )
     params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
-    params[:repuestos].each { |repuesto, cantidad| reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto, :cantidad => cantidad}) } if params[:repuestos]
+    params[:repuestos].each do |repuesto, values|
+      repuesto = Repuesto.where(:referencia => values[:ref]).first
+      reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto.id, :cantidad => values[:cant], :descripcion => values[:desc]})
+    end if params[:repuestos]
     prestador = PrestadorMantenimiento.create :empresa => params[:empresa], :responsable_id => persona.id, :empresa => params[:empresa], :documento => params[:documento], :cargo => params[:cargo], :reporte_mantenimiento_id => reporte.id
   end
 
@@ -59,9 +62,10 @@ class ReportesController < ApplicationController
   end
 
   def autocomplete_repuestos
-    field = params[:table].to_sym
-    t = Repuesto.arel_table
-    repuestos = Repuesto.select(field).where(t[field].matches("%#{params[:term]}%")).map{|repuesto| repuesto.attributes[field.to_s]}
+#    field = params[:table].to_sym
+#    t = Repuesto.arel_table
+#    repuestos = Repuesto.select(field).where(t[field].matches("%#{params[:term]}%")).map{|repuesto| repuesto.attributes[field.to_s]}
+    repuestos = Repuesto.select(:referencia).where('referencia like (?)', "%#{params[:term]}%").collect{|repuesto| repuesto.referencia}
     render :json => repuestos.to_json, :layout => false
   end
 

@@ -4,6 +4,7 @@ class CreateRepuestoEquipos < ActiveRecord::Migration
       t.integer :reporte_mantenimiento_id
       t.integer :repuesto_id
       t.integer :cantidad
+      t.text    :descripcion
 
       t.timestamps
     end

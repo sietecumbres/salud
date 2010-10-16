@@ -17,7 +17,7 @@ Salud::Application.routes.draw do
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipos/search' => 'equipos#search', :via => :post
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
-  match '/autocomplete_repuestos' => 'reportes#autocomplete', :via => :get
+  match '/reportes/autocomplete_repuestos' => 'reportes#autocomplete_repuestos', :via => :get
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#create', :via => :post, :as => :create_reporte
   match '/equipo/:equipo_id/agenda/:agenda_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte

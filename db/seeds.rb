@@ -243,19 +243,15 @@ estado_equipo2.evaluacion = ''
 estado_equipo2.save
 
 repuesto = Repuesto.new
-repuesto.descripcion = 'Carcaza para espectofotometro'
 repuesto.referencia = 'ZP67890'
 repuesto.save
 repuesto1 = Repuesto.new
-repuesto1.descripcion = 'Cable recubierto de cobre'
 repuesto1.referencia = 'UTF8'
 repuesto1.save
 repuesto2 = Repuesto.new
-repuesto2.descripcion = 'Interruptor para aparatos'
 repuesto2.referencia = 'FIN123'
 repuesto2.save
 repuesto3 = Repuesto.new
-repuesto3.descripcion = 'Relee de uso simple'
 repuesto3.referencia = 'R3L33'
 repuesto3.save
 
@@ -263,16 +259,19 @@ repuesto_equipo = RepuestoEquipo.new
 repuesto_equipo.reporte_mantenimiento_id = reporte.id
 repuesto_equipo.repuesto_id = repuesto.id
 repuesto_equipo.cantidad = 2
+repuesto_equipo.descripcion = 'Carcaza para espectofotometro'
 repuesto_equipo.save
 repuesto_equipo1 = RepuestoEquipo.new
 repuesto_equipo1.reporte_mantenimiento_id = reporte.id
 repuesto_equipo1.repuesto_id = repuesto1.id
 repuesto_equipo1.cantidad = 3
+repuesto_equipo1.descripcion = 'Repuesto'
 repuesto_equipo1.save
 repuesto_equipo2 = RepuestoEquipo.new
 repuesto_equipo2.reporte_mantenimiento_id = reporte.id
 repuesto_equipo2.repuesto_id = repuesto2.id
 repuesto_equipo2.cantidad = 7
+repuesto_equipo2.descripcion = 'Insumo'
 repuesto_equipo2.save
 
 prestador = PrestadorMantenimiento.new

@@ -82,14 +82,26 @@ $(document).ready(function(){
                                         <td></td>\
                                         <td>" + $("#ref").val() + "</td>\
                                         <td>" + $("#cantidad").val() + "</td>\
-                                        <td>" + $("#descripcion").val() + "</td>\
+                                        <td>" + $("#desc").val() + "</td>\
                                        </tr>");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#ref").val() + "]' value='" + $("#cantidad").val() + "' />");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[" + $("#ref").val() + "]' value='" + $("#descripcion").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][cant]' value='" + $("#cantidad").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][desc]' value='" + $("#desc").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
     });
 
     $(document).bind('reveal.facebox', function(){
         $('.datepicker').datepicker();
+        $(".autocomplete_repuestos").autocomplete({
+        source: function(req, add){
+          $.getJSON("/reportes/autocomplete_repuestos", req, function(data){
+            var suggestions = [];
+            $.each(data, function(i, val){
+              suggestions.push(val);
+            });
+          add(suggestions);
+        });},
+        minLength: 1
+      });
     });
     
     $("#tipo_mantenimiento.autogenerar").live('change', function(){
@@ -105,17 +117,7 @@ $(document).ready(function(){
       window.location = url;
     });
 
-  $(".autocomplete_repuestos").autocomplete({
-    source: function(req, add){
-      $.getJSON("/autocomplete_repuestos?table="+table, req, function(data){
-        var suggestions = [];
-        $.each(data, function(i, val){
-          suggestions.push(val);
-        });
-      add(suggestions);
-    });},
-    minLength: 1
-  });
+  
 });
 
 function validate_date(){
