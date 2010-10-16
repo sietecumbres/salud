@@ -53,7 +53,7 @@ class ApplicationController < ActionController::Base
       logger.debug "ApplicationController::require_user"
       unless current_user
         store_location
-        flash[:notice] = "You must be logged in to access this page"
+        flash[:notice] = "Debe iniciar sesión para acceder a esta página"
         redirect_to new_user_session_url
         return false
       end

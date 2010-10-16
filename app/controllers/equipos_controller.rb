@@ -1,6 +1,6 @@
 class EquiposController < ApplicationController
 
-  before_filter :get_options, :only => [:index, :search]
+  before_filter :require_user, :get_options, :only => [:index, :search]
 
   def index
     @busqueda = Equipo.new params[:equipo] unless params[:equipo]

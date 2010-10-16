@@ -1,6 +1,6 @@
 Salud::Application.routes.draw do
 
-  root :to => 'users#index'
+  root :to => 'user_sessions#new'
 
   get "users/index"
 

@@ -1,2 +1,31 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "Listado de Usuarios", users_path  %></li>
+      <li><%= link_to "Crear Usuario", new_user_path %></li>
+    </ul>
+  </div>
+  <div class="content">
+    <h2 class="title">Usuarios</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>
+          <th class="first">&nbsp;</th>
+          <th>Nombre de Usuario</th>
+          <th>Correo Electrónico</th>
+          <th class="last" colspan="3">Opciones</th>
+        </tr>
+
+      <% @users.each do |user| %>
+        <tr>
+          <td></td>
+          <td><%= user.login %></td>
+          <td><%= user.email %></td>
+          <td><%= link_to 'Editar', edit_user_path(user) %></td>
+          <td><%= link_to 'Eliminar', user, :confirm => 'Está seguro ?', :method => :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+    </div>
+  </div>
+</div>
