@@ -1,6 +1,7 @@
 module AgendaHelper
 
 	def build_calendar_row(equipos, year = Date.today.year)
+		year = year.to_i
 		str = ""
 
 		equipos.each do |equipo|
@@ -36,7 +37,7 @@ module AgendaHelper
 		full = 1.upto(12).collect{|number| "" }
 
 		agendas.each do |agenda|
-			full[agenda.fecha_programacion.month - 1] << "<div class='#{agenda.tipo_mantenimiento.nombre}'>#{agenda.fecha_programacion.day}</div>"
+			full[agenda.fecha_programacion.month - 1] << "<div class='agenda-day' style='background-color:#{agenda.tipo_mantenimiento.color};'>#{agenda.fecha_programacion.day}</div>"
 		end
 
 		full

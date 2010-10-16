@@ -1,0 +1,25 @@
+<fieldset>
+  <legend>Autogenerar Agenda</legend>
+  <%- form_for :generate, :url => autogenerar_path do |f| %>
+  <p>
+    <span>Tipo Mantenimiento:</span
+    <select id="tipo_mantenimiento" name="tipo_mantenimiento" class="autogenerar">
+      <option>Seleccionar</option>
+      <%- @tipos.each do |tipo| %>
+      <option value="<%= tipo.id %>" data-remote="<%= tipo.periodicidad %>"><%= tipo.nombre %></option>
+      <% end %>
+    </select>
+  </p>
+  
+  <p>
+    <span>Periodicidad:</span>
+    <%= text_field_tag :periodicidad, nil, {:disabled => 'disabled', :class => 'autogenerar'} %>
+  </p>
+  
+  <p>
+    <span>Fecha de inicio</span>
+    <%= select_tag :desde, options_for_select([]), {:include_blank => "Seleccionar", :disabled => 'disabled', :class => 'autogenerar', :'data-remote' => validate_date_path} %>
+  </p>
+  <%= submit_tag 'enviar', :disabled => 'disabled', :id => 'enviar', :class => 'autogenerar' %>
+  <% end %>
+</fieldset>

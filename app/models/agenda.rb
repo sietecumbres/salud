@@ -28,12 +28,19 @@ class Agenda < ActiveRecord::Base
 		jd = Date.civil_to_jd(date.year, date.month, date.day)
 		day = Date.jd_to_wday(jd)
 
-		while day == 6 or day == 0 do
+		available = date_available(date)
+
+		while day == 6 or day == 0 or !available do
 			date = date + 1.day
 			jd = Date.civil_to_jd(date.year, date.month, date.day)
 			day = Date.jd_to_wday(jd)
+			available = date_available(date)
 		end
 
 		date
+	end
+
+	def self.date_available(date)
+		where(:fecha_programacion => date).count < 3
 	end
 end

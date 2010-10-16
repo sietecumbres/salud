@@ -90,7 +90,33 @@ $(document).ready(function(){
     $(document).bind('reveal.facebox', function(){
         $('.datepicker').datepicker();
     });
+    
+    $("#tipo_mantenimiento.autogenerar").live('change', function(){
+      $("#periodicidad.autogenerar").val($("#tipo_mantenimiento.autogenerar [value='" + $(this).val() + "']").attr("data-remote"));
+      $("#periodicidad.autogenerar").removeAttr('disabled');
+      $("#enviar.autogenerar").removeAttr('disabled');
+      validate_date();
+    });
+
+    $("#year_for_agenda").change(function(){
+      
+      var url = $.url.attr('path') + "?year=" + $(this).val();
+      window.location = url;
+    });
 });
+
+function validate_date(){
+  var val = $("#tipo_mantenimiento.autogenerar").val();
+  $(this).attr('disabled', 'disabled');
+  $.get('/autogenerate/validate_date', {tipo_mantenimiento: val}, function(data){
+    $("#desde.autogenerar").html("<option value=''>Seleccionar</option>");
+    $.each(data, function(index, value){
+      $("#desde.autogenerar").append("<option value='" + value + "'>" + value + "</option>");
+    });
+    $("#desde.autogenerar").removeAttr('disabled');
+    $("#tipo_mantenimiento.autogenerar").removeAttr('disabled');
+  });
+}
 
 function autocomplete_fields(table){
   $(".autocomplete").autocomplete({
@@ -104,4 +130,15 @@ function autocomplete_fields(table){
     });},
     minLength: 1
   });
+}
+
+function get_parameter( name ){
+  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results == null )
+    return "";
+  else
+    return results[1];
 }
