@@ -34,6 +34,10 @@ class EquiposController < ApplicationController
     render :json => equipos.to_json, :layout => false
   end
 
+  def new
+    @equipo = Equipo.new
+  end
+
   protected
     def get_options
       @tipos = TipoEquipo.all
