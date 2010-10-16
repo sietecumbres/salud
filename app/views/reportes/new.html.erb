@@ -4,6 +4,7 @@
   </div>
   <div class="content">
     <h2 class="title">INGRESAR REPORTE</h2>
+    <p>Reporte elaborado para el equipo de marca <strong><%= @equipo.marca %></strong>, modelo <strong><%= @equipo.modelo %></strong> y serial <strong><%= @equipo.serial %></strong></p>
     <div class="inner">
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
         <div class="forms">
