@@ -286,4 +286,6 @@ prestador.save
 usuario = User.new
 usuario.login = 'admin'
 usuario.password = 'admin'
+usuario.password_confirmation = "admin"
+usuario.email = "admin@espiral.co"
 usuario.save
