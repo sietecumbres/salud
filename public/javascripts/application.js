@@ -136,7 +136,6 @@ function validate_date(){
 function autocomplete_fields(table){
   $(".autocomplete").autocomplete({
     source: function(req, add){
-    alert("Entro al autocomplete");
       $.getJSON("/equipos/autocomplete?table="+table, req, function(data){
         var suggestions = [];
         $.each(data, function(i, val){
