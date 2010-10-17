@@ -5,7 +5,6 @@ class EquiposController < ApplicationController
   def index
     @busqueda = Equipo.new params[:equipo] unless params[:equipo]
     @busqueda ||= Equipo.new
-    logger.debug "Equipo => #{@busqueda.inspect}"
   end
   
   def search
@@ -24,6 +23,7 @@ class EquiposController < ApplicationController
     condiciones = condiciones.merge({:placa => params[:equipo][:placa]}) unless params[:equipo][:placa].empty?
     @equipos = Equipo.where(condiciones).all
     @equipos.reject!{|equipo| equipo.valor < params[:valor_min].to_i or equipo.valor > params[:valor_max].to_i} unless params[:valor_min].empty? and params[:valor_max].empty?
+		@colors = Equipo.colors @equipos
     render :action => :index
   end
   
@@ -46,6 +46,7 @@ class EquiposController < ApplicationController
       @responsables = Persona.all
       @areas = Area.all
       @equipos = Equipo.all unless @equipos.present?
+			@colors = Equipo.all_colors unless @colors.present?
       @adquisiciones << TipoAdquisicion.new({:id => '', :nombre => 'Otro'})
     end
 end

@@ -5,6 +5,10 @@ class Agenda < ActiveRecord::Base
 
 	order('fecha_programacion ASC')
 
+	def self.next_agenda(equipo, fecha = Date.today)
+		where('equipo_id = ? AND fecha_programacion > ?', equipo, fecha).order('fecha_programacion').first
+	end
+
 	def self.generate_agendas(equipos, periodicidad, tipo_mantenimiento, desde = Date.today)
 		1.upto(12 / periodicidad) do |periodo|
 			actual = valid_date(desde)

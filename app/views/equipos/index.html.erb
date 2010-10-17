@@ -146,8 +146,8 @@
               <th>Agenda</th>
             </tr>
           <tbody>
-            <% @equipos.each do |equipo| %>
-              <%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo} %>
+            <% @equipos.each_with_index do |equipo, index| %>
+              <%= render :partial => 'equipos/equipo_fila', :locals => {:equipo => equipo, :color => @colors[index]} %>
             <% end %>
           </tbody>
         </table>
