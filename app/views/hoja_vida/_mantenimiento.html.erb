@@ -17,18 +17,18 @@
             <tr>
               <th class="first">Mantenimiento</th>
               <th></th>
-              <th>Enero</th>
-              <th>Febrero</th>
-              <th>Marzo</th>
-              <th>Abril</th>
-              <th>Mayo</th>
-              <th>Junio</th>
-              <th>Julio</th>
-              <th>Agosto</th>
-              <th>Septiembre</th>
-              <th>Octubre</th>
-              <th>Noviembre</th>
-              <th class="last">Diciembre</th>
+              <th>ene</th>
+              <th>feb</th>
+              <th>mar</th>
+              <th>abr</th>
+              <th>may</th>
+              <th>jun</th>
+              <th>jul</th>
+              <th>ago</th>
+              <th>sep</th>
+              <th>oct</th>
+              <th>nov</th>
+              <th class="last">dic</th>
             </tr>
           </thead>
           <tbody>
@@ -44,14 +44,18 @@
   </div>
 </div>
 
-<span>Convenciones</span>
-<table>
-  <%- tipos.each do |tipo| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="2">Convenciones</th>
+    </tr>
+  </thead>
   <tr>
-    <td><%= tipo.nombre %></td>
-    <td>
-      <div class="convention-color" style="background-color: <%= tipo.color %>;">&nbsp;</div>
-    </td>
+    <th>P</th>
+    <td>Fecha de programación</td>
   </tr>
-  <% end %>
+  <tr>
+    <th>E</th>
+    <td>Fecha de ejecución</td>
+  </tr>
 </table>
