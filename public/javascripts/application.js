@@ -117,7 +117,10 @@ $(document).ready(function(){
       window.location = url;
     });
 
-  
+
+  $(".filter-head").click(function(){
+    $(".filter").slideToggle("medium");
+  });
 });
 
 function validate_date(){
