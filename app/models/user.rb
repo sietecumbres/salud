@@ -1,5 +1,5 @@
 require 'carrierwave/orm/activerecord'
-
+require 'firma'
 class User < ActiveRecord::Base
 	has_one :reporte_mantenimiento
 	
