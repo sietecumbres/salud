@@ -89,12 +89,13 @@
           <tr>
             <td></td>
             <td><%= @reporte.prestador_mantenimiento.empresa %></td>
-            <td><%= @reporte.prestador_mantenimiento.responsable.nombre %></td>
+            <td><%= @reporte.prestador_mantenimiento.nombre %></td>
             <td><%= @reporte.prestador_mantenimiento.cargo %></td>
             <td><%= @reporte.prestador_mantenimiento.documento %></td>
           </tr>
         </table>
       </div>
+      <%- if @reporte.responsable %>
       <div class="responsable">
         <h4>RECIBIDO POR</h4>
         <table class="table">
@@ -112,6 +113,7 @@
           </tr>
         </table>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
