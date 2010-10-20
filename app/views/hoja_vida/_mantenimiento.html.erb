@@ -1,0 +1,44 @@
+<br/>
+<span>Seleccione el a&ntilde;o:</span>
+<%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+<br/>
+<h3>Programación Vs. Ejecución de mantenimientos para el año: <%= year %></h3>
+
+<div class="block">
+  <div class="secondary-navigation">
+  </div>
+  <div class="content">
+    <div class="inner">
+      <div class="inventario">
+        <table class="table">
+          <!-- This is the months header -->
+          <thead>
+            <tr>
+              <th class="first">Mantenimiento</th>
+              <th></th>
+              <th>Ene</th>
+              <th>Feb</th>
+              <th>Mar</th>
+              <th>Abr</th>
+              <th>May</th>
+              <th>Jun</th>
+              <th>Jul</th>
+              <th>Ago</th>
+              <th>Sep</th>
+              <th>Oct</th>
+              <th>Nov</th>
+              <th class="last">Dic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= build_equipo_calendar_row(equipos, year)  %>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

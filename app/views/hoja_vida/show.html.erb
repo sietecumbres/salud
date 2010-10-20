@@ -94,6 +94,20 @@
   <div class="secondary-navigation">
   </div>
   <div class="content">
+    <h2 class="title">Comparativos</h2>
+    <div class="inner">
+      <div class="Mantenimiento">
+        <%= render :partial => 'hoja_vida/mantenimiento', :locals => {:equipos => @equipo, :year => @year, :tipos => @tipos} %>
+        <%= render :partial => 'hoja_vida/calibracion', :locals => {:equipos => @equipo, :year => @year, :tipos => @tipos} %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="block">
+  <div class="secondary-navigation">
+  </div>
+  <div class="content">
     <h2 class="title">Reportes de mantenimientos</h2>
     <div class="inner">
       <div class="reportes">
@@ -107,8 +121,6 @@
               <div class="right">
                 <%= text_field_tag 'min_date', nil, :class => 'datepicker' %>
               </div>
-           </div>
-           <div class="group wat-cf">
              <div class="left">
                <label class = "label">Fecha de Finalización</label>
              </div>
@@ -118,14 +130,10 @@
            </div>
           </div>
         </div>
-        <p>
-          <%= link_to 'Ingresar reporte', new_reporte_path(@equipo) %>
-        </p>
         <table class="table">
           <tr>
             <th class="first"></th>
-            <th>Fecha de inicio</th>
-            <th>Fecha de finalización</th>
+            <th>Fecha de mantenimiento</th>
             <th>Tipo de mantenimiento</th>
             <th>Evaluación</th>
             <th>Descripción</th>
