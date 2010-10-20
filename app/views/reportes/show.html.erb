@@ -36,13 +36,19 @@
         <h4>ESTADOS DEL EQUIPO</h4>
         <table class="table">
           <tr>
-            <th class="first"></th>
-            <th>Prueba cualitativa</th>
+            <th class="first">Prueba cualitativa</th>
+            <th>Resultado</th>
+            <th>Evaluación</th>
+	    <th>Prueba cualitativa</th>
             <th>Resultado</th>
             <th class="last">Evaluación</th>
           </tr>
-          <% @reporte.estado_equipos.each do |estado_equipo| %>
-            <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>
+          <% @reporte.estado_equipos.in_groups_of(2).each do |group| %>
+	  <tr>
+	    <%- group.each do |estado_equipo| %>
+	      <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} if estado_equipo %>
+	    <% end %>
+	  </tr>
           <% end %>
         </table>
       </div>
