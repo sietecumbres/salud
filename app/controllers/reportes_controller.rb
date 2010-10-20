@@ -65,4 +65,11 @@ class ReportesController < ApplicationController
     render :json => repuestos.to_json, :layout => false
   end
 
+	def approve
+		reporte = current_equipo.reporte_mantenimientos.where(:id => params[:id]).first
+		reporte.responsable = current_user
+		reporte.save
+		render :json => reporte.to_json, :layout => false
+	end
+
 end

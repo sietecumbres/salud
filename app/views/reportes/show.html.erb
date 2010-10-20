@@ -113,14 +113,16 @@
           </tr>
           <tr>
             <td></td>
-            <td><%= @reporte.responsable.nombre %></td>
-            <td><%= @reporte.responsable.cargo %></td>
-            <td><%= @reporte.responsable.documento %></td>
+            <td><div id="responsable-nombre"><%= @reporte.responsable.nombre %></div></td>
+            <td><div id="responsable-cargo"><%= @reporte.responsable.cargo %></div></td>
+            <td><div id="responsable-documento"><%= @reporte.responsable.documento %></div></td>
           </tr>
         </table>
       </div>
       <% else %>
-      <input type="button" value="Aprobar" id="aprobar-reporte" />
+      <div class="success" style="display:none;" id="aprobar-mensaje"></div>
+      <input type="button" value="Aprobar" id="aprobar-reporte" data-remote="<%= @reporte.id %>"
+	     data-remote-url="<%= approve_reporte_path %>" />
       <% end %>
     </div>
   </div>
