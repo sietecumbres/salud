@@ -74,6 +74,16 @@ persona1.password_confirmation = "admin"
 persona1.email = "perengano@espiral.co"
 persona1.save
 
+prestador = PrestadorMantenimiento.new
+prestador.cargo = 'Gerente'
+prestador.documento = 1234567
+prestador.empresa = 'J-Médicas'
+prestador.login = "gerente"
+prestador.password = "gerente"
+prestador.password_confirmation =  "gerente"
+prestador.email = "gerente@example.com"
+prestador.save
+
 equipo = Equipo.new
 equipo.area_id = area.id
 equipo.tipo_equipo_id = tipo_equipo.id
@@ -289,13 +299,6 @@ repuesto_equipo2.repuesto_id = repuesto2.id
 repuesto_equipo2.cantidad = 7
 repuesto_equipo2.descripcion = 'Insumo'
 repuesto_equipo2.save
-
-prestador = PrestadorMantenimiento.new
-prestador.cargo = 'Gerente'
-prestador.documento = 1234567
-prestador.empresa = 'J-Médicas'
-prestador.responsable_id = persona.id
-prestador.save
 
 usuario = User.new
 usuario.login = 'admin'
