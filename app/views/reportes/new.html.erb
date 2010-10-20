@@ -9,16 +9,6 @@
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
         <div class="forms">
           <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
-          <div class="group wat-cf">
-            <div class="left">
-              <label class="label">Tipo de Mantenimiento</label>
-            </div>
-            <%= f.select 'tipo_mantenimiento_id', options_for_select(@mantenimientos.collect{|mantenimiento| [mantenimiento.nombre, mantenimiento.id]}), :html => {:class => 'tipo-mantenimiento'} %>
-            <div id="otro-mantenimiento" style="display:none;">
-              <label>Cual </label>
-              <%= text_field_tag(:otro_mantenimiento) %>
-            </div>
-          </div>
           <div class="estados">
             <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
             <table class="table">
@@ -27,11 +17,20 @@
                 <th>PRUEBA CUALITATIVA</th>
                 <th>Ap.</th>
                 <th>Rp.</th>
+                <th>N/A</th>
+		<th></th>
+                <th>PRUEBA CUALITATIVA</th>
+                <th>Ap.</th>
+                <th>Rp.</th>
                 <th class="last">N/A</th>
               </tr>
-              <% @estados.each do |estado| %>
-                <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} %>
+              <% @estados.in_groups_of(2).each do |group| %>
+	      <tr>
+		<% group.each do |estado| %>
+		  <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} if estado %>
+		<% end %>
               <% end %>
+	      </tr>
             </table>
           </div>
           <div id="evaluacion-estados" style="display:none;">
@@ -69,79 +68,9 @@
           </div>
           <div id="lista-repuestos"></div>
           <br />
-          <div class="responsable">
-            <label class="label">Prestador del mantenimiento</label>
-            <div class="group wat-cf">
-              <div class="left">
-                <label class="label">Nombre</label>
-              </div>
-              <div>
-                <%= text_field_tag(:nombre) %>
-              </div>
-            </div>
-            <div class="group wat-cf">
-              <div class="left">
-                <label class="label">Cargo</label>
-              </div>
-              <div>
-                <%= text_field_tag(:cargo) %>
-              </div>
-            </div>
-            <div class="group wat-cf">
-              <div class="left">
-                <label class="label">Documento</label>
-              </div>
-              <div>
-                <%= text_field_tag(:documento) %>
-              </div>
-            </div>
-            <div class="group wat-cf">
-              <div class="left">
-                <label class="label">Empresa</label>
-              </div>
-              <div>
-                <%= text_field_tag(:empresa) %>
-              </div>
-            </div>
-          </div>
-          <div class="recibido">
-            <label class="label">Recibido por:</label>
-            <div class="group wat-cf">
-              <div class="left">
-                <label class="label">Documento: </label>
-              </div>
-              <div>
-                <input type="text" id='buscar-documento' name="buscar_documento" />
-                <input type="button" id="buscar-cc" name="Buscar" value="Buscar"></input>
-              </div>
-            </div>
-            <div id="info-recibe" style="display: none">
-              <div class="group wat-cf">
-                <div class="left">
-                  <label class="label">Nombre</label>
-                </div>
-                <div>
-                  <%= text_field_tag(:recibe_nombre, nil, :disabled => "disabled") %>
-                </div>
-              </div>
-              <div class="group wat-cf">
-                <div class="left">
-                  <label class="label">Cargo</label>
-                </div>
-                <div>
-                  <%= text_field_tag(:recibe_cargo, nil, :disabled => "disabled") %>
-                </div>
-              </div>
-            </div>
-            <br />
-            <div class="group navform wat-cf">
-              <button class="button" type="submit">
-                <%= image_tag("web-app-theme/icons/tick.png") %> <%= "Guardar Reporte" %>
-              </button>
-            </div>
-        <% end %>
-        </div>
-      </div>
+	</div>
+	<%= submit_tag 'Guardar' %>
+      <% end %>
     </div>
   </div>
 </div>
