@@ -30,10 +30,15 @@
             </tr>
           <% end %>
         </table>
-        <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
         <div class="actions-bar wat-cf">
           <div class="actions">
+	    <%= will_paginate @agendas %>
           </div>
+	  <br />
+	  <br />
+	  <div>
+	    <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
+	  </div>
         </div>
       </div>
     </div>

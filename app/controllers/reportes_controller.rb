@@ -18,19 +18,15 @@ class ReportesController < ApplicationController
   end
 
   def create
-    mantenimiento = TipoMantenimiento.create :nombre => params[:otro_mantenimiento] unless params[:otro_mantenimiento]
-    persona = Persona.find(:first, :conditions => ['documento = ?', params[:buscar_documento]])
-    repuesto = Repuesto.find(:first, :conditions => ['referencia = ?', params[:repuestos]])
-    logger.debug "Otro mantenimiento => #{params[:otro_mantenimiento]}"
-    logger.debug "repuestossssssssssssssssssssss => #{repuesto.inspect}"
+		agenda = Agenda.where(:id => params[:id]).first
     reporte = ReporteMantenimiento.create(
       {
         :equipo_id => params[:equipo_id],
-        :tipo_mantenimiento_id => mantenimiento.nil? ? params[:reporte][:tipo_mantenimiento_id] : mantenimiento.id,
+        :tipo_mantenimiento_id => agenda.tipo_mantenimiento_id,
         :evaluacion_diagnostico => params[:eval],
         :descripcion_servicio => params[:descripcion],
-        :agenda_id => params[:id],
-        :responsable_id => persona.id
+        :agenda_id => agenda.id,
+				:prestador_mantenimiento_id => current_user.id
       }
     )
     params[:estados].each {|estado, evaluacion| reporte.estado_equipos << EstadoEquipo.create(evaluacion.merge({:estado_id => estado}))}
@@ -38,7 +34,7 @@ class ReportesController < ApplicationController
       repuesto = Repuesto.where(:referencia => values[:ref]).first
       reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto.id, :cantidad => values[:cant], :descripcion => values[:desc]})
     end if params[:repuestos]
-    prestador = PrestadorMantenimiento.create :empresa => params[:empresa], :responsable_id => persona.id, :empresa => params[:empresa], :documento => params[:documento], :cargo => params[:cargo], :reporte_mantenimiento_id => reporte.id
+    
   end
 
 	def find_by_cc
@@ -68,5 +64,12 @@ class ReportesController < ApplicationController
     repuestos = Repuesto.select(:referencia).where('referencia like (?)', "%#{params[:term]}%").collect{|repuesto| repuesto.referencia}
     render :json => repuestos.to_json, :layout => false
   end
+
+	def approve
+		reporte = current_equipo.reporte_mantenimientos.where(:id => params[:id]).first
+		reporte.responsable = current_user
+		reporte.save
+		render :json => reporte.to_json, :layout => false
+	end
 
 end

@@ -121,6 +121,15 @@ $(document).ready(function(){
   $(".filter-head").click(function(){
     $(".filter").slideToggle("medium");
   });
+
+  //Approval button click
+  $("#aprobar-reporte").click(function(){
+    $.post($(this).attr("data-remote-url"), {reporte: $(this).attr("date-remote")}, function(data){
+      $("#aprobar-reporte").css("display", "none");
+      $("#aprobar-mensaje").show();
+      $("#aprobar-mensaje").html("El reporte n&uacute;mero " + data.reporte_mantenimiento.id + " fue aprobado con exito.");
+    });
+  });
 });
 
 function validate_date(){

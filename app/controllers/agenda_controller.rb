@@ -1,10 +1,8 @@
 class AgendaController < ApplicationController
-
   before_filter :require_user
 
 	def index
-		@agendas = current_equipo.agendas
-    @reporte = ReporteMantenimiento.where(:id => params[:id]).first
+		@agendas = current_equipo.agendas.paginate(:page => params[:page], :per_page => 10)
 		@year = params[:year].nil? ? Date.today.year : params[:year]
   end
 	
@@ -26,7 +24,6 @@ class AgendaController < ApplicationController
 	end
 
 	def update
-		logger.debug "Current Equipo => #{current_equipo}"
 		@agenda = Agenda.where(:id => params[:id]).first
 		if @agenda.update_attributes(params[:agenda])
 			redirect_to agendas_path(current_equipo)

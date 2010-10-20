@@ -9,6 +9,9 @@ gem 'pg'
 gem 'heroku'
 gem "authlogic"
 gem "rails3-generators"
+gem "will_paginate", "~> 3.0.pre2"
+gem "carrierwave"
+gem "carrierwave-rails3"
 
 # Use unicorn as the web server
 # gem 'unicorn'

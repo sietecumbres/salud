@@ -33,6 +33,8 @@ GEM
     authlogic (2.1.6)
       activesupport
     builder (2.1.2)
+    carrierwave (0.4.10)
+    carrierwave-rails3 (0.4.5)
     configuration (1.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -78,13 +80,17 @@ GEM
     treetop (1.4.8)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    will_paginate (3.0.pre2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   authlogic
+  carrierwave
+  carrierwave-rails3
   heroku
   pg
   rails (= 3.0.0)
   rails3-generators
+  will_paginate (~> 3.0.pre2)

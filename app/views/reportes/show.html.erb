@@ -36,13 +36,19 @@
         <h4>ESTADOS DEL EQUIPO</h4>
         <table class="table">
           <tr>
-            <th class="first"></th>
-            <th>Prueba cualitativa</th>
+            <th class="first">Prueba cualitativa</th>
+            <th>Resultado</th>
+            <th>Evaluación</th>
+	    <th>Prueba cualitativa</th>
             <th>Resultado</th>
             <th class="last">Evaluación</th>
           </tr>
-          <% @reporte.estado_equipos.each do |estado_equipo| %>
-            <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} %>
+          <% @reporte.estado_equipos.in_groups_of(2).each do |group| %>
+	  <tr>
+	    <%- group.each do |estado_equipo| %>
+	      <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} if estado_equipo %>
+	    <% end %>
+	  </tr>
           <% end %>
         </table>
       </div>
@@ -89,12 +95,13 @@
           <tr>
             <td></td>
             <td><%= @reporte.prestador_mantenimiento.empresa %></td>
-            <td><%= @reporte.prestador_mantenimiento.responsable.nombre %></td>
+            <td><%= @reporte.prestador_mantenimiento.nombre %></td>
             <td><%= @reporte.prestador_mantenimiento.cargo %></td>
             <td><%= @reporte.prestador_mantenimiento.documento %></td>
           </tr>
         </table>
       </div>
+      <%- if @reporte.responsable %>
       <div class="responsable">
         <h4>RECIBIDO POR</h4>
         <table class="table">
@@ -106,12 +113,17 @@
           </tr>
           <tr>
             <td></td>
-            <td><%= @reporte.responsable.nombre %></td>
-            <td><%= @reporte.responsable.cargo %></td>
-            <td><%= @reporte.responsable.documento %></td>
+            <td><div id="responsable-nombre"><%= @reporte.responsable.nombre %></div></td>
+            <td><div id="responsable-cargo"><%= @reporte.responsable.cargo %></div></td>
+            <td><div id="responsable-documento"><%= @reporte.responsable.documento %></div></td>
           </tr>
         </table>
       </div>
+      <% else %>
+      <div class="success" style="display:none;" id="aprobar-mensaje"></div>
+      <input type="button" value="Aprobar" id="aprobar-reporte" data-remote="<%= @reporte.id %>"
+	     data-remote-url="<%= approve_reporte_path %>" />
+      <% end %>
     </div>
   </div>
 </div>
