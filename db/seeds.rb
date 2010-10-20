@@ -49,13 +49,29 @@ subtipo_equipo2 = SubtipoEquipo.new
 subtipo_equipo2.nombre = 'Subtipo 3'
 subtipo_equipo2.save
 
+usuario = User.new
+usuario.login = 'admin'
+usuario.password = 'admin'
+usuario.password_confirmation = "admin"
+usuario.email = "admin@espiral.co"
+usuario.save
+
 persona = Persona.new
 persona.nombre = 'Fulanito de Tal'
+persona.login = 'fulanito'
+persona.password = 'admin'
+persona.password_confirmation = "admin"
+persona.email = "fulanito@espiral.co"
 persona.save
-persona1 = Persona.new
+
+persona1 = PrestadorMantenimiento.new
 persona1.nombre = 'Perengano'
 persona1.cargo = 'Gerente'
 persona1.documento = 12334556
+persona1.login = 'perengano'
+persona1.password = 'admin'
+persona1.password_confirmation = "admin"
+persona1.email = "perengano@espiral.co"
 persona1.save
 
 equipo = Equipo.new
@@ -278,7 +294,6 @@ prestador = PrestadorMantenimiento.new
 prestador.cargo = 'Gerente'
 prestador.documento = 1234567
 prestador.empresa = 'J-Médicas'
-prestador.reporte_mantenimiento_id = reporte.id
 prestador.responsable_id = persona.id
 prestador.save
 
