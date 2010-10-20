@@ -4,7 +4,7 @@ module HojaVidaHelper
 		str = ""
 
 		equipo.tipos_mantenimiento.each do |tipo|
-			str << "<tr><td>#{tipo.nombre}</td><td>P</td>"
+			str << "<tr><td>#{tipo.nombre}</td><td>Programado</td>"
 
 			agendas_prev = equipo.agendas_for_year(year).reject{|agenda_prev| tipo != agenda_prev.tipo_mantenimiento}
 			fill_year(agendas_prev).each do |agenda_prev|
@@ -12,7 +12,32 @@ module HojaVidaHelper
 			end
 
 			str << "</tr>"
-			str << "<tr><td></td><td>E</td>"
+			str << "<tr><td></td><td>Ejecutado</td>"
+
+			agendas_eje = equipo.agendas_for_year_eje(year).reject{|agenda_eje| tipo != agenda_eje.tipo_mantenimiento}
+			fill_year_eje(agendas_eje).each do |agenda_eje|
+				str << "<td>#{agenda_eje}</td>"
+			end
+
+			str << "</tr>"
+		end
+
+		str.html_safe
+	end
+
+  def build_equipo_calendar_row_calibracion(equipo, year = Date.today.year)
+		str = ""
+
+		equipo.tipos_mantenimiento.each do |tipo|
+			str << "<tr><td>#{tipo.nombre}</td><td>Programado</td>"
+
+			agendas_prev = equipo.agendas_for_year(year).reject{|agenda_prev| tipo != agenda_prev.tipo_mantenimiento}
+			fill_year(agendas_prev).each do |agenda_prev|
+				str << "<td>#{agenda_prev}</td>"
+			end
+
+			str << "</tr>"
+			str << "<tr><td></td><td>Ejecutado</td>"
 
 			agendas_eje = equipo.agendas_for_year_eje(year).reject{|agenda_eje| tipo != agenda_eje.tipo_mantenimiento}
 			fill_year_eje(agendas_eje).each do |agenda_eje|

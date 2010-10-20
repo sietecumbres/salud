@@ -98,6 +98,7 @@
     <div class="inner">
       <div class="Mantenimiento">
         <%= render :partial => 'hoja_vida/mantenimiento', :locals => {:equipos => @equipo, :year => @year, :tipos => @tipos} %>
+        <%= render :partial => 'hoja_vida/calibracion', :locals => {:equipos => @equipo, :year => @year, :tipos => @tipos} %>
       </div>
     </div>
   </div>

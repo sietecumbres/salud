@@ -64,5 +64,5 @@ class Equipo < ActiveRecord::Base
 	def tipos_mantenimiento
 		self.agendas.select(:tipo_mantenimiento_id).group(:tipo_mantenimiento_id).collect{|agenda| agenda.tipo_mantenimiento}
 	end
-	
+
 end

@@ -2,13 +2,12 @@
 <span>Seleccione el a&ntilde;o:</span>
 <%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
 <br/>
-<span>Agenda para el a&ntilde;o: <%= year %></span>
+<h3>Programación Vs. Ejecución de mantenimientos para el año: <%= year %></h3>
 
 <div class="block">
   <div class="secondary-navigation">
   </div>
   <div class="content">
-    <h2 class="title">Calendario</h2>
     <div class="inner">
       <div class="inventario">
         <table class="table">
@@ -17,18 +16,18 @@
             <tr>
               <th class="first">Mantenimiento</th>
               <th></th>
-              <th>ene</th>
-              <th>feb</th>
-              <th>mar</th>
-              <th>abr</th>
-              <th>may</th>
-              <th>jun</th>
-              <th>jul</th>
-              <th>ago</th>
-              <th>sep</th>
-              <th>oct</th>
-              <th>nov</th>
-              <th class="last">dic</th>
+              <th>Ene</th>
+              <th>Feb</th>
+              <th>Mar</th>
+              <th>Abr</th>
+              <th>May</th>
+              <th>Jun</th>
+              <th>Jul</th>
+              <th>Ago</th>
+              <th>Sep</th>
+              <th>Oct</th>
+              <th>Nov</th>
+              <th class="last">Dic</th>
             </tr>
           </thead>
           <tbody>
@@ -43,19 +42,3 @@
     </div>
   </div>
 </div>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th colspan="2">Convenciones</th>
-    </tr>
-  </thead>
-  <tr>
-    <th>P</th>
-    <td>Fecha de programación</td>
-  </tr>
-  <tr>
-    <th>E</th>
-    <td>Fecha de ejecución</td>
-  </tr>
-</table>
