@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-	belongs_to :role
+	has_one :reporte_mantenimiento
+	
   acts_as_authentic
 
   validates :login, :presence => true

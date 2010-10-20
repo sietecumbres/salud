@@ -1,6 +1,6 @@
 class Equipo < ActiveRecord::Base
   belongs_to :area
-  belongs_to :responsable, :class_name => "Persona"
+  belongs_to :responsable, :class_name => "User"
   belongs_to :subtipo_equipo
   belongs_to :tipo_adquisicion
   belongs_to :tipo_equipo

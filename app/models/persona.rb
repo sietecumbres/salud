@@ -1,4 +1,3 @@
-class Persona < ActiveRecord::Base
+class Persona < User
   has_many :equipos
-  has_many :reporte_mantenimientos
 end
