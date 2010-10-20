@@ -34,6 +34,7 @@ GEM
       activesupport
     builder (2.1.2)
     carrierwave (0.4.10)
+    carrierwave-rails3 (0.4.5)
     configuration (1.1.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -87,6 +88,7 @@ PLATFORMS
 DEPENDENCIES
   authlogic
   carrierwave
+  carrierwave-rails3
   heroku
   pg
   rails (= 3.0.0)
