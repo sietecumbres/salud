@@ -1,6 +1,7 @@
 <br/>
 <span>Seleccione el a&ntilde;o:</span>
 <%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+<%= select_tag :tipos_mantenimiento, options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}), {:include_blank => 'seleccionar'} %>
 <br/>
 <h3>Programación Vs. Ejecución de mantenimientos para el año: <%= year %></h3>
 
