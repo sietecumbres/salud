@@ -9,4 +9,10 @@ class HojaVidaController < ApplicationController
     @equipo = Equipo.find(params[:id])
   end
 
+  def mostrar_mantenimiento
+    @equipo = Equipo.find(params[:id])
+    render :partial => 'hoja_vida/mantenimiento', :locals => {:equipos => @equipo, :year => params[:anio], :tipos => params[:tipo_mantenimiento]}
+
+  end
+
 end

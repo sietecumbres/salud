@@ -65,8 +65,8 @@ class Equipo < ActiveRecord::Base
 		self.agendas.select(:tipo_mantenimiento_id).group(:tipo_mantenimiento_id).collect{|agenda| agenda.tipo_mantenimiento}
 	end
 
-	def tipo_mantenimiento_calibracion
-    tm = TipoMantenimiento.where(:nombre => 'calibracion').first
+	def tipo_mantenimiento(tipo)
+    tm = TipoMantenimiento.where(:id => tipo).first
 		@agendas = current_equipo.agendas.where(:tipo_mantenimiento_id => tm.id).all if tm
 	end
 

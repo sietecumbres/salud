@@ -26,6 +26,7 @@ $(document).ready(function(){
             $("#otro-adquisicion").hide();
         }
     });
+    
     $("#reporte_tipo_mantenimiento_id").change(function(){
         if(!$(this).val()){
             $("#otro-mantenimiento").show();
@@ -68,6 +69,23 @@ $(document).ready(function(){
                     $("#recibe_nombre").val(data.persona.nombre);
                     $("#recibe_cargo").val(data.persona.cargo);
                 }
+            }
+        });
+    });
+
+    //Funcion para mostrar los comparativos del mantenimiento
+    $("#tipos_mantenimiento").change(function(){
+        $.ajax({
+            url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
+            data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year_for_agenda").val()}),
+            type: "POST",
+            dataType: "json",
+            success: function(data){
+                alert(data);
+                $("#mantenimientos").html(data);
+            },
+            error: function(xhr, e, ex){
+                alert("error: "+ex);
             }
         });
     });
