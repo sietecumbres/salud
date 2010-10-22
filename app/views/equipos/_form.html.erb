@@ -16,23 +16,23 @@
 </div>
 <div class="group">
   <%= f.label :tipo_equipo_id, "Tipo", :class => :label %>
-  <%= f.select :tipo_equipo_id, options_for_select(TipoEquipo.all.collect{|tipo| [tipo.nombre, tipo.id]}) %>
+  <%= f.select :tipo_equipo_id, options_for_select(TipoEquipo.all.collect{|tipo| [tipo.nombre, tipo.id]}, equipo.tipo_equipo_id), {:include_blank => true} %>
 </div>
 <div class="group">
   <%= f.label :subtipo_equipo_id, "Subtipo", :class => :label %>
-  <%= f.select :subtipo_equipo_id, options_for_select(SubtipoEquipo.all.collect{|subtipo| [subtipo.nombre, subtipo.id]}) %>
+  <%= f.select :subtipo_equipo_id, options_for_select(SubtipoEquipo.all.collect{|subtipo| [subtipo.nombre, subtipo.id]}, equipo.subtipo_equipo_id), {:include_blank => true} %>
 </div>
 <div class="group">
   <%= f.label :tipo_adquisicion_id, "Tipo de Adquisición", :class => :label %>
-  <%= f.select :tipo_adquisicion_id, options_for_select(TipoAdquisicion.all.collect{|tipo| [tipo.nombre, tipo.id]}) %>
+  <%= f.select :tipo_adquisicion_id, options_for_select(TipoAdquisicion.all.collect{|tipo| [tipo.nombre, tipo.id]}, equipo.tipo_adquisicion_id), {:include_blank => true} %>
 </div>
 <div class="group">
   <%= f.label :responsable_id, "Responsable", :class => :label %>
-  <%= f.select :responsable_id, options_for_select(Persona.all.collect{|persona| [persona.nombre, persona.id]}) %>
+  <%= f.select :responsable_id, options_for_select(Persona.all.collect{|persona| [persona.nombre, persona.id]}, equipo.responsable_id), {:include_blank => true} %>
 </div>
 <div class="group">
   <%= f.label :area_id, "Área", :class => :label %>
-  <%= f.select :area_id, options_for_select(Area.all.collect{|area| [area.nombre, area.id]}) %>
+  <%= f.select :area_id, options_for_select(Area.all.collect{|area| [area.nombre, area.id]}, equipo.area_id), {:include_blank => true} %>
 </div>
 <div class="group navform wat-cf">
   <button class="button" type="submit">

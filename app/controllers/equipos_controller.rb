@@ -57,11 +57,21 @@ class EquiposController < ApplicationController
 	end
 
 	def update
-
+		@equipo = current_equipo
+		
+		if @equipo.update_attributes(params[:equipo])
+			flash[:notice] = "Equipo editado con éxito."
+			redirect_to list_equipos_path
+		else
+			render :action => :edit
+		end
 	end
 
 	def destroy
-
+		if current_equipo.destroy
+			flash[:notice] = "Equipo eliminado con éxito."
+			redirect_to list_equipos_path
+		end
 	end
 
   protected

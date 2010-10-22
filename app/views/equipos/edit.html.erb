@@ -2,13 +2,14 @@
   <div class="secondary-navigation">
     <ul class="wat-cf">
       <li class="first"><%= link_to "Listado de Equipos", list_equipos_path %></li>
-      <li class="active last"><%= link_to "Nuevo", new_equipo_path %></li>
+      <li class=""><%= link_to "Nuevo", new_equipo_path %></li>
+      <li class="last active"><a href="">Editar</a></li>
     </ul>
   </div>
   <div class="content">
-      <h2 class="title">Nuevo Equipo</h2>
+      <h2 class="title">Editar Equipo</h2>
     <div class="inner">
-      <%= form_for :equipo, :url => equipos_path, :html => { :class => :form } do |f| -%>
+      <%= form_for @equipo, equipo_path(@equipo), :html => { :class => :form } do |f| -%>
 	<%= render :partial => "form", :locals => {:f => f, :equipo => @equipo} %>
       <% end -%>
     </div>
