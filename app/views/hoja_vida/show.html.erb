@@ -97,7 +97,7 @@
     <h2 class="title">Comparativos</h2>
     <div class="inner">
       <div id="mantenimientos">
-        <%= render :partial => 'hoja_vida/mantenimiento', :locals => {:equipos => @equipo, :year => params[:anio], :tipos => params[:tipo_mantenimiento]} %>
+        <%= render :partial => '/hoja_vida/mantenimiento', :locals => {:equipo => @equipo, :year => params[:anio], :tipo => @tipo, :tipos => @tipos} %>
       </div>
     </div>
   </div>

@@ -74,14 +74,12 @@ $(document).ready(function(){
     });
 
     //Funcion para mostrar los comparativos del mantenimiento
-    $("#tipos_mantenimiento").change(function(){
+    $("#tipos_mantenimiento").live('change', function(){
         $.ajax({
             url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
-            data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year_for_agenda").val()}),
-            type: "POST",
-            dataType: "json",
+            data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year").val()}),
+            type: "GET",
             success: function(data){
-                alert(data);
                 $("#mantenimientos").html(data);
             },
             error: function(xhr, e, ex){
