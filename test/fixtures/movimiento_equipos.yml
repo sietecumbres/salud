@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  equipo_id: 1
+  laboratorio_id: 1
+  fecha_movimiento: 2010-10-23
+  type: MyString
+
+two:
+  equipo_id: 1
+  laboratorio_id: 1
+  fecha_movimiento: 2010-10-23
+  type: MyString
