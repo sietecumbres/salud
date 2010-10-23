@@ -4,14 +4,20 @@ class HojaVidaController < ApplicationController
   
   def show
 		@tipos = TipoMantenimiento.all
+		@tipo = TipoMantenimiento.first
 		@year = params[:year].nil? ? Date.today.year : params[:year]
 		@agendas = current_equipo.agendas
     @equipo = Equipo.find(params[:id])
   end
 
   def mostrar_mantenimiento
+		@tipos = TipoMantenimiento.all
     @equipo = Equipo.find(params[:id])
-    render :partial => 'hoja_vida/mantenimiento', :locals => {:equipos => @equipo, :year => params[:anio], :tipos => params[:tipo_mantenimiento]}
+    @tipo = TipoMantenimiento.find(params[:tipo_mantenimiento])
+    @anio = params[:anio]
+    logger.debug "Equipo ==================> #{@equipo.inspect}"
+    logger.debug "@tipo ===================> #{@tipos.inspect}"
+    render :layout => false
 
   end
 

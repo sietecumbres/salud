@@ -1,6 +1,6 @@
 module HojaVidaHelper
 
-	def build_equipo_calendar_row(equipo, year = Date.today.year)
+	def build_equipo_calendar_row(equipo, tipo, year = Date.today.year)
 		str = ""
 
 		equipo.tipos_mantenimiento.each do |tipo|
