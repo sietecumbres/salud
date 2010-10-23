@@ -5,7 +5,6 @@ Salud::Application.routes.draw do
   resources :users
   resources :user_sessions
   resources :tipo_mantenimientos
-  resources :equipos
 
   match 'login' => "user_sessions#new",      :as => :login
   match 'logout' => "user_sessions#destroy", :as => :logout
@@ -13,11 +12,19 @@ Salud::Application.routes.draw do
   get "users/index"
   get "user_sessions/new"
 
-  match '/equipos' => 'equipos#index', :via => :get, :as => :equipos
+
+	resources :equipos do
+		collection do
+			get 'list'
+			post 'search'
+			get 'autocomplete'
+		end
+	end
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipo/:id/mostrar_mantenimiento' => 'hoja_vida#mostrar_mantenimiento', :via => :get, :as => :mostrar_mantenimiento
   match '/equipos/search' => 'equipos#search', :via => :post
   match '/equipos/autocomplete' => 'equipos#autocomplete', :via => :get
+  match '/equipo/:id/mostrar_mantenimiento' => 'hoja_vida#mostrar_mantenimiento', :via => :post, :as => :mostrar_mantenimiento
   match '/reportes/autocomplete_repuestos' => 'reportes#autocomplete_repuestos', :via => :get
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#create', :via => :post, :as => :create_reporte

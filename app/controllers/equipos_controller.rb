@@ -38,6 +38,46 @@ class EquiposController < ApplicationController
     @equipo = Equipo.new
   end
 
+	def list
+		@equipos = Equipo.all
+	end
+
+	def create
+		@equipo = Equipo.new params[:equipo]
+		if @equipo.save
+			flash[:notice] = "Nuevo equipo creado con éxito."
+			redirect_to list_equipos_path
+		else
+			render :action => :new
+		end
+	end
+
+	def edit
+		@equipo = current_equipo
+	end
+
+	def update
+		@equipo = current_equipo
+		
+		if @equipo.update_attributes(params[:equipo])
+			flash[:notice] = "Equipo editado con éxito."
+			redirect_to list_equipos_path
+		else
+			render :action => :edit
+		end
+	end
+
+	def destroy
+		if current_equipo.destroy
+			flash[:notice] = "Equipo eliminado con éxito."
+			redirect_to list_equipos_path
+		end
+	end
+
+	def show
+		@equipo = current_equipo
+	end
+
   protected
     def get_options
       @tipos = TipoEquipo.all
