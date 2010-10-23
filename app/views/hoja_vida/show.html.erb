@@ -96,6 +96,13 @@
   <div class="content">
     <h2 class="title">Comparativos</h2>
     <div class="inner">
+      <br/>
+      <span>Seleccione el tipo de mantenimiento:</span>
+      <%= select_tag :year, options_for_select((Date.today.year..(Date.today.year + 10)).to_a, params[:anio]) %>
+      <%= select_tag :tipos_mantenimiento, options_for_select(@tipos.collect{|tipom| [tipom.nombre, tipom.id]}, @tipo) %>
+      <input type="button" value="Mostrar" id="mostrar-comparativo" />
+      <br/>
+      <input type="hidden" value="<%= params[:id]%>" id="equipo" />
       <div id="mantenimientos">
         <%= render :partial => '/hoja_vida/mantenimiento', :locals => {:equipo => @equipo, :year => params[:anio], :tipo => @tipo, :tipos => @tipos} %>
       </div>

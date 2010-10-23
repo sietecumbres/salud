@@ -74,7 +74,7 @@ $(document).ready(function(){
     });
 
     //Funcion para mostrar los comparativos del mantenimiento
-    $("#tipos_mantenimiento").live('change', function(){
+    $("#mostrar-comparativo").live('click', function(){
         $.ajax({
             url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
             data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year").val()}),

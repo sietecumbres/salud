@@ -12,11 +12,9 @@ class HojaVidaController < ApplicationController
 
   def mostrar_mantenimiento
 		@tipos = TipoMantenimiento.all
-    @equipo = Equipo.find(params[:id])
+    @equipo = current_equipo
     @tipo = TipoMantenimiento.find(params[:tipo_mantenimiento])
     @anio = params[:anio]
-    logger.debug "Equipo ==================> #{@equipo.inspect}"
-    logger.debug "@tipo ===================> #{@tipos.inspect}"
     render :layout => false
 
   end
