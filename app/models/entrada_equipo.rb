@@ -1,0 +1,3 @@
+class EntradaEquipo < MovimientoEquipo
+  
+end
