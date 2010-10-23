@@ -31,7 +31,7 @@
 <div id="dar-salida" style="display: none;">
   <%= form_for :equipo, :url => '#', :html => {:id => 'dar-salida-form'} do |f| %>
     <%= label_tag :destino, 'Seleccione el destino' %>
-    <%= select_tag :destino, options_for_select(Area.all.collect{|area| [area.nombre, area.id]}) %>
+    <%= select_tag :destino, options_for_select(Laboratorio.all.collect{|lab| [lab.nombre, lab.id]}) %>
     <%= submit_tag 'Dar Salida' %>
   <% end %>
 </div>
