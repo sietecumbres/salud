@@ -4,6 +4,7 @@
   <td><%= equipo.serial %></td>
   <td><%= equipo.placa %></td>
   <td><%= link_to 'Detalles', equipo_path(equipo) %></td>
-  <td><%= link_to 'Editar', edit_equipo_path(equipo) %></td>
-  <td><%= link_to 'Eliminar', equipo_path(equipo), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro ?")}" %></td>
+  <td><%= link_to '| Editar', edit_equipo_path(equipo) %></td>
+  <td><%= link_to '| Eliminar', equipo_path(equipo), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro ?")}" %></td>
+  <td><%= link_to '| Dar Salida', "", :class => 'dar-salida', :'data-remote' => dar_salida_equipo_path(equipo) %></td>
 </tr>

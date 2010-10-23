@@ -9,43 +9,43 @@
       <div class="group wat-cf">
         <div class="left"><label class = "label">Área</label></div>
         <div class="right"><%= @equipo.area.nombre %></div>
-     </div>
+      </div>
       <div class="group wat-cf">
         <div class="left"><label class = "label">Tipo</label></div>
         <div class="right"><%= @equipo.tipo_equipo.nombre %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Subtipo</label></div>
-       <div class="right"><%= @equipo.subtipo_equipo.nombre %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Modelo</label></div>
-       <div class="right"><%= @equipo.modelo %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Marca</label></div>
-       <div class="right"><%= @equipo.marca %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">No. Serial</label></div>
-       <div class="right"><%= @equipo.serial %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">No. Inventario o Placa</label></div>
-       <div class="right"><%= @equipo.placa %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Tipo de tenencia o adquisición</label></div>
-       <div class="right"><%= @equipo.tipo_adquisicion.nombre %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Valor</label></div>
-       <div class="right"><%= @equipo.valor %></div>
-     </div>
-     <div class="group wat-cf">
-       <div class="left"><label class = "label">Responsable</label></div>
-       <div class="right"><%= @equipo.responsable.nombre %></div>
-     </div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Subtipo</label></div>
+	<div class="right"><%= @equipo.subtipo_equipo.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Modelo</label></div>
+	<div class="right"><%= @equipo.modelo %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Marca</label></div>
+	<div class="right"><%= @equipo.marca %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">No. Serial</label></div>
+	<div class="right"><%= @equipo.serial %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">No. Inventario o Placa</label></div>
+	<div class="right"><%= @equipo.placa %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Tipo de tenencia o adquisición</label></div>
+	<div class="right"><%= @equipo.tipo_adquisicion.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Valor</label></div>
+	<div class="right"><%= @equipo.valor %></div>
+      </div>
+      <div class="group wat-cf">
+	<div class="left"><label class = "label">Responsable</label></div>
+	<div class="right"><%= @equipo.responsable.nombre %></div>
+      </div>
       <div class="group wat-cf">
         <div class="left"><label class = "label">Fecha de Compra</label></div>
         <div class="right"><%= @equipo.hoja_vida.fecha_compra %></div>
@@ -104,7 +104,7 @@
       <br/>
       <input type="hidden" value="<%= params[:id]%>" id="equipo" />
       <div id="mantenimientos">
-        <%= render :partial => '/hoja_vida/mantenimiento', :locals => {:equipo => @equipo, :year => params[:anio], :tipo => @tipo, :tipos => @tipos} %>
+	<%= render :partial => '/hoja_vida/mantenimiento', :locals => {:equipo => @equipo, :year => params[:anio], :tipo => @tipo, :tipos => @tipos} %>
       </div>
     </div>
   </div>
@@ -121,19 +121,21 @@
         <div class="form filter">
           <div class="forms">
             <div class="group wat-cf">
-              <div class="left">
-                <label class = "label">Fecha de Inicio</label>
-              </div>
-              <div class="right">
-                <%= text_field_tag 'min_date', nil, :class => 'datepicker' %>
-              </div>
-             <div class="left">
-               <label class = "label">Fecha de Finalización</label>
-             </div>
-             <div class="right">
-               <%= text_field_tag 'max_date', nil, :class => 'datepicker' %>
-             </div>
-           </div>
+	      <div class="left">
+		<label class = "label">Fecha de Inicio</label>
+	      </div>
+	      <div class="right">
+		<%= text_field_tag 'min_date', nil, :class => 'datepicker' %>
+	      </div>
+	    </div>
+	    <div class="group wat-cf">
+	      <div class="left">
+		<label class = "label">Fecha de Finalización</label>
+	      </div>
+	      <div class="right">
+		<%= text_field_tag 'max_date', nil, :class => 'datepicker' %>
+	      </div>
+	    </div>
           </div>
         </div>
         <table class="table">
@@ -145,9 +147,9 @@
             <th>Descripción</th>
             <th class="last">Ver detalle</th>
           </tr>
-          <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
-            <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
-          <% end %>
+	  <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
+	    <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
+	  <% end %>
         </table>
       </div>
     </div>

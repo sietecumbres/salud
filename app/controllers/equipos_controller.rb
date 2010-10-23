@@ -78,6 +78,10 @@ class EquiposController < ApplicationController
 		@equipo = current_equipo
 	end
 
+	def dar_salida
+		
+	end
+
   protected
     def get_options
       @tipos = TipoEquipo.all
