@@ -19,6 +19,10 @@ Salud::Application.routes.draw do
 			post 'search'
 			get 'autocomplete'
 		end
+
+		member do
+			post 'dar_salida'
+		end
 	end
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
   match '/equipo/:id/mostrar_mantenimiento' => 'hoja_vida#mostrar_mantenimiento', :via => :post, :as => :mostrar_mantenimiento
