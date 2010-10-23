@@ -148,6 +148,12 @@ $(document).ready(function(){
       $("#aprobar-mensaje").html("El reporte n&uacute;mero " + data.reporte_mantenimiento.id + " fue aprobado con exito.");
     });
   });
+
+  $(".dar-salida").click(function(){
+    var action = $(this).attr("data-remote");
+    $.facebox({div: "#dar-salida"});
+    $("form").get(1).setAttribute("action", action);
+  });
 });
 
 function validate_date(){
