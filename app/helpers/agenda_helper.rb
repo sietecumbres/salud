@@ -17,6 +17,7 @@ module AgendaHelper
 	end
 
 	def build_equipo_calendar_row(equipo, year = Date.today.year)
+		year = year.to_i
 		str = ""
 
 		equipo.tipos_mantenimiento.each do |tipo|

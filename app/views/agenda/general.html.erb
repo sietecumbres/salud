@@ -1,3 +1,37 @@
-<%= link_to "Generar Agenda", new_autogenerar_path, :rel => "facebox" %>
-<%= render :partial => 'agenda/calendar', :locals => {:equipos => @equipos, :year => @year, :tipos => @tipos} %>
+<div class="block">
+  <div class="secondary-navigation">
+  </div>
+  <div class="content">
+    <h2 class="title">Calendario</h2>
+    <div class="inner">
+			<h4 class="title">Generar Agenda:</h4>
+			<%= link_to "Generar Agenda", new_autogenerar_path, :rel => "facebox" %>
+			<br/>
+			<h4 class="title">Seleccione el a&ntilde;o:</h4>
+			<%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+			<br/>
+      <div class="inventario">
+				<div id="calendar">
+        	<%= render :partial => 'calendar', :locals => {:equipos => @equipos, :year => @year} %>
+      	</div>
+			</div>
+			<span>Convenciones</span>
+			<table>
+			  <%- @tipos.each do |tipo| %>
+			  <tr>
+			    <td><%= tipo.nombre %></td>
+			    <td>
+			      <div class="convention-color" style="background-color: <%= tipo.color %>;">&nbsp;</div>
+			    </td>
+			  </tr>
+			  <% end %>
+			</table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>

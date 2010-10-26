@@ -128,10 +128,19 @@ $(document).ready(function(){
     });
 
     $("#year_for_agenda").change(function(){
-      
-      var url = $.url.attr('path') + "?year=" + $(this).val();
-      window.location = url;
+			var year = $(this).val();
+      $.get('/agenda/calendar', {year: year}, function(data){
+				$('#calendar').html(data);
+			});
     });
+	
+	$('#equipo-agenda').live('change', function(){
+		var year = $(this).val();
+		var equipo = $('#equipo-id').val();
+		$.get('/agenda/equipo_calendar', {year: year, equipo_id: equipo}, function(data){
+			$('#calendar').html(data);
+		});
+	});
 
 
   $(".filter-head").click(function(){

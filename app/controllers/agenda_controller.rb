@@ -2,7 +2,8 @@ class AgendaController < ApplicationController
   before_filter :require_user
 
 	def index
-		@agendas = current_equipo.agendas.paginate(:page => params[:page], :per_page => 10)
+		@equipo = current_equipo
+		@agendas = @equipo.agendas.paginate(:page => params[:page], :per_page => 10)
 		@year = params[:year].nil? ? Date.today.year : params[:year]
   end
 	
@@ -43,5 +44,19 @@ class AgendaController < ApplicationController
 		@equipos = Equipo.all
 		@tipos = TipoMantenimiento.all
 		@year = params[:year].nil? ? Date.today.year : params[:year]
+	end
+	
+	def calendar
+		@equipos = Equipo.all
+		@year = params[:year].nil? ? Date.today.year : params[:year]
+		
+		render :partial => 'agenda/calendar', :locals => {:equipos => @equipos, :year => @year}, :layout => false
+	end
+	
+	def equipo_calendar
+		@equipo = Equipo.where(:id => params[:equipo_id]).first
+		@year = params[:year].nil? ? Date.today.year : params[:year]
+		
+		render :partial => 'agenda/equipo_calendar', :locals => {:equipo => @equipo, :year => @year}, :layout => false
 	end
 end
