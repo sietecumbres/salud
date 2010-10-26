@@ -161,6 +161,22 @@ $(document).ready(function(){
     $.facebox({div: "#dar-salida"});
     $("form").get(1).setAttribute("action", action);
   });
+
+	$('#color-selector').ColorPicker({
+		color: $('#tipo_mantenimiento_color').val().substring(1,7),
+		onShow: function (colpkr) {
+			$(colpkr).fadeIn(500);
+			return false;
+		},
+		onHide: function (colpkr) {
+			$(colpkr).fadeOut(500);
+			return false;
+		},
+		onChange: function (hsb, hex, rgb) {
+			$('#color-selector div').css('backgroundColor', '#' + hex);
+			$('#tipo_mantenimiento_color').val('#' + hex);
+		}
+	});
 });
 
 function validate_date(){

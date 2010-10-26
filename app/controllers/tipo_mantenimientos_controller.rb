@@ -1,5 +1,4 @@
 class TipoMantenimientosController < ApplicationController
-
   before_filter :require_user
 
   def index
@@ -11,11 +10,12 @@ class TipoMantenimientosController < ApplicationController
   end
 
   def new
-    @tipo_mantenimiento = TipoMantenimiento.new
+    @tipo_mantenimiento = TipoMantenimiento.new :color => '#0000ff'
   end
 
   def edit
     @tipo_mantenimiento = TipoMantenimiento.find(params[:id])
+		@tipo_mantenimiento.color = @tipo_mantenimiento.color ? @tipo_mantenimiento.color : '#0000ff'
   end
 
   def create
