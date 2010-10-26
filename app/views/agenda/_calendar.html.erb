@@ -1,56 +1,22 @@
-<br/>
-<span>Seleccione el a&ntilde;o:</span>
-<%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
-<br/>
-<span>Agenda para el a&ntilde;o: <%= year %></span>
-
-<div class="block">
-  <div class="secondary-navigation">
-  </div>
-  <div class="content">
-    <h2 class="title">Calendario</h2>
-    <div class="inner">
-      <div class="inventario">
-        <table class="table">
-          <!-- This is the months header -->
-          <thead>
-            <tr>
-              <th class="first"></th>
-              <th>ene</th>
-              <th>feb</th>
-              <th>mar</th>
-              <th>abr</th>
-              <th>may</th>
-              <th>jun</th>
-              <th>jul</th>
-              <th>ago</th>
-              <th>sep</th>
-              <th>oct</th>
-              <th>nov</th>
-              <th class="last">dic</th>
-            </tr>
-          </thead>
-          <tbody>
-            <%= build_calendar_row(equipos, year)  %>
-          </tbody>
-        </table>
-      </div>
-      <div class="actions-bar wat-cf">
-        <div class="actions">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<span>Convenciones</span>
-<table>
-  <%- tipos.each do |tipo| %>
+<table class="table">
+<thead>
   <tr>
-    <td><%= tipo.nombre %></td>
-    <td>
-      <div class="convention-color" style="background-color: <%= tipo.color %>;">&nbsp;</div>
-    </td>
+    <th class="first"></th>
+    <th>ene</th>
+    <th>feb</th>
+    <th>mar</th>
+    <th>abr</th>
+    <th>may</th>
+    <th>jun</th>
+    <th>jul</th>
+    <th>ago</th>
+    <th>sep</th>
+    <th>oct</th>
+    <th>nov</th>
+    <th class="last">dic</th>
   </tr>
-  <% end %>
+</thead>
+<tbody>
+  <%= build_calendar_row(equipos, year)  %>
+</tbody>
 </table>

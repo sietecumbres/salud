@@ -43,6 +43,8 @@ Salud::Application.routes.draw do
 	match '/equipo/:equipo_id/agendas/:id' => 'agenda#update', :via => :put, :as => :agenda
 	match '/equipo/:equipo_id/agendas/:id' => 'agenda#destroy', :via => :delete, :as => :agenda
 	match '/agenda' => 'agenda#general', :via => :get, :as => :agenda_general
+	match '/agenda/calendar' => 'agenda#calendar', :via => :get, :as => :calendar
+	match '/agenda/equipo_calendar' => 'agenda#equipo_calendar', :via => :get, :as => :equipo_calendar
 	match '/autogenerate' => 'autogenerar#new', :via => :get, :as => :new_autogenerar
 	match '/autogenerate' => 'autogenerar#create', :via => :post, :as => :autogenerar
 	match '/autogenerate/validate_date' => 'autogenerar#validate_date', :via => :get, :as => :validate_date
