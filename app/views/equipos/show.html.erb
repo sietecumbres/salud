@@ -8,47 +8,55 @@
   </div>
   <div class="content">
       <h2 class="title">Detalles del equipo</h2>
-    <div class="inner">
-      <p>
-	<b>Modelo</b>
-	<%= @equipo.modelo %>
-      </p>
-      <p>
-	<b>Marca</b>
-	<%= @equipo.marca %>
-      </p>
-      <p>
-	<b>Serial</b>
-	<%= @equipo.serial %>
-      </p>
-      <p>
-	<b>Placa</b>
-	<%= @equipo.placa %>
-      </p>
-      <p>
-	<b>Valor</b>
-	<%= @equipo.valor %>
-      </p>
-      <p>
-	<b>Tipo Equipo</b>
-	<%= @equipo.tipo_equipo.nombre %>
-      </p>
-      <p>
-	<b>Subtipo Equipo</b>
-	<%= @equipo.subtipo_equipo.nombre %>
-      </p>
-      <p>
-	<b>Tipo Adquisici&oacute;n</b>
-	<%= @equipo.tipo_adquisicion.nombre %>
-      </p>
-      <p>
-	<b>Responsable</b>
-	<%= @equipo.responsable.nombre %>
-      </p>
-      <p>
-	<b>&Aacute;rea</b>
-	<%= @equipo.area.nombre %>
-      </p>
+    <div class="inner form">
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Modelo</label></div>
+        <div class="right"><%= @equipo.modelo %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Marca</label></div>
+        <div class="right"><%= @equipo.marca %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Serial</label></div>
+        <div class="right"><%= @equipo.serial %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Placa</label></div>
+        <div class="right"><%= @equipo.placa %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Valor</label></div>
+        <div class="right"><%= @equipo.valor %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Tipo Equipo</label></div>
+        <div class="right"><%= @equipo.tipo_equipo.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Subtipo Equipo</label></div>
+        <div class="right"><%= @equipo.subtipo_equipo.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Tipo Adquisici&oacute;n</label></div>
+        <div class="right"><%= @equipo.tipo_adquisicion.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">Responsable</label></div>
+        <div class="right"><%= @equipo.responsable.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label">&Aacute;rea</label></div>
+        <div class="right"><%= @equipo.area.nombre %></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label"></label></div>
+        <div class="right"></div>
+      </div>
+      <div class="group wat-cf">
+        <div class="left"><label class = "label"></label></div>
+        <div class="right"></div>
+      </div>
       <div class="wat-cf">
 	<%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "Editar") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_equipo_path(@equipo), :class => "button" %>
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "Eliminar") + " " + t("web-app-theme.delete", :default => "Eliminar"), equipo_path(@equipo), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro ?")}" %>
