@@ -6,15 +6,22 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
+laboratorio1 = Laboratorio.create(:nombre => "Lab 1")
+laboratorio2 = Laboratorio.create(:nombre => "Lab 2")
 area = Area.new
 area.nombre = 'Radiología'
 area.save
+laboratorio1.areas << area
+
 area1 = Area.new
 area1.nombre = 'Odontología'
 area1.save
+laboratorio1.areas << area1
+
 area2 = Area.new
 area2.nombre = 'Cardiología'
 area2.save
+laboratorio1.areas << area2
 
 adquisicion = TipoAdquisicion.new
 adquisicion.nombre = 'Comodato'
