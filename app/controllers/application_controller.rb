@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
 		@current_equipo 
 	end
 	
+	def current_lab
+		@current_lab = Laboratorio.where(:id => Salud::LAB_ID).first
+	end
+	
 #  protected
 #    def set_locale
 #      session[:locale] = params[:locale] if params[:locale]

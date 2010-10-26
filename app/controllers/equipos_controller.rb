@@ -1,5 +1,4 @@
 class EquiposController < ApplicationController
-
   before_filter :get_options, :only => [:index, :search]
   before_filter :require_user
 
@@ -44,13 +43,18 @@ class EquiposController < ApplicationController
 	end
 
 	def create
-		@equipo = Equipo.new params[:equipo]
-		if @equipo.save
-			flash[:notice] = "Nuevo equipo creado con éxito."
-			redirect_to list_equipos_path
-		else
-			render :action => :new
-		end
+		area = current_lab.areas.where(:id => params[:equipo][:area_id]).first
+		
+		area.equipos << Equipo.create(params[:equipo])
+		
+		entrada = EntradaEquipo.new
+		entrada.equipo = area.equipos.last
+		entrada.laboratorio = current_lab
+		entrada.fecha_movimiento = Date.today
+		entrada.save
+		
+		flash[:notice] = "Nuevo equipo creado con éxito."
+		redirect_to list_equipos_path
 	end
 
 	def edit
@@ -59,7 +63,6 @@ class EquiposController < ApplicationController
 
 	def update
 		@equipo = current_equipo
-		
 		if @equipo.update_attributes(params[:equipo])
 			flash[:notice] = "Equipo editado con éxito."
 			redirect_to list_equipos_path

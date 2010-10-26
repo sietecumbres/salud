@@ -6,9 +6,9 @@ class Equipo < ActiveRecord::Base
   belongs_to :tipo_equipo
   has_one :hoja_vida
   has_many :estado_equipos
-  has_many :movimientos
   has_many :reporte_mantenimientos
 	has_many :agendas
+	has_many :movimiento_equipos
 
 	scope :bajo_riesgo, where('tipo_equipo_id = ?', 3)
 	scope :moderado_riesgo, where('tipo_equipo_id = ?', 2)
