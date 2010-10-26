@@ -2,7 +2,8 @@
   <div class="secondary-navigation">
   </div>
   <div class="content">
-    <h2 class="title filter-head">Equipos</h2>
+    <h2 class="title filter-head">Equipos&nbsp;<a href="#"><%= icon :arrow_down, "Expandir" %></a></h2>
+    <br />
     <div class="inner filter">
       <% form_for @busqueda, :url => search_equipos_url, :html => { :class => :form } do |f| %>
         <div class="forms">
@@ -143,7 +144,7 @@
               <th>Valor</th>
               <th>Responsable</th>
               <th>Hoja de Vida</th>
-              <th>Agenda</th>
+              <th class="last">Agenda</th>
             </tr>
           <tbody>
             <% @equipos.each_with_index do |equipo, index| %>
