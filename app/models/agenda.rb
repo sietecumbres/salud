@@ -3,7 +3,7 @@ class Agenda < ActiveRecord::Base
   belongs_to :tipo_mantenimiento
   has_one :reporte_mantenimiento
 
-	order('fecha_programacion ASC')
+	order('fecha_programacion DESC')
 
 	def self.next_agenda(equipo, fecha = Date.today)
 		where('equipo_id = ? AND fecha_programacion > ?', equipo, fecha).order('fecha_programacion').first

@@ -1,8 +1,8 @@
 <fieldset>
   <legend>Autogenerar Agenda</legend>
-  <%- form_for :generate, :url => autogenerar_path do |f| %>
+  <%= form_for :generate, :url => autogenerar_path do |f| %>
   <p>
-    <span>Tipo Mantenimiento:</span
+    <span>Tipo Mantenimiento:</span>
     <select id="tipo_mantenimiento" name="tipo_mantenimiento" class="autogenerar">
       <option>Seleccionar</option>
       <%- @tipos.each do |tipo| %>
