@@ -5,7 +5,6 @@ class UserSessionsController < ApplicationController
 
   def new
     @user_session = UserSession.new
-    @logged_in = true if current_user_session
   end
 
   def create

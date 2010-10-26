@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" %>
   <%= javascript_include_tag "jquery-ui-1.8.5.custom.min" %>
-	<%= javascript_include_tag "colorpicker" %>
+  <%= javascript_include_tag "colorpicker" %>
   <%= javascript_include_tag "jquery.url" %>
   <%= javascript_include_tag "facebox" %>
   <%= javascript_include_tag "rails"  %>
@@ -26,10 +26,12 @@
       <div id="main-navigation">
         <ul class="wat-cf">
           <li class="first active"><%= link_to "Inicio", :login %></li>
-          <li><%= link_to "Equipos", equipos_path %></li>
-          <li><%= link_to "Agenda General", agenda_general_path %></li>
-          <li><a href="#block-login">Insumos</a></li>
-          <li><%= link_to "Cerrar Sesión", :logout %></li>
+          <% if logged_in? %>
+            <li><%= link_to "Equipos", equipos_path %></li>
+            <li><%= link_to "Agenda General", agenda_general_path %></li>
+            <li><a href="#block-login">Insumos</a></li>
+            <li><%= link_to "Cerrar Sesión", :logout %></li>
+          <% end %>
         </ul>
       </div>
     </div>

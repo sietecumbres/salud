@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   #before_filter :set_locale
-	helper_method :current_equipo, :current_user_session, :current_user
+	helper_method :current_equipo, :current_user_session, :current_user, :logged_in?
 
 	def current_equipo
 		if params[:equipo_id]
@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 	def current_lab
 		@current_lab = Laboratorio.where(:id => Salud::LAB_ID).first
 	end
+
+  def logged_in?
+    current_user.present?
+  end
 	
 #  protected
 #    def set_locale
