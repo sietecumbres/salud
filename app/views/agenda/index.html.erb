@@ -1,5 +1,10 @@
 <div class="block">
   <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first">
+        <%= link_to icon(:add, "Nuevo", :align => "left", :class => "icono") + "Nuevo", new_agenda_path, :rel => "facebox" %>
+      </li>
+    </ul>
   </div>
   <div class="content">
     <h2 class="title">Agendas</h2>
@@ -34,11 +39,6 @@
           <div class="actions">
 	    <%= will_paginate @agendas %>
           </div>
-	  <br />
-	  <br />
-	  <div>
-	    <%= link_to "Nuevo", new_agenda_path, :rel => "facebox" %>
-	  </div>
         </div>
       </div>
     </div>

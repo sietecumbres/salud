@@ -57,3 +57,7 @@ select{
 	height: 30px;
 	background: url(/images/colorpicker/select.png) center;
 }
+
+.icono{
+  margin-right: 5px;
+}
