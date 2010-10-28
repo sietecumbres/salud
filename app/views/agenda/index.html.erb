@@ -23,13 +23,13 @@
               <td></td>
               <td><%= agenda.fecha_programacion.to_s%></td>
               <td><%= agenda.tipo_mantenimiento.nombre %></td>
-              <td><%= link_to 'editar', edit_agenda_path(params[:id], agenda), :rel => "facebox" %></td>
-              <td><%= link_to 'eliminar', agenda_path(params[:id], agenda), :confirm => "¿Está seguro que desea eliminar la agenda?", :method => :delete %></td>
+              <td><%= link_to 'Editar', edit_agenda_path(params[:id], agenda), :rel => "facebox", :class => "sexybutton sexysimple sexyblue sexysmall" %></td>
+              <td><%= link_to 'Eliminar', agenda_path(params[:id], agenda), :confirm => "¿Está seguro que desea eliminar la agenda?", :method => :delete, :class => "sexybutton sexysimple sexyblue sexysmall" %></td>
               <td>
                 <% if agenda.reporte_mantenimiento == nil then %>
-                  <%= link_to 'Crear reporte', new_reporte_path(agenda.equipo_id, agenda.id) %>
+                  <%= link_to 'Crear reporte', new_reporte_path(agenda.equipo_id, agenda.id), :class => "sexybutton sexysimple sexyblue sexysmall" %>
                 <% else %>
-                  <%= link_to 'Ver reporte', reporte_path(agenda.equipo_id, agenda.id, agenda.reporte_mantenimiento.id) %>
+                  <%= link_to 'Ver reporte', reporte_path(agenda.equipo_id, agenda.id, agenda.reporte_mantenimiento.id), :class => "sexybutton sexysimple sexyblue sexysmall" %>
                 <% end %>
               </td>
             </tr>
@@ -45,8 +45,10 @@
   </div>
 </div>
 <br/>
-<span>Seleccione el a&ntilde;o:</span>
-<%= select_tag :'equipo-agenda', options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+<div class="group wat-cf form">
+  <div class="left"><label class = "label">Seleccione el a&ntilde;o:</label></div>
+  <div class="right"><%= select_tag :'equipo-agenda', options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %></div>
+</div>
 <input type="hidden" value="<%= @equipo.id %>" id="equipo-id" />
 <br/>
 <div class="block">

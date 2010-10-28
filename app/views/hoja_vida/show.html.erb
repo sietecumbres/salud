@@ -1,4 +1,4 @@
-<%= link_to 'Regresar al listado de equipos', equipos_path %>
+<%= link_to 'Regresar al listado de equipos', equipos_path, :class => "sexybutton sexysimple sexyblue" %>
 <br /><br />
 <div class="block">
   <div class="secondary-navigation">
@@ -95,12 +95,18 @@
   </div>
   <div class="content">
     <h2 class="title">Comparativos</h2>
-    <div class="inner">
+    <div class="inner form">
       <br/>
-      <span>Seleccione el tipo de mantenimiento:</span>
-      <%= select_tag :year, options_for_select((Date.today.year..(Date.today.year + 10)).to_a, params[:anio]) %>
-      <%= select_tag :tipos_mantenimiento, options_for_select(@tipos.collect{|tipom| [tipom.nombre, tipom.id]}, @tipo) %>
-      <input type="button" value="Mostrar" id="mostrar-comparativo" />
+      <div class="group wat-cf">
+        <div class="left">
+          <label class="label">Seleccione el tipo de mantenimiento:</label>
+        </div>
+        <div class="right">
+          <%= select_tag :year, options_for_select((Date.today.year..(Date.today.year + 10)).to_a, params[:anio]) %>
+          <%= select_tag :tipos_mantenimiento, options_for_select(@tipos.collect{|tipom| [tipom.nombre, tipom.id]}, @tipo) %>
+          <input type="button" value="Mostrar" id="mostrar-comparativo" />
+        </div>
+      </div>
       <br/>
       <input type="hidden" value="<%= params[:id]%>" id="equipo" />
       <div id="mantenimientos">
@@ -117,9 +123,10 @@
     <h2 class="title">Reportes de mantenimientos</h2>
     <div class="inner">
       <div class="reportes">
-        <h4 class="title filter-head">Busqueda por Fechas</h4>
+        <h4 class="title filter-head sexybutton sexysimple sexyblue">Busqueda por Fechas</h4>
         <div class="form filter">
           <div class="forms">
+            <br />
             <div class="group wat-cf">
 	      <div class="left">
 		<label class = "label">Fecha de Inicio</label>
@@ -138,6 +145,7 @@
 	    </div>
           </div>
         </div>
+        <br /><br />
         <table class="table">
           <tr>
             <th class="first"></th>

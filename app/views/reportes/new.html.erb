@@ -1,11 +1,12 @@
-<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
+<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]), :class => "sexybutton sexysimple sexyblue" %>
+<br /><br />
 <div class="block">
   <div class="secondary-navigation">
   </div>
   <div class="content">
     <h2 class="title">INGRESAR REPORTE</h2>
-    <p>Reporte elaborado para el equipo de marca <strong><%= @equipo.marca %></strong>, modelo <strong><%= @equipo.modelo %></strong> y serial <strong><%= @equipo.serial %></strong></p>
-    <div class="inner">
+    <h3 style="padding-left: 20px">Reporte elaborado para el equipo de marca <strong><%= @equipo.marca %></strong>, modelo <strong><%= @equipo.modelo %></strong> y serial <strong><%= @equipo.serial %></strong></h3>
+    <div class="inner form">
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]) do |f| %>
         <div class="forms">
           <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
@@ -40,23 +41,25 @@
               <h4>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</h4>
               <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
             </div>
-            <label class="label">Ingrese la evaluación y el diagnóstico general</label>
-            <div class="extra">
-              <p>
-                <%= text_area_tag(:eval, nil, :class =>  "text_area") %>
-              </p>
+            <div class="group wat-cf">
+              <div class="left"><label class = "label">Ingrese la evaluación y el diagnóstico general</label></div>
+              <div class="right">
+                <div class="extra"><%= text_area_tag(:eval, nil, :class =>  "text_area") %></div>
+              </div>
             </div>
-          </div>
-          <div class="descripcion">
-            <label class="label">Ingrese la descripción del servicio</label>
-            <p>
-              <%= text_area_tag(:descripcion, nil, :class =>  "text_area") %>
-            </p>
+            <div class="group wat-cf descripcion">
+              <div class="left"><label class = "label">Ingrese la descripción del servicio</label></div>
+              <div class="right">
+                <div class="extra"><%= text_area_tag(:descripcion, nil, :class =>  "text_area") %></div>
+              </div>
+            </div>
           </div>
           <div class="repuestos">
             <input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
+            <br />
             <label class="label">MATERIALES, REPUESTOS E INSUMOS</label>
-            <a class="add_repuesto">Adicionar</a>
+            <a class="add_repuesto sexybutton sexysimple sexyblue"">Adicionar</a>
+            <br /><br />
             <table class="table" id="tabla-repuestos">
               <tr>
                 <th class="first"></th>
@@ -69,7 +72,11 @@
           <div id="lista-repuestos"></div>
           <br />
 	</div>
-	<%= submit_tag 'Guardar' %>
+	<button class="button" type="submit">
+          <%= image_tag("web-app-theme/icons/tick.png", :alt => "Guardar") %>
+          Guardar
+        </button>
+        <br /><br />
       <% end %>
     </div>
   </div>
