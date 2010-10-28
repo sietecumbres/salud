@@ -16,9 +16,9 @@
   <%= f.password_field :password_confirmation, :class => 'text_field' %>
 </div>
 <div class="group">
-  <%= f.label :firma, "Seleccione la imagen de la firma" %>
+  <%= f.label :firma, "Seleccione la imagen de la firma", :class => :label %>
   <%= image_tag(@user.firma_url) if @user.firma? %>
-  <%= f.file_field :firma %>
+  <%= f.file_field :firma, :class => 'text_field' %>
   <%= f.hidden_field :firma_cache %>
 </div>
 <div class="group navform wat-cf">
