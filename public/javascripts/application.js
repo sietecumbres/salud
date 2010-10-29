@@ -7,6 +7,7 @@ $(document).ready(function(){
     $(document).bind('loading.facebox', function() {
         $(document).unbind('keydown.facebox');
     });
+
     var param =  "";
     var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
     $(".autocomplete").click(function(){
@@ -14,6 +15,38 @@ $(document).ready(function(){
     });
     $(".autocomplete").focus(function(){
         autocomplete_fields($(this).attr("data-remote"));
+    });
+
+    //Funcion para validar solo números
+    $(".numeric").keydown(function(event) {
+        if ( event.keyCode == 46 || event.keyCode == 8 ) {
+        } else {
+            if (event.keyCode < 95) {
+                    if (event.keyCode < 48 || event.keyCode > 57 ) {
+                        event.preventDefault();
+                    }
+                } else {
+                    if (event.keyCode < 96 || event.keyCode > 105 ) {
+                        event.preventDefault();
+                }
+            }
+        }
+    });
+    
+    //Funcion para validar solo números Facebox
+    $(".numeric").live('keydown', function(event) {
+        if ( event.keyCode == 46 || event.keyCode == 8 ) {
+        } else {
+            if (event.keyCode < 95) {
+                    if (event.keyCode < 48 || event.keyCode > 57 ) {
+                        event.preventDefault();
+                    }
+                } else {
+                    if (event.keyCode < 96 || event.keyCode > 105 ) {
+                        event.preventDefault();
+                }
+            }
+        }
     });
 
     $('.datepicker').datepicker();
@@ -177,6 +210,7 @@ $(document).ready(function(){
 			$('#tipo_mantenimiento_color').val('#' + hex);
 		}
 	});
+
 });
 
 function validate_date(){

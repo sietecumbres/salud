@@ -79,7 +79,7 @@
               <label class = "label">Serial</label>
             </div>
             <div class="right">
-              <%= f.text_field(:serial, :class => 'autocomplete text_field', 'data-remote' => 'serial') %>
+              <%= f.text_field(:serial, :class => 'autocomplete text_field numeric', 'data-remote' => 'serial') %>
               <span class="description"></span>
             </div>
          </div>
@@ -98,7 +98,7 @@
               <label class = "label">Mínimo</label>
             </div>
             <div class="right">
-              <%= text_field_tag :valor_min, nil, :class => "text_field" %>
+              <%= text_field_tag :valor_min, nil, :class => "text_field numeric" %>
               <span class="description"></span>
             </div>
          </div>
@@ -107,7 +107,7 @@
               <label class = "label">Máximo</label>
             </div>
             <div class="right">
-              <%= text_field_tag :valor_max, nil, :class => "text_field" %>
+              <%= text_field_tag :valor_max, nil, :class => "text_field numeric" %>
               <span class="description"></span>
             </div>
          </div>

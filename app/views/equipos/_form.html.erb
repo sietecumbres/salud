@@ -4,11 +4,11 @@
 </div>
 <div class="group">
   <%= f.label :marca, "Marca", :class => :label %>
-  <%= f.text_field :marca, :class => 'text_field' %>
+  <%= f.text_field :marca, :class => 'autocomplete text_field' %>
 </div>
 <div class="group">
   <%= f.label :serial, "Serial", :class => :label %>
-  <%= f.text_field :serial, :class => 'text_field' %>
+  <%= f.text_field :serial, :class => 'text_field numeric' %>
 </div>
 <div class="group">
   <%= f.label :placa, "Placa", :class => :label %>
@@ -16,7 +16,7 @@
 </div>
 <div class="group">
   <%= f.label :valor, "Valor", :class => :label %>
-  <%= f.text_field :valor, :class => 'text_field' %>
+  <%= f.text_field :valor, :class => 'text_field numeric' %>
 </div>
 <div class="group">
   <%= f.label :tipo_equipo_id, "Tipo", :class => :label %>
