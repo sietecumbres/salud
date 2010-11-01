@@ -39,7 +39,7 @@
             <th class="first">Prueba cualitativa</th>
             <th>Resultado</th>
             <th>Evaluación</th>
-	    <th>Prueba cualitativa</th>
+	    			<th>Prueba cualitativa</th>
             <th>Resultado</th>
             <th class="last">Evaluación</th>
           </tr>
@@ -55,9 +55,9 @@
       <div class="evaluacion">
         <h4>EVALUACIÓN Y DIAGNÓSTICO</h4>
         <table class="table">
-          <% @reporte.estado_equipos.each do |estado_equipo| %>
-            <%= render :partial => 'reportes/diagnostico', :locals => {:estado_equipo => estado_equipo} %>
-          <% end %>
+					<tr>
+						<td><%= @reporte.evaluacion_diagnostico %></td>
+					</tr>
         </table>
       </div>
       <div class="descripcion">
