@@ -8,17 +8,139 @@ var datepicker_options = 	{
 													}
 
 $(document).ready(function(){
-  $(document).bind('loading.facebox', function() {
-    $(document).unbind('keydown.facebox');
-  });
-  var param =  "";
-  var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
+    $(document).bind('loading.facebox', function() {
+        $(document).unbind('keydown.facebox');
+    });
+
+    var param =  "";
+    var data = "Core Selectors Attributes Traversing Manipulation CSS Events Effects Ajax Utilities".split(" ");
     $(".autocomplete").click(function(){
-      autocomplete_fields($(this).attr("data-remote"));
-  });
-  $(".autocomplete").focus(function(){
-       autocomplete_fields($(this).attr("data-remote"));
-  });
+        autocomplete_fields($(this).attr("data-remote"));
+    });
+    $(".autocomplete").focus(function(){
+        autocomplete_fields($(this).attr("data-remote"));
+    });
+
+    //Funcion para validar solo números
+    $(".numeric").keydown(function(event) {
+        if ( event.keyCode == 46 || event.keyCode == 8 ) {
+        } else {
+            if (event.keyCode < 95) {
+                    if (event.keyCode < 48 || event.keyCode > 57 ) {
+                        event.preventDefault();
+                    }
+                } else {
+                    if (event.keyCode < 96 || event.keyCode > 105 ) {
+                        event.preventDefault();
+                }
+            }
+        }
+    });
+    
+    //Funcion para validar solo números Facebox
+    $(".numeric").live('keydown', function(event) {
+        if ( event.keyCode == 46 || event.keyCode == 8 ) {
+        } else {
+            if (event.keyCode < 95) {
+                    if (event.keyCode < 48 || event.keyCode > 57 ) {
+                        event.preventDefault();
+                    }
+                } else {
+                    if (event.keyCode < 96 || event.keyCode > 105 ) {
+                        event.preventDefault();
+                }
+            }
+        }
+    });
+
+    $('.datepicker').datepicker();
+    
+    $("#busqueda_tipo_adquisicion_id").change(function(){
+        if(!$(this).val()){
+            $("#otro-adquisicion").show();
+        }
+        else{
+            $("#otro-adquisicion").hide();
+        }
+    });
+    
+    $("#reporte_tipo_mantenimiento_id").change(function(){
+        if(!$(this).val()){
+            $("#otro-mantenimiento").show();
+        }
+        else{
+            $("#otro-mantenimiento").hide();
+        }
+    });
+    
+    $('a[rel*=facebox]').facebox();
+    $(".radio").click(function(){
+        estado_id = $(this).attr("data-remote");
+        $.facebox($("#div-evaluacion").val());
+    });
+
+    //Funcion para adicionar la evaluacion si el estados es Reprobado
+    $("#to-eval").live('click', function(){
+        $("#estado-"+estado_id).val($("#add-eval").val());
+        var eval = $("#add-eval").val();
+        $(".rp_evaluacion").show();
+        $('#extra_eval').append(estado_id + " " + eval + "\n");
+        $(document).trigger('close.facebox');
+    });
+
+    //Funcion para desplegar el formulario de ingreso de repuestos
+    $(".add_repuesto").click(function(){
+        $.facebox($("#div-repuestos").val());
+    });
+
+    //Funcion para buscar por documento de identidad
+    $("#buscar-cc").click(function(){
+        $.ajax({
+            url: "/find_by_cc",
+            data: ({documento: $("#buscar-documento").val()}),
+            type: "POST",
+            dataType: "json",
+            success: function(data){
+                if(data != "error"){
+                    $("#info-recibe").show();
+                    $("#recibe_nombre").val(data.persona.nombre);
+                    $("#recibe_cargo").val(data.persona.cargo);
+                }
+            }
+        });
+    });
+
+    //Funcion para mostrar los comparativos del mantenimiento
+    $("#mostrar-comparativo").live('click', function(){
+        $.ajax({
+            url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
+            data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year").val()}),
+            type: "GET",
+            success: function(data){
+                $("#mantenimientos").html(data);
+            },
+            error: function(xhr, e, ex){
+                alert("error: "+ex);
+            }
+        });
+    });
+
+    //Función para almacenar el estado equipo cada que se haga clic en un radio
+    $(".r_normal").click(function(){
+        $("#estado-"+$(this).attr("data-remote")).val("");
+    });
+    
+    $("#agregar-repuesto").live('click', function(){
+        $("#tabla-repuestos").append("<tr>\
+                                        <td></td>\
+                                        <td>" + $("#ref").val() + "</td>\
+                                        <td>" + $("#cantidad").val() + "</td>\
+                                        <td>" + $("#desc").val() + "</td>\
+                                       </tr>");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][cant]' value='" + $("#cantidad").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][desc]' value='" + $("#desc").val() + "' />");
+        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
+    });
 
   $('.datepicker').datepicker(datepicker_options);
    
@@ -181,6 +303,7 @@ $(document).ready(function(){
 			$('#tipo_mantenimiento_color').val('#' + hex);
 		}
 	});
+
 });
 
 function validate_date(){
