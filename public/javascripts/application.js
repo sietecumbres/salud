@@ -8,6 +8,8 @@ var datepicker_options = 	{
 													}
 
 $(document).ready(function(){
+	$(".field").example('Entre texto aquí');
+	
     $(document).bind('loading.facebox', function() {
         $(document).unbind('keydown.facebox');
     });
@@ -53,7 +55,7 @@ $(document).ready(function(){
         }
     });
 
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker(datepicker_options);
     
     $("#busqueda_tipo_adquisicion_id").change(function(){
         if(!$(this).val()){
@@ -288,8 +290,12 @@ $(document).ready(function(){
     $("form").get(1).setAttribute("action", action);
   });
 
+	var color = "";
+	if($('#tipo_mantenimiento_color').length > 0)
+		color = $('#tipo_mantenimiento_color').val().substring(1,7)
+	
 	$('#color-selector').ColorPicker({
-		color: $('#tipo_mantenimiento_color').val().substring(1,7),
+		color: color,
 		onShow: function (colpkr) {
 			$(colpkr).fadeIn(500);
 			return false;
@@ -317,6 +323,7 @@ function validate_date(){
     $("#desde.autogenerar").removeAttr('disabled');
     $("#tipo_mantenimiento.autogenerar").removeAttr('disabled');
   });
+
 }
 
 function autocomplete_fields(table){

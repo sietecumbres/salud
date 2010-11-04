@@ -1,3 +1,5 @@
+<fieldset>
+	<legend>Informaci&oacute;n</legend>
 <div class="group">
   <%= f.label :modelo, "Modelo", :class => :label %>
   <%= f.text_field :modelo, :class => 'text_field' %>
@@ -38,6 +40,50 @@
   <%= f.label :area_id, "Área", :class => :label %>
   <%= f.select :area_id, options_for_select(Area.all.collect{|area| [area.nombre, area.id]}, equipo.area_id), {:include_blank => true} %>
 </div>
+</fieldset>
+<fieldset>
+	<legend>Hoja de Vida</legend>
+	<div class="group">
+		<%= label_tag 'hoja_vida[fecha_compra]', "Fecha Compra", :class => :label %>
+		<%= text_field_tag 'hoja_vida[fecha_compra]', equipo.hoja_vida.fecha_compra, :class => 'text_field datepicker' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[fecha_instalacion]', "Fecha Instalación", :class => :label %>
+		<%= text_field_tag 'hoja_vida[fecha_instalacion]', equipo.hoja_vida.fecha_instalacion, :class => 'text_field datepicker' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[fabricante_id]', "Fabricante", :class => :label %>
+		<%= select_tag 'hoja_vida[fabricante_id]', options_for_select(Fabricante.all.collect{|fabricante| [fabricante.nombre, fabricante.id]}, equipo.hoja_vida.fabricante_id), {:include_blank => true} %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[proveedor_id]', "Proveedor", :class => :label %>
+		<%= select_tag 'hoja_vida[proveedor_id]', options_for_select(Proveedor.all.collect{|proveedor| [proveedor.nombre, proveedor.id]}, equipo.hoja_vida.proveedor_id), {:include_blank => true} %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[garantia]', "Garantía", :class => :label %>
+		<%= text_field_tag 'hoja_vida[garantia]', equipo.hoja_vida.garantia, :class => 'text_field datepicker' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[manual_operacion]', "Manual de Operación", :class => :label %>
+		<%= check_box_tag 'hoja_vida[manual_operacion]', '1', equipo.hoja_vida.manual_operacion %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[voltaje]', "Voltaje", :class => :label %>
+		<%= text_field_tag 'hoja_vida[voltaje]', equipo.hoja_vida.voltaje, :class => 'text_field' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[amperaje]', "Amperaje", :class => :label %>
+		<%= text_field_tag 'hoja_vida[amperaje]', equipo.hoja_vida.amperaje, :class => 'text_field' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[potencia]', "Potencia", :class => :label %>
+		<%= text_field_tag 'hoja_vida[potencia]', equipo.hoja_vida.potencia, :class => 'text_field' %>
+	</div>
+	<div class="group">
+		<%= label_tag 'hoja_vida[frecuencia]', "Frecuencia", :class => :label %>
+		<%= text_field_tag 'hoja_vida[frecuencia]', equipo.hoja_vida.frecuencia, :class => 'text_field' %>
+	</div>
+</fieldset>
 <div class="group navform wat-cf">
   <button class="button" type="submit">
     <%= image_tag("web-app-theme/icons/tick.png", :alt => "Guardar") %>

@@ -49,6 +49,47 @@
         <div class="left"><label class = "label">&Aacute;rea</label></div>
         <div class="right"><%= @equipo.area.nombre %></div>
       </div>
+			<h2 class="title">Hoja de Vida</h2>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Fecha Compra</label></div>
+        <div class="right"><%= @equipo.hoja_vida.fecha_compra %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Fecha Instalaci&oacute;n</label></div>
+        <div class="right"><%= @equipo.hoja_vida.fecha_instalacion %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Garant&iacute;a</label></div>
+        <div class="right"><%= @equipo.hoja_vida.garantia %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Fabricante</label></div>
+        <div class="right"><%= @equipo.hoja_vida.fabricante.nombre %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Proveedor</label></div>
+        <div class="right"><%= @equipo.hoja_vida.proveedor.nombre %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Manual de Operaci&oacute;n?</label></div>
+        <div class="right"><%= @equipo.hoja_vida.manual_operacion ? 'Si' : 'No' %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Voltaje</label></div>
+        <div class="right"><%= @equipo.hoja_vida.voltaje %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Amperaje</label></div>
+        <div class="right"><%= @equipo.hoja_vida.amperaje %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Potencia</label></div>
+        <div class="right"><%= @equipo.hoja_vida.potencia %></div>
+			</div>
+			<div class="group wat-cf">
+				<div class="left"><label class = "label">Frecuencia</label></div>
+        <div class="right"><%= @equipo.hoja_vida.frecuencia %></div>
+			</div>
       <div class="group wat-cf">
         <div class="left"><label class = "label"></label></div>
         <div class="right"></div>
