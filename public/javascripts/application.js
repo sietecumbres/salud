@@ -154,7 +154,9 @@ $(document).ready(function(){
    });
    
    $("#agregar-repuesto").live('click', function(){
-		$('#add-repuesto-form').submit();
+		$('#add-repuesto-form').submit(function(){
+			return false;
+		});
 		if($('#add-repuesto-form').valid()){
        $("#tabla-repuestos").append("<tr>\
                                        <td></td>\
