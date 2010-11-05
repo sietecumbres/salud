@@ -36,6 +36,7 @@ class EquiposController < ApplicationController
 
   def new
     @equipo = Equipo.new
+		@equipo.hoja_vida = HojaVida.new
   end
 
 	def list
@@ -45,7 +46,13 @@ class EquiposController < ApplicationController
 	def create
 		area = current_lab.areas.where(:id => params[:equipo][:area_id]).first
 		
-		area.equipos << Equipo.create(params[:equipo])
+		params[:hoja_vida].merge(:manual_operacion => '0') unless params[:hoja_vida][:manual_operacion]
+		
+		equipo = Equipo.create params[:equipo]
+		equipo.hoja_vida = HojaVida.create params[:hoja_vida]
+		equipo.save
+		
+		area.equipos << equipo
 		
 		entrada = EntradaEquipo.new
 		entrada.equipo = area.equipos.last
@@ -62,8 +69,9 @@ class EquiposController < ApplicationController
 	end
 
 	def update
+		params[:hoja_vida].merge(:manual_operacion => '0') unless params[:hoja_vida][:manual_operacion]
 		@equipo = current_equipo
-		if @equipo.update_attributes(params[:equipo])
+		if @equipo.update_attributes(params[:equipo]) && @equipo.hoja_vida.update_attributes(params[:hoja_vida])
 			flash[:notice] = "Equipo editado con éxito."
 			redirect_to list_equipos_path
 		else

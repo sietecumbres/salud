@@ -14,6 +14,8 @@ Salud::Application.routes.draw do
 
 
 	resources :equipos do
+		resources :hoja_vida
+		
 		collection do
 			get 'list'
 			post 'search'

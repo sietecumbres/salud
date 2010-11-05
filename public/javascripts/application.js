@@ -2,8 +2,14 @@
 // This file is automatically included by javascript_include_tag :defaults
 
 var estado_id = "";
+var datepicker_options = 	{
+														changeMonth: true,
+														changeYear: true
+													}
 
 $(document).ready(function(){
+	$(".field").example('Entre texto aquí');
+	
     $(document).bind('loading.facebox', function() {
         $(document).unbind('keydown.facebox');
     });
@@ -49,7 +55,7 @@ $(document).ready(function(){
         }
     });
 
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker(datepicker_options);
     
     $("#busqueda_tipo_adquisicion_id").change(function(){
         if(!$(this).val()){
@@ -138,35 +144,124 @@ $(document).ready(function(){
         $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
     });
 
-    $(document).bind('reveal.facebox', function(){
-        $('.datepicker').datepicker();
-        $(".autocomplete_repuestos").autocomplete({
-        source: function(req, add){
-          $.getJSON("/reportes/autocomplete_repuestos", req, function(data){
-            var suggestions = [];
-            $.each(data, function(i, val){
-              suggestions.push(val);
-            });
-          add(suggestions);
-        });},
-        minLength: 1
-      });
-    });
-    
-    $("#tipo_mantenimiento.autogenerar").live('change', function(){
-      $("#periodicidad.autogenerar").val($("#tipo_mantenimiento.autogenerar [value='" + $(this).val() + "']").attr("data-remote"));
-      $("#periodicidad.autogenerar").removeAttr('disabled');
-      $("#enviar.autogenerar").removeAttr('disabled');
-      validate_date();
-    });
+  $('.datepicker').datepicker(datepicker_options);
+   
+   $("#busqueda_tipo_adquisicion_id").change(function(){
+       if(!$(this).val()){
+           $("#otro-adquisicion").show();
+       }
+       else{
+           $("#otro-adquisicion").hide();
+       }
+   });
+   
+   $("#reporte_tipo_mantenimiento_id").change(function(){
+       if(!$(this).val()){
+           $("#otro-mantenimiento").show();
+       }
+       else{
+           $("#otro-mantenimiento").hide();
+       }
+   });
+   
+   $('a[rel*=facebox]').facebox();
+   $(".radio").click(function(){
+       estado_id = $(this).attr("data-remote");
+       $.facebox($("#div-evaluacion").val());
+   });
 
-    $("#year_for_agenda").change(function(){
-			var year = $(this).val();
-      $.get('/agenda/calendar', {year: year}, function(data){
-				$('#calendar').html(data);
-			});
-    });
-	
+   //Funcion para adicionar la evaluacion si el estados es Reprobado
+   $("#to-eval").live('click', function(){
+       $("#estado-"+estado_id).val($("#add-eval").val());
+       var eval = $("#add-eval").val();
+       $(".rp_evaluacion").show();
+       $('#extra_eval').append(estado_id + " " + eval + "\n");
+       $(document).trigger('close.facebox');
+   });
+
+   //Funcion para desplegar el formulario de ingreso de repuestos
+   $(".add_repuesto").click(function(){
+       $.facebox($("#div-repuestos").val());
+   });
+
+   //Funcion para buscar por documento de identidad
+   $("#buscar-cc").click(function(){
+       $.ajax({
+           url: "/find_by_cc",
+           data: ({documento: $("#buscar-documento").val()}),
+           type: "POST",
+           dataType: "json",
+           success: function(data){
+               if(data != "error"){
+                   $("#info-recibe").show();
+                   $("#recibe_nombre").val(data.persona.nombre);
+                   $("#recibe_cargo").val(data.persona.cargo);
+               }
+           }
+       });
+   });
+
+   //Funcion para mostrar los comparativos del mantenimiento
+   $("#mostrar-comparativo").live('click', function(){
+       $.ajax({
+           url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
+           data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year").val()}),
+           type: "GET",
+           success: function(data){
+               $("#mantenimientos").html(data);
+           },
+           error: function(xhr, e, ex){
+               alert("error: "+ex);
+           }
+       });
+   });
+
+   //Función para almacenar el estado equipo cada que se haga clic en un radio
+   $(".r_normal").click(function(){
+       $("#estado-"+$(this).attr("data-remote")).val("");
+   });
+   
+   $("#agregar-repuesto").live('click', function(){
+       $("#tabla-repuestos").append("<tr>\
+                                       <td></td>\
+                                       <td>" + $("#ref").val() + "</td>\
+                                       <td>" + $("#cantidad").val() + "</td>\
+                                       <td>" + $("#desc").val() + "</td>\
+                                      </tr>");
+       $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][cant]' value='" + $("#cantidad").val() + "' />");
+       $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][desc]' value='" + $("#desc").val() + "' />");
+       $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
+   });
+
+   $(document).bind('reveal.facebox', function(){
+       $('.datepicker').datepicker(datepicker_options);
+       $(".autocomplete_repuestos").autocomplete({
+       source: function(req, add){
+         $.getJSON("/reportes/autocomplete_repuestos", req, function(data){
+           var suggestions = [];
+           $.each(data, function(i, val){
+             suggestions.push(val);
+           });
+         add(suggestions);
+       });},
+       minLength: 1
+     });
+   });
+   
+   $("#tipo_mantenimiento.autogenerar").live('change', function(){
+     $("#periodicidad.autogenerar").val($("#tipo_mantenimiento.autogenerar [value='" + $(this).val() + "']").attr("data-remote"));
+     $("#periodicidad.autogenerar").removeAttr('disabled');
+     $("#enviar.autogenerar").removeAttr('disabled');
+     validate_date();
+   });
+
+   $("#year_for_agenda").change(function(){
+		var year = $(this).val();
+     $.get('/agenda/calendar', {year: year}, function(data){
+			$('#calendar').html(data);
+		});
+   });
+
 	$('#equipo-agenda').live('change', function(){
 		var year = $(this).val();
 		var equipo = $('#equipo-id').val();
@@ -195,8 +290,12 @@ $(document).ready(function(){
     $("form").get(1).setAttribute("action", action);
   });
 
+	var color = "";
+	if($('#tipo_mantenimiento_color').length > 0)
+		color = $('#tipo_mantenimiento_color').val().substring(1,7)
+	
 	$('#color-selector').ColorPicker({
-		color: $('#tipo_mantenimiento_color').val().substring(1,7),
+		color: color,
 		onShow: function (colpkr) {
 			$(colpkr).fadeIn(500);
 			return false;
@@ -224,6 +323,7 @@ function validate_date(){
     $("#desde.autogenerar").removeAttr('disabled');
     $("#tipo_mantenimiento.autogenerar").removeAttr('disabled');
   });
+
 }
 
 function autocomplete_fields(table){

@@ -19,4 +19,8 @@ class HojaVidaController < ApplicationController
 
   end
 
+	def new
+		hoja_vida = HojaVida.new
+	end
+
 end
