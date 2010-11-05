@@ -128,22 +128,7 @@ $(document).ready(function(){
     });
 
     //Función para almacenar el estado equipo cada que se haga clic en un radio
-    $(".r_normal").click(function(){
-        $("#estado-"+$(this).attr("data-remote")).val("");
-    });
     
-    $("#agregar-repuesto").live('click', function(){
-        $("#tabla-repuestos").append("<tr>\
-                                        <td></td>\
-                                        <td>" + $("#ref").val() + "</td>\
-                                        <td>" + $("#cantidad").val() + "</td>\
-                                        <td>" + $("#desc").val() + "</td>\
-                                       </tr>");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][cant]' value='" + $("#cantidad").val() + "' />");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][desc]' value='" + $("#desc").val() + "' />");
-        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
-    });
-
   $('.datepicker').datepicker(datepicker_options);
    
    $("#busqueda_tipo_adquisicion_id").change(function(){
@@ -169,6 +154,8 @@ $(document).ready(function(){
    });
    
    $("#agregar-repuesto").live('click', function(){
+		$('#add-repuesto-form').submit();
+		if($('#add-repuesto-form').valid()){
        $("#tabla-repuestos").append("<tr>\
                                        <td></td>\
                                        <td>" + $("#ref").val() + "</td>\
@@ -178,10 +165,12 @@ $(document).ready(function(){
        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][cant]' value='" + $("#cantidad").val() + "' />");
        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][desc]' value='" + $("#desc").val() + "' />");
        $("#lista-repuestos").append("<input type='hidden' name='repuestos[repuesto" + $("#ref").val() + "][ref]' value='" + $("#ref").val() + "' />");
+			}
    });
 
    $(document).bind('reveal.facebox', function(){
 			$('.to-validate').validate();
+			$('#add-repuesto-form').validate();
        $('.datepicker').datepicker(datepicker_options);
        $(".autocomplete_repuestos").autocomplete({
        source: function(req, add){
