@@ -37,7 +37,11 @@ module HojaVidaHelper
 		full = 1.upto(12).collect{|number| "" }
 
 		agendas.each do |agenda|
-			full[agenda.fecha_ejecucion.month - 1] << "<div class='agenda-day' style='background-color:#{agenda.tipo_mantenimiento.color};'>#{agenda.fecha_ejecucion.day}</div>"
+		  unless agenda.fecha_ejecucion
+		    full[agenda.fecha_programacion.month - 1] << "<div class='agenda-day' style='background-color:#{agenda.tipo_mantenimiento.color};'>NE</div>"
+		  else
+			  full[agenda.fecha_ejecucion.month - 1] << "<div class='agenda-day' style='background-color:#{agenda.tipo_mantenimiento.color};'>#{agenda.fecha_ejecucion.day}</div>"
+			end
 		end
 
 		full

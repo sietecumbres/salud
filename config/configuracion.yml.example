@@ -1,8 +1,0 @@
-development:
-	laboratorio: 1
-
-test:
-	laboratorio: 1
-		
-production:
-	laboratorio: 1
