@@ -30,9 +30,18 @@ select{
   color: #9F6000;
   background-color: #FEEFB3;
 }
-.error {
-  color: #D8000C;
-  background-color: #FFBABA;
+label.error {
+	display: block;
+	color: red;
+	font-style: italic;
+	font-weight: normal;
+}
+
+input.error {
+	border: 2px solid red;
+  background-color: #FFFFD5;
+  margin: 0px;
+  color: red;
 }
 
 .filter-head{

@@ -8,7 +8,7 @@
   <div class="content">            
     <h2 class="title">Nuevo Tipo de Mantenimiento</h2>
     <div class="inner">
-      <%= form_for :tipo_mantenimiento, :url => tipo_mantenimientos_path, :html => { :class => :form } do |f| -%>
+      <%= form_for :tipo_mantenimiento, :url => tipo_mantenimientos_path, :html => { :class => 'form to-validate' } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
       <% end -%>
     </div>
