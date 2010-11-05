@@ -182,6 +182,7 @@ $(document).ready(function(){
    });
 
    $(document).bind('reveal.facebox', function(){
+			$('.to-validate').validate();
        $('.datepicker').datepicker(datepicker_options);
        $(".autocomplete_repuestos").autocomplete({
        source: function(req, add){
