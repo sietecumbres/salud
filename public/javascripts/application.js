@@ -10,7 +10,6 @@ var datepicker_options = 	{
 $(document).ready(function(){
 	$('.to-validate').validate();
   $('a[rel*=facebox]').facebox();
-	$(".field").example('Entre texto aquí');
 	
     $(document).bind('loading.facebox', function() {
         $(document).unbind('keydown.facebox');
