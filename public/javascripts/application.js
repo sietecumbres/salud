@@ -8,6 +8,7 @@ var datepicker_options = 	{
 													}
 
 $(document).ready(function(){
+  $('a[rel*=facebox]').facebox();
 	$(".field").example('Entre texto aquí');
 	
     $(document).bind('loading.facebox', function() {
@@ -75,7 +76,6 @@ $(document).ready(function(){
         }
     });
     
-    $('a[rel*=facebox]').facebox();
     $(".radio").click(function(){
         estado_id = $(this).attr("data-remote");
         $.facebox($("#div-evaluacion").val());
@@ -163,60 +163,7 @@ $(document).ready(function(){
            $("#otro-mantenimiento").hide();
        }
    });
-   
-   $('a[rel*=facebox]').facebox();
-   $(".radio").click(function(){
-       estado_id = $(this).attr("data-remote");
-       $.facebox($("#div-evaluacion").val());
-   });
-
-   //Funcion para adicionar la evaluacion si el estados es Reprobado
-   $("#to-eval").live('click', function(){
-       $("#estado-"+estado_id).val($("#add-eval").val());
-       var eval = $("#add-eval").val();
-       $(".rp_evaluacion").show();
-       $('#extra_eval').append(estado_id + " " + eval + "\n");
-       $(document).trigger('close.facebox');
-   });
-
-   //Funcion para desplegar el formulario de ingreso de repuestos
-   $(".add_repuesto").click(function(){
-       $.facebox($("#div-repuestos").val());
-   });
-
-   //Funcion para buscar por documento de identidad
-   $("#buscar-cc").click(function(){
-       $.ajax({
-           url: "/find_by_cc",
-           data: ({documento: $("#buscar-documento").val()}),
-           type: "POST",
-           dataType: "json",
-           success: function(data){
-               if(data != "error"){
-                   $("#info-recibe").show();
-                   $("#recibe_nombre").val(data.persona.nombre);
-                   $("#recibe_cargo").val(data.persona.cargo);
-               }
-           }
-       });
-   });
-
-   //Funcion para mostrar los comparativos del mantenimiento
-   $("#mostrar-comparativo").live('click', function(){
-       $.ajax({
-           url: "/equipo/"+ $("#equipo").val()+"/mostrar_mantenimiento",
-           data: ({tipo_mantenimiento: $("#tipos_mantenimiento").val(), anio: $("#year").val()}),
-           type: "GET",
-           success: function(data){
-               $("#mantenimientos").html(data);
-           },
-           error: function(xhr, e, ex){
-               alert("error: "+ex);
-           }
-       });
-   });
-
-   //Función para almacenar el estado equipo cada que se haga clic en un radio
+      //Función para almacenar el estado equipo cada que se haga clic en un radio
    $(".r_normal").click(function(){
        $("#estado-"+$(this).attr("data-remote")).val("");
    });

@@ -1,4 +1,4 @@
 class TipoMantenimiento < ActiveRecord::Base
-  has_many :reporte_mantenimientos
-	has_many :autoagendas
+  has_many :reporte_mantenimientos, :dependent => :destroy
+	has_many :autoagendas, :dependent => :destroy
 end

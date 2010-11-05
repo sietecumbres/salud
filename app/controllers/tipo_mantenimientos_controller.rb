@@ -41,6 +41,7 @@ class TipoMantenimientosController < ApplicationController
   def destroy
     @tipo_mantenimiento = TipoMantenimiento.find(params[:id])
     @tipo_mantenimiento.destroy
+		flash[:notice] = "Tipo de mantenimiento eliminado con exito!"
     redirect_to(tipo_mantenimientos_url)
   end
 end

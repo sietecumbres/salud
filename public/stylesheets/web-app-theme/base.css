@@ -194,7 +194,7 @@ body {
 
 /* tables */
 .table {
-  width: 100%;
+  width: auto;
   border-collapse: collapse;  
   margin-bottom: 15px;
 }
