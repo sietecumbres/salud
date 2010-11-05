@@ -8,6 +8,7 @@ var datepicker_options = 	{
 													}
 
 $(document).ready(function(){
+	$('.to-validate').validate();
   $('a[rel*=facebox]').facebox();
 	$(".field").example('Entre texto aquí');
 	

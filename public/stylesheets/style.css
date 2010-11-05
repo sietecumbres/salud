@@ -11,7 +11,7 @@ select{
   text-align: center;
 }
 
-.info, .success, .warning, .error, .validation {
+.info, .success, .warning, .error1, .validation {
   border: 1px solid;
   margin: 10px 0px;
   padding:15px 10px 15px 10px;
