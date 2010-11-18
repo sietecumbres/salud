@@ -94,3 +94,6 @@ DEPENDENCIES
   rails (= 3.0.0)
   rails3-generators
   will_paginate (~> 3.0.pre2)
+
+METADATA
+  version: 1.0.6
