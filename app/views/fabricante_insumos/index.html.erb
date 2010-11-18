@@ -9,14 +9,16 @@
     <h2 class="title">Fabricantes de Insumos</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
-          <th class="first">
+        <tr>
+          <th class="first"></th>
+          <th>
             <%= t("activerecord.attributes.fabricante_insumo.nombre", :default => t("activerecord.labels.nombre", :default => "Nombre")) %>
           </th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @fabricante_insumos.each do |fabricante_insumo| -%>
         <tr class="<%= cycle("odd", "even") %>">
+          <td></td>
           <td>
             <%= link_to fabricante_insumo.nombre, fabricante_insumo_path(fabricante_insumo) %>
           </td>

@@ -21,9 +21,9 @@
         <tr class="<%= cycle("odd", "even") %>">
           <td></td>
           <td><%= tipo_insumo.nombre %></td>
-          <td><%= tipo_insumo.fabricante_insumo_id %></td>
+          <td><%= tipo_insumo.fabricante_insumo.nombre %></td>
           <td><%= tipo_insumo.presentacion %></td>
-          <td><%= tipo_insumo.proveedor_id %></td>
+          <td><%= tipo_insumo.proveedor_insumo %></td>
           <td class="last">
             <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", tipo_insumo_path(tipo_insumo) %> |
             <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_tipo_insumo_path(tipo_insumo) %> |
