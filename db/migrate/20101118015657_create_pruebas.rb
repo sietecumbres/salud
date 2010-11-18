@@ -1,7 +1,7 @@
 class CreatePruebas < ActiveRecord::Migration
   def self.up
     create_table :pruebas do |t|
-      t.string :name
+      t.string :nombre
 
       t.timestamps
     end
