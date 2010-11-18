@@ -1,9 +1,9 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", tipo_insumos_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_tipo_insumo_path %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Show")}", tipo_insumo_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", tipo_insumos_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo")}", new_tipo_insumo_path %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.show", :default => "Ver")}", tipo_insumo_path %></li>
     </ul>
   </div>          
   <div class="content">
@@ -15,7 +15,7 @@
         </p>
 
         <p>
-          <b><%= t("activerecord.attributes.tipo_insumo.fabricante_insumo_id", :default => t("activerecord.labels.fabricante_insumo_id", :default => "Fabricante insumo")) %>:</b>
+          <b><%= t("activerecord.attributes.tipo_insumo.fabricante_insumo_id", :default => t("activerecord.labels.fabricante_insumo_id", :default => "Fabricante del insumo")) %>:</b>
           <%= @tipo_insumo.fabricante_insumo_id %>
         </p>
 
@@ -29,11 +29,11 @@
           <%= @tipo_insumo.proveedor_id %>
         </p>
       <div class="wat-cf">
-        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Edit")}") + " " + t("web-app-theme.edit", :default=> "Edit"), edit_tipo_insumo_path(@tipo_insumo), :class => "button" %> 
-        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Delete")}") + " " + t("web-app-theme.delete", :default => "Delete"), tipo_insumo_path(@tipo_insumo), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+        <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_tipo_insumo_path(@tipo_insumo), :class => "button" %>
+        <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Eliminar")}") + " " + t("web-app-theme.delete", :default => "Eliminar"), tipo_insumo_path(@tipo_insumo), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
       </div>      
     </div>
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
