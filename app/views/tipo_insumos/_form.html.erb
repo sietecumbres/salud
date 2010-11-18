@@ -1,0 +1,33 @@
+<%= form_for(@tipo_insumo) do |f| %>
+  <% if @tipo_insumo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tipo_insumo.errors.count, "error") %> prohibited this tipo_insumo from being saved:</h2>
+
+      <ul>
+      <% @tipo_insumo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre %><br />
+    <%= f.text_field :nombre %>
+  </div>
+  <div class="field">
+    <%= f.label :fabricante_insumo_id %><br />
+    <%= f.text_field :fabricante_insumo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :presentacion %><br />
+    <%= f.text_field :presentacion %>
+  </div>
+  <div class="field">
+    <%= f.label :proveedor_id %><br />
+    <%= f.text_field :proveedor_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

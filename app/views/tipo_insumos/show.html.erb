@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @tipo_insumo.nombre %>
+</p>
+
+<p>
+  <b>Fabricante insumo:</b>
+  <%= @tipo_insumo.fabricante_insumo_id %>
+</p>
+
+<p>
+  <b>Presentacion:</b>
+  <%= @tipo_insumo.presentacion %>
+</p>
+
+<p>
+  <b>Proveedor:</b>
+  <%= @tipo_insumo.proveedor_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_tipo_insumo_path(@tipo_insumo) %> |
+<%= link_to 'Back', tipo_insumos_path %>

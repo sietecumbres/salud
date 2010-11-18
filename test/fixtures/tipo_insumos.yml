@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nombre: MyString
+  fabricante_insumo_id: 1
+  presentacion: MyString
+  proveedor_id: 1
+
+two:
+  nombre: MyString
+  fabricante_insumo_id: 1
+  presentacion: MyString
+  proveedor_id: 1

@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :tipo_insumos
+
   resources :pruebas
 
   root :to => 'user_sessions#new'
