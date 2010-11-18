@@ -1,12 +1,12 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "List")}", pruebas_path  %></li>
-      <li class="active"><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_prueba_path %></li>
+      <li class="first"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", pruebas_path  %></li>
+      <li class="active"><%= link_to "#{t("web-app-theme.new", :default => "Nuevo")}", new_prueba_path %></li>
     </ul>
   </div>          
   <div class="content">            
-    <h2 class="title"><%= t("web-app-theme.new", :default => "New")%>  Prueba</h2>
+    <h2 class="title">Nueva Prueba</h2>
     <div class="inner">
       <%= form_for :prueba, :url => pruebas_path, :html => { :class => :form } do |f| -%>
         <%= render :partial => "form", :locals => {:f => f} %>
@@ -15,4 +15,4 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
