@@ -2,6 +2,10 @@ Salud::Application.routes.draw do
 
   resources :fabricante_insumos
 
+  resources :tipo_insumos
+
+  resources :pruebas
+
   root :to => 'user_sessions#new'
 
   resources :users

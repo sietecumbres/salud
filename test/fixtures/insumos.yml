@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  fecha_vencimiento: 2010-11-17
+  lote: MyString
+  tipo_insumo_id: 1
+
+two:
+  fecha_vencimiento: 2010-11-17
+  lote: MyString
+  tipo_insumo_id: 1
