@@ -1,37 +1,33 @@
 <div class="block">
   <div class="secondary-navigation">
     <ul class="wat-cf">
-      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "List")}", almacenamientos_path  %></li>
-      <li><%= link_to "#{t("web-app-theme.new", :default => "New")}", new_almacenamiento_path %></li>
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", almacenamientos_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo")}", new_almacenamiento_path %></li>
     </ul>
   </div>          
   <div class="content">          
-    <h2 class="title"><%= t("web-app-theme.all", :default => "All")  %> Almacenamientos</h2>
+    <h2 class="title">Almacenamientos</h2>
     <div class="inner">
       <table class="table">
-        <tr>             
-          <th class="first">ID</th>
-                    <th>
-            <%= t("activerecord.attributes.almacenamiento.zona", :default => t("activerecord.labels.zona", :default => "Zona")) %>
-          </th>
-                    <th><%= t("web-app-theme.created_at", :default => "Created at")  %></th>
+        <tr>
+          <th class="first"></th>
+          <th>Insumo</th>
+          <th>Zona</th>
+          <th>Vitrina</th>
+          <th>Posición</th>
           <th class="last">&nbsp;</th>
         </tr>
         <% @almacenamientos.each do |almacenamiento| -%>
         <tr class="<%= cycle("odd", "even") %>">
-          <td>
-            <%= almacenamiento.id %>
-          </td>
-                    <td>
-            <%= link_to almacenamiento.zona, almacenamiento_path(almacenamiento) %>
-          </td>
-                    <td>
-            <%= almacenamiento.created_at %>
-          </td>
+          <td></td>
+          <td><%= almacenamiento.insumo_id %></td>
+          <td><%= almacenamiento.zona %></td>
+          <td><%= almacenamiento.vitrina %></td>
+          <td><%= almacenamiento.posicion %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Show")}", almacenamiento_path(almacenamiento) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Edit")}", edit_almacenamiento_path(almacenamiento) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Delete")}", almacenamiento_path(almacenamiento), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", almacenamiento_path(almacenamiento) %> |
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_almacenamiento_path(almacenamiento) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", almacenamiento_path(almacenamiento), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>
@@ -45,4 +41,4 @@
   </div>
 </div>
 
-<% content_for :sidebar, render(:partial => 'sidebar') -%>
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
