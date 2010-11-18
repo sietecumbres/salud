@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  prueba_id: 1
+  tipo_insumo_id: 1
+
+two:
+  prueba_id: 1
+  tipo_insumo_id: 1

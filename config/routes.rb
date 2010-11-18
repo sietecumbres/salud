@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :tipos_insumo_pruebas
+
   resources :proveedor_insumos
 
 	match '/kadex' => 'kardex#index', :via => :get, :as => :kardex_insumos
