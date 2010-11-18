@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  zona: MyString
+  vitrina: MyString
+  posicion: MyString
+  insumo_id: 1
+
+two:
+  zona: MyString
+  vitrina: MyString
+  posicion: MyString
+  insumo_id: 1

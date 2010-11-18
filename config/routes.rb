@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :almacenamientos
+
   resources :tipo_insumos
 
   resources :pruebas
