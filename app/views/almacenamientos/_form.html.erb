@@ -1,0 +1,31 @@
+
+  <div class="group">
+    <%= f.label :zona, t("activerecord.attributes.almacenamiento.zona", :default => "Zona"), :class => :label %>
+    <%= f.text_field :zona, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :vitrina, t("activerecord.attributes.almacenamiento.vitrina", :default => "Vitrina"), :class => :label %>
+    <%= f.text_field :vitrina, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :posicion, t("activerecord.attributes.almacenamiento.posicion", :default => "Posicion"), :class => :label %>
+    <%= f.text_field :posicion, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+
+  <div class="group">
+    <%= f.label :insumo_id, t("activerecord.attributes.almacenamiento.insumo_id", :default => "Insumo"), :class => :label %>
+    <%= f.text_field :insumo_id, :class => 'text_field' %>
+    <span class="description">Ex: a simple text</span>
+  </div>
+        
+<div class="group navform wat-cf">
+  <button class="button" type="submit">
+    <%= image_tag("web-app-theme/icons/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}") %> <%= t("web-app-theme.save", :default => "Save") %>
+  </button>  
+  <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}") + " " + t("web-app-theme.cancel", :default => "Cancel"), almacenamientos_path, :class => "button" %> 
+</div>
