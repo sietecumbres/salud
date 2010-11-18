@@ -1,0 +1,2 @@
+module FabricanteInsumosHelper
+end

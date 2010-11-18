@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :fabricante_insumos
+
   resources :almacenamientos
 
   resources :tipo_insumos
