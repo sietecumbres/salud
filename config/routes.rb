@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :fabricante_insumos
+
   root :to => 'user_sessions#new'
 
   resources :users
