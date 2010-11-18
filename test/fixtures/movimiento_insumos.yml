@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  insumo_id: 1
+  cantidad: 1.5
+  unidad: MyString
+  area_id: 1
+  laboratorio_id: 1
+  fecha: 2010-11-17
+  tipo_movimiento_id: 1
+  persona_id: 1
+
+two:
+  insumo_id: 1
+  cantidad: 1.5
+  unidad: MyString
+  area_id: 1
+  laboratorio_id: 1
+  fecha: 2010-11-17
+  tipo_movimiento_id: 1
+  persona_id: 1
