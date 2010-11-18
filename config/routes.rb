@@ -1,5 +1,8 @@
 Salud::Application.routes.draw do
 
+	match '/kadex' => 'kardex#index', :via => :get, :as => :kardex_insumos
+	match '/kardex/:id' => 'kardex#show', :via => :get, :as => :kardex
+
   resources :fabricante_insumos
 
   resources :almacenamientos
