@@ -1,2 +1,24 @@
-<h1>Kardex#index</h1>
-<p>Find me in app/views/kardex/index.html.erb</p>
+<table>
+	<tr>
+		<td>C&oacute;digo</td>
+		<td>Producto</td>
+		<td>Prueba(s)</td>
+		<td>Alerta por cantidad</td>
+		<td>Duraci&oacute;n proyectada</td>
+		<td>Alerta por vencimiento</td>
+		<td>Proveedor</td>
+		<td></td>
+	</tr>
+	<%- @insumos.each do |insumo| %>
+		<tr>
+			<td><%= insumo.id %></td>
+			<td><%= insumo.nombre %></td>
+			<td><%= insumo.tipos_insumo_pruebas.first.prueba.name %></td>
+			<td>Alerta Cantidad</td>
+			<td>Duración proyectada</td>
+			<td>Alerta por vencimiento</td>
+			<td><%= insumo.proveedor_insumo.nombre if insumo.proveedor_insumo %></td>
+			<td></td>
+		</tr>
+	<% end %>
+</table>
