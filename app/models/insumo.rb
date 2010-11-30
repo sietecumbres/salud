@@ -4,7 +4,12 @@ class Insumo < ActiveRecord::Base
   has_one :almacenamiento
 	
 	def self.days_remaining_closest_date(raw)
-		(Insumo.joins('join tipo_insumos ti on ti.id = insumos.tipo_insumo_id').where('ti.id = ? AND insumos.fecha_vencimiento >= ?', raw, Date.today).minimum('fecha_vencimiento') - Date.today).to_i
+		least = Insumo.joins('join tipo_insumos ti on ti.id = insumos.tipo_insumo_id').where('ti.id = ? AND insumos.fecha_vencimiento >= ?', raw, Date.today).minimum('fecha_vencimiento')
+		if least
+			(least - Date.today).to_i
+		else
+			0
+		end
 	end
 
 end
