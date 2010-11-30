@@ -1,3 +1,3 @@
 class Almacenamiento < ActiveRecord::Base
-	belongs_to :tipo_insumo
+	belongs_to :insumo
 end

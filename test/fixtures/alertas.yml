@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  type: MyString
+  cantidad_minima: 1.5
+  dias_minimos: 1
+
+two:
+  type: MyString
+  cantidad_minima: 1.5
+  dias_minimos: 1

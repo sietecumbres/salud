@@ -285,3 +285,12 @@ form label.valores {
 	float:left;
 	width:30%;
 }
+.alert-alert{
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+
+.alert-normal{
+  color: #4F8A10;
+  background-color: #DFF2BF;
+}

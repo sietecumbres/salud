@@ -1,5 +1,11 @@
 Salud::Application.routes.draw do
 
+  #resources :movimiento_insumos
+  get "movimiento_insumos/entrada"
+  post "movimiento_insumos/crear_entrada"
+  get "movimiento_insumos/salida"
+  post "movimiento_insumos/crear_salida"
+
   resources :tipos_insumo_pruebas
 
   resources :proveedor_insumos

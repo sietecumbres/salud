@@ -26,7 +26,7 @@
 
         <p>
           <b><%= t("activerecord.attributes.almacenamiento.insumo_id", :default => t("activerecord.labels.insumo_id", :default => "Insumo")) %>:</b>
-          <%= @almacenamiento.insumo_id %>
+          <%= @almacenamiento.insumo.tipo_insumo.nombre %>
         </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_almacenamiento_path(@almacenamiento), :class => "button" %>
