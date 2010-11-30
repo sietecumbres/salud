@@ -4,28 +4,32 @@
   <div class="content">
     <h2 class="title">Calendario</h2>
     <div class="inner">
-			<h4 class="title">Generar Agenda:</h4>
-			<%= link_to "Generar Agenda", new_autogenerar_path, :rel => "facebox" %>
-			<br/>
-			<h4 class="title">Seleccione el a&ntilde;o:</h4>
-			<%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
-			<br/>
+	  <%= link_to "Generar Agenda", new_autogenerar_path, :rel => "facebox", :class => "sexybutton sexysimple sexyblue" %>
+	  <div class="select_year">
+	    <h4 class="title">Seleccione el a&ntilde;o:</h4>
+	    <%= select_tag :year_for_agenda, options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %>
+	  </div>
       <div class="inventario">
-				<div id="calendar">
-        	<%= render :partial => 'calendar', :locals => {:equipos => @equipos, :year => @year} %>
+	    <div id="calendar">
+          <%= render :partial => 'calendar', :locals => {:equipos => @equipos, :year => @year} %>
       	</div>
-			</div>
-			<span>Convenciones</span>
-			<table>
-			  <%- @tipos.each do |tipo| %>
-			  <tr>
-			    <td><%= tipo.nombre %></td>
-			    <td>
-			      <div class="convention-color" style="background-color: <%= tipo.color %>;">&nbsp;</div>
-			    </td>
-			  </tr>
-			  <% end %>
-			</table>
+	  </div>
+	  <div class="convenciones">
+		<table class="table">
+		  <tr>
+			<th>Mantenimiento</th>
+			<th>Color</th>
+		  </tr>
+		  <%- @tipos.each do |tipo| %>
+		  <tr>
+			<td><%= tipo.nombre %></td>
+			<td>
+			  <div class="convention-color" style="background-color: <%= tipo.color %>;">&nbsp;<%= tipo.color %></div>
+			</td>
+	      </tr>
+	      <% end %>
+	    </table>
+	  </div>
       <div class="actions-bar wat-cf">
         <div class="actions">
         </div>

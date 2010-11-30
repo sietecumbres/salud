@@ -65,11 +65,12 @@
 	</div>
 	<div class="group">
 		<%= label_tag 'hoja_vida[manual_operacion]', "Manual de Operación", :class => :label %>
-		<%= check_box_tag 'hoja_vida[manual_operacion]', '1', equipo.hoja_vida.manual_operacion %>
+		<%= check_box_tag 'hoja_vida[manual_operacion]', '1', equipo.hoja_vida.manual_operacion, :class => 'text_field' %>
 	</div>
 	<div class="group">
-		<%= label_tag 'hoja_vida[voltaje]', "Voltaje", :class => :label %>
+		<label class="label" for="hoja_vida_voltaje">Voltaje</label>
 		<%= text_field_tag 'hoja_vida[voltaje]', equipo.hoja_vida.voltaje, :class => 'text_field' %>
+		<br style="clear:both;" />
 	</div>
 	<div class="group">
 		<%= label_tag 'hoja_vida[amperaje]', "Amperaje", :class => :label %>

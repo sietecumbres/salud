@@ -83,3 +83,205 @@ visibility: hidden;
 * html .clearfix{height: 1%;}
 .clearfix{display: block;}
 /* End hide from IE-mac */
+/************************************************************************/
+.form input.text_field, .form textarea.text_area {
+    border: 1px solid #001C26;
+	width: 200px;
+}
+form label.valores {
+	display: block;
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 100%;
+}
+.form label.label {
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding-bottom: 2px;
+    width: 200px;
+}
+.table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+.table td {
+    padding: 5px;
+}
+.table th {
+    font-weight: bold;
+    padding: 5px;
+    text-align: left;
+}
+.table th.first {
+    width: 5px;
+}
+.table th.last {
+    width: auto;
+}
+.form .group {
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+#hoja_vida_manual_operacion {
+	font-size: 1.2em;
+    margin: 0;
+    padding: 1px 0;
+}
+/**************************************** REPORTES DE MANTENIMIENTO ***************************************/
+.reporte .tiempo {
+	float: left;
+    height: 130px;
+    margin-right: 20px;
+    width: 47%;
+}
+.reporte .tiempo fieldset {
+    height: 90px;
+    padding: 10px;
+}
+.reporte .mantenimiento {
+	float: left;
+    height: 130px;
+    width: 50%;
+}
+.reporte .mantenimiento fieldset {
+    height: 90px;
+    padding: 10px;
+}
+.reporte .mantenimiento .title {
+	font-size: 14px;
+    font-weight: bold;
+}
+.reporte .estados {	
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .estados fieldset {
+    padding: 10px;
+}
+.reporte .evaluacion {	
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .evaluacion fieldset {
+    padding: 10px;
+}
+.reporte .descripcion {	
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .descripcion fieldset {
+    padding: 10px;
+}
+.reporte .repuestos {	
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .repuestos fieldset {
+    padding: 10px;
+}
+.reporte .prestador {	
+	float: left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .prestador fieldset {
+    padding: 10px;
+}
+.reporte .responsable {	
+	float:left;
+	margin-bottom: 15px;
+	width: 100%;
+}
+.reporte .responsable fieldset {
+    padding: 10px;
+}
+/****************************** REPORTES FORMULARIO **************************************/
+.estados {
+	float: left;
+    width: 100%;
+}
+.estados fieldset {
+    padding: 10px;
+    margin-bottom:15px;
+}
+.rp_evaluacion {
+	float: left;
+    width: 100%;
+}
+.rp_evaluacion fieldset {
+    padding: 10px;
+    margin-bottom:15px;
+}
+.rp_evaluacion textarea {
+	width: 100%;
+}
+.evaluacion {
+	float: left;
+	margin-right:20px;
+    width: 47%;
+}
+.evaluacion fieldset {
+    padding: 10px;
+    margin-bottom:15px;
+}
+.evaluacion .extra textarea {
+	width:100%;
+}
+.descripcion {
+	float: left;
+    width: 50%;
+}
+.descripcion fieldset {
+    padding: 10px;
+    margin-bottom:15px;
+}
+.descripcion .extra textarea {
+	width:100%;
+}
+.repuestos {
+	float: left;
+    width: 100%;
+}
+.repuestos fieldset {	
+    padding: 10px;
+    margin-bottom:15px;
+}
+.finalizacion {
+	float: left;
+    width: 50%;
+}
+.finalizacion fieldset {	
+    padding: 10px;
+    margin-bottom:15px;
+}
+/********************************** CALENDARIO *************************************/
+.select_year {
+	float:left;
+	width:100%;
+	padding:10px;
+}
+.select_year h4 {
+	float: left;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    width: 200px;
+}
+.inventario {
+	float:left;
+	width:100%;
+}
+.convenciones {
+	float:left;
+	width:30%;
+}

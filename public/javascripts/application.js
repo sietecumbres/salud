@@ -289,3 +289,20 @@ function get_parameter( name ){
   else
     return results[1];
 }
+
+function color_contrasts( color ){
+  alert(color);
+  hexStr="0123456789ABCDEF"
+  res=0;
+  var Hex=""
+  for (i=0; i<(""+n).length; i++) {
+    res=getRes(n,16)
+	n=parseInt(n/16)
+	Hex=hexStr.charAt(res)+Hex;
+	if (n<16) {
+	  Hex=hexStr.charAt(n)+Hex;
+	  break;
+	}
+  }
+  return Hex;
+}

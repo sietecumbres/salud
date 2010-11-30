@@ -10,65 +10,75 @@
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]), :html => { :class => 'form to-validate'} do |f| %>
         <div class="forms">
           <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
+          <div class="finalizacion">
+	        <fieldset>
+		      <legend>INGRESO DE LA FECHA DE FINALIZACIÓN DEL MANTENIMIENTO</legend>
+              <div class="extra"><%= text_field_tag 'fecha_finalizacion', nil, :class => 'datepicker required' %></div>
+		    </fieldset>	        
+	      </div>
           <div class="estados">
-            <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
-            <table class="table">
-              <tr>
-                <th class="first"></th>
-                <th>PRUEBA CUALITATIVA</th>
-                <th>Ap.</th>
-                <th>Rp.</th>
-                <th>N/A</th>
-		<th></th>
-                <th>PRUEBA CUALITATIVA</th>
-                <th>Ap.</th>
-                <th>Rp.</th>
-                <th class="last">N/A</th>
-              </tr>
-              <% @estados.in_groups_of(2).each do |group| %>
-	      <tr>
-		<% group.each do |estado| %>
-		  <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} if estado %>
-		<% end %>
-              <% end %>
-	      </tr>
-            </table>
+	        <fieldset>
+		      <legend>INGRESO DE ESTADOS</legend>
+              <input type="hidden" id="div-evaluacion" value="<%= render :partial => 'reportes/add_description' %>" />
+              <table class="table">
+                <tr>
+                  <th class="first"></th>
+                  <th>PRUEBA CUALITATIVA</th>
+                  <th>Ap.</th>
+                  <th>Rp.</th>
+                  <th>N/A</th>
+		          <th></th>
+                  <th>PRUEBA CUALITATIVA</th>
+                  <th>Ap.</th>
+                  <th>Rp.</th>
+                  <th class="last">N/A</th>
+                </tr>
+                <% @estados.in_groups_of(2).each do |group| %>
+	            <tr>
+	     	      <% group.each do |estado| %>
+		            <%= render :partial => 'reportes/add_estados', :locals => {:estado => estado} if estado %>
+	    	      <% end %>
+                <% end %>
+	           </tr>
+              </table>
+            </fieldset>
           </div>
           <div id="evaluacion-estados" style="display:none;">
           </div>
+	      <div class="rp_evaluacion" style="display: none">
+		    <fieldset>
+	          <legend>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</legend>
+	            <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
+			</fieldset>
+	      </div>
           <div class="evaluacion">
-            <div class="rp_evaluacion" style="display: none">
-              <h4>Evaluación y diagnóstico si la prueba cualitativa fue reprobada</h4>
-              <%= text_area_tag(:extra_eval, nil, :disabled => 'disabled', :size => "80x5") %>
-            </div>
-            <div class="group wat-cf">
-              <div class="left"><label class = "label">Ingrese la evaluación y el diagnóstico general</label></div>
-              <div class="right">
-                <div class="extra"><%= text_area_tag(:eval, nil, :class =>  "text_area") %></div>
-              </div>
-            </div>
-            <div class="group wat-cf descripcion">
-              <div class="left"><label class = "label">Ingrese la descripción del servicio</label></div>
-              <div class="right">
-                <div class="extra"><%= text_area_tag(:descripcion, nil, :class =>  "text_area") %></div>
-              </div>
-            </div>
+	        <fieldset>
+		      <legend>INGRESO DE EVALUACIÓN Y DIAGNÓSTICO</legend>
+              <div class="extra"><%= text_area_tag(:eval, nil, :class =>  "text_area") %></div>
+		    </fieldset>
+          </div>
+          <div class="descripcion">
+	        <fieldset>
+		      <legend>INGRESO DE LA DESCRIPCIÓN DEL SERVICIO</legend>
+              <div class="extra"><%= text_area_tag(:descripcion, nil, :class =>  "text_area") %></div>
+		    </fieldset>
           </div>
           <div class="repuestos">
-            <input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
-            <br />
-            <label class="label">MATERIALES, REPUESTOS E INSUMOS</label>
-            <a class="add_repuesto sexybutton sexysimple sexyblue"">Adicionar</a>
-            <br /><br />
-            <table class="table" id="tabla-repuestos">
-              <tr>
-                <th class="first"></th>
-                <th>REFERENCIA.</th>
-                <th>CANTIDAD</th>
-                <th class="last">DESCRIPCIÓN</th>
-              </tr>
-            </table>
+	        <fieldset>
+		      <legend>INGRESO DE MATERIALES, REPUESTOS E INSUMOS</legend>
+              <input type="hidden" id="div-repuestos" value="<%= render :partial => 'reportes/add_repuestos' %>" />
+              <a class="add_repuesto sexybutton sexysimple sexyblue">Adicionar</a>
+              <table class="table" id="tabla-repuestos">
+                <tr>
+                  <th class="first"></th>
+                  <th>REFERENCIA.</th>
+                  <th>CANTIDAD</th>
+                  <th class="last">DESCRIPCIÓN</th>
+                </tr>
+              </table>
+            </fieldset>
           </div>
+          <br style="clear:both;">
           <div id="lista-repuestos"></div>
           <br />
 	</div>

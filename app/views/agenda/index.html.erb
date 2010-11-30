@@ -37,31 +37,29 @@
         </table>
         <div class="actions-bar wat-cf">
           <div class="actions">
-	    <%= will_paginate @agendas %>
+        <%= will_paginate @agendas %>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<br/>
-<div class="group wat-cf form">
-  <div class="left"><label class = "label">Seleccione el a&ntilde;o:</label></div>
-  <div class="right"><%= select_tag :'equipo-agenda', options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %></div>
-</div>
 <input type="hidden" value="<%= @equipo.id %>" id="equipo-id" />
-<br/>
 <div class="block">
   <div class="secondary-navigation">
   </div>
   <div class="content">
     <h2 class="title">Calendario</h2>
     <div class="inner">
+      <div class="group wat-cf form">
+        <div class="left"><label class = "label">Seleccione el a&ntilde;o:</label></div>
+        <div class="right"><%= select_tag :'equipo-agenda', options_for_select((Date.today.year..(Date.today.year + 10)).to_a), {:include_blank => 'seleccionar'} %></div>
+      </div>    
       <div class="inventario">
-				<div id="calendar">
-					<%= render :partial => 'agenda/equipo_calendar', :locals => {:equipo => current_equipo, :year => @year} %>
-				</div>
-			</div>
+                <div id="calendar">
+                    <%= render :partial => 'agenda/equipo_calendar', :locals => {:equipo => current_equipo, :year => @year} %>
+                </div>
+            </div>
     <div class="actions-bar wat-cf">
       <div class="actions">
       </div>
