@@ -14,9 +14,9 @@
 			<td><%= insumo.id %></td>
 			<td><%= insumo.nombre %></td>
 			<td><%= insumo.tipos_insumo_pruebas.first.prueba.name %></td>
-			<td>Alerta Cantidad</td>
+			<td class="alert-<%= insumo.alerta_cantidad.alert_level(insumo) %>"><%= MovimientoInsumo.total_transactions(insumo) %></td>
 			<td>Duración proyectada</td>
-			<td>Alerta por vencimiento</td>
+			<td class="alert-<%= insumo.alerta_vencimiento.alert_level(insumo) %>"><%= Insumo.days_remaining_closest_date(insumo) %></td>
 			<td><%= insumo.proveedor_insumo.nombre if insumo.proveedor_insumo %></td>
 			<td></td>
 		</tr>
