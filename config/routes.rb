@@ -1,5 +1,8 @@
 Salud::Application.routes.draw do
 
+  resources :movimiento_insumos
+  #get "movimiento_insumo/index"
+
   resources :tipos_insumo_pruebas
 
   resources :proveedor_insumos
