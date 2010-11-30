@@ -16,7 +16,7 @@
 
         <p>
           <b><%= t("activerecord.attributes.tipo_insumo.fabricante_insumo_id", :default => t("activerecord.labels.fabricante_insumo_id", :default => "Fabricante del insumo")) %>:</b>
-          <%= @tipo_insumo.fabricante_insumo_id %>
+          <%= @tipo_insumo.fabricante_insumo.nombre %>
         </p>
 
         <p>
@@ -26,7 +26,7 @@
 
         <p>
           <b><%= t("activerecord.attributes.tipo_insumo.proveedor_id", :default => t("activerecord.labels.proveedor_id", :default => "Proveedor")) %>:</b>
-          <%= @tipo_insumo.proveedor_id %>
+          <%= @tipo_insumo.proveedor_insumo.nombre %>
         </p>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_tipo_insumo_path(@tipo_insumo), :class => "button" %>

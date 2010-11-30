@@ -15,6 +15,7 @@ class ReportesController < ApplicationController
     @responsables = Persona.all
     @equipo = Equipo.find(params[:equipo_id])
     @mantenimientos << TipoMantenimiento.new({:id => '', :nombre => 'Otro'})
+    @agenda = Agenda.find(params[:id])
   end
 
   def create
@@ -34,6 +35,12 @@ class ReportesController < ApplicationController
       repuesto = Repuesto.where(:referencia => values[:ref]).first
       reporte.repuesto_equipos << RepuestoEquipo.create({:repuesto_id => repuesto.id, :cantidad => values[:cant], :descripcion => values[:desc]})
     end if params[:repuestos]
+    agenda.fecha_ejecucion = Date.today
+    agenda.fecha_finalizacion = params[:fecha_finalizacion]
+    agenda.save
+
+  	flash[:notice] = "Nuevo reporte creado con éxito."
+  	redirect_to reporte_path(params[:equipo_id], params[:id], reporte.id)
     
   end
 

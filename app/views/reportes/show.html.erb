@@ -1,4 +1,4 @@
-<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]) %>
+<%= link_to 'Regresar a la Hoja de vida', hoja_vida_path(params[:equipo_id]), :class => "sexybutton sexysimple sexyblue" %>
 <br /><br />
 <div class="block reporte">
   <div class="secondary-navigation">
@@ -7,118 +7,135 @@
     <h2 class="title">Reporte No. <%= @reporte.id %></h2>
     <div class="inner form reporte">
       <div class="tiempo">
-        <h4>TIEMPO EMPLEADO EN EL MANTENIMIENTO</h4>
-        <table class="table">
-          <tr>
-            <th class="first"  ></th>
-            <th>Fecha inicio</th>
-            <th>Fecha finalización</th>
-            <th class="last">Duración</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= @reporte.agenda.fecha_ejecucion %></td>
-            <td><%= @reporte.agenda.fecha_finalizacion %></td>
-            <td><%= dias = ((@reporte.agenda.fecha_finalizacion - @reporte.agenda.fecha_ejecucion)).to_i %></td>
-          </tr>
-        </table>
+	    <fieldset>
+        <legend>TIEMPO EMPLEADO EN EL MANTENIMIENTO</legend>
+          <table class="table">
+            <tr>
+              <th class="first"  ></th>
+              <th>Fecha inicio</th>
+              <th>Fecha finalización</th>
+              <th class="last">Duración</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= @reporte.agenda.fecha_ejecucion %></td>
+              <td><%= @reporte.agenda.fecha_finalizacion %></td>
+              <td><%= dias = ((@reporte.agenda.fecha_finalizacion - @reporte.agenda.fecha_ejecucion)).to_i %></td>
+            </tr>
+          </table>
+        </fieldset>
       </div>
       <div class="mantenimiento">
-        <h4>TIPO DE MANTENIMIENTO</h4>
-        <table class="table">
-          <tr>
-            <td>Tipo de mantenimiento</td>
-            <td><%= @reporte.tipo_mantenimiento.nombre %></td>
-          </tr>
-        </table>
+	    <fieldset>
+          <legend>TIPO DE MANTENIMIENTO</legend>
+          <table class="table">
+            <tr>
+              <td class="title">Tipo de mantenimiento</td>
+              <td><%= @reporte.tipo_mantenimiento.nombre %></td>
+            </tr>
+          </table>
+        </fieldset>
       </div>
       <div class="estados">
-        <h4>ESTADOS DEL EQUIPO</h4>
-        <table class="table">
-          <tr>
-            <th class="first">Prueba cualitativa</th>
-            <th>Resultado</th>
-            <th>Evaluación</th>
-	    			<th>Prueba cualitativa</th>
-            <th>Resultado</th>
-            <th class="last">Evaluación</th>
-          </tr>
-          <% @reporte.estado_equipos.in_groups_of(2).each do |group| %>
-	  <tr>
-	    <%- group.each do |estado_equipo| %>
-	      <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} if estado_equipo %>
-	    <% end %>
-	  </tr>
-          <% end %>
-        </table>
+	    <fieldset>
+          <legend>ESTADOS DEL EQUIPO</legend>
+          <table class="table">
+            <tr>
+              <th class="first">Prueba cualitativa</th>
+              <th>Resultado</th>
+              <th>Evaluación</th>
+	    	  <th>Prueba cualitativa</th>
+              <th>Resultado</th>
+              <th class="last">Evaluación</th>
+            </tr>
+            <% @reporte.estado_equipos.order("estado_id asc").in_groups_of(2).each do |group| %>
+	          <tr>
+	            <%- group.each do |estado_equipo| %>
+	            <%= render :partial => 'reportes/estados', :locals => {:estado_equipo => estado_equipo} if estado_equipo %>
+	            <% end %>
+	          </tr>
+            <% end %>
+          </table>
+        </fieldset>
       </div>
       <div class="evaluacion">
-        <h4>EVALUACIÓN Y DIAGNÓSTICO</h4>
-        <table class="table">
-					<tr>
-						<td><%= @reporte.evaluacion_diagnostico %></td>
-					</tr>
-        </table>
+	    <fieldset>
+          <legend>EVALUACIÓN Y DIAGNÓSTICO</legend>
+          <table class="table">
+		    <tr>
+			  <td><%= @reporte.evaluacion_diagnostico %></td>
+			</tr>
+          </table>
+        </fieldset>
       </div>
       <div class="descripcion">
-        <h4>DESCRIPCIÓN DEL SERVICIO</h4>
-        <table class="table">
-          <tr>
-            <td><%= @reporte.descripcion_servicio %></td>
-          </tr>
-        </table>
+	    <fieldset>
+          <legend>DESCRIPCIÓN DEL SERVICIO</legend>
+          <table class="table">
+            <tr>
+              <td><%= @reporte.descripcion_servicio %></td>
+            </tr>
+          </table>
+	    </fieldset>
       </div>
       <div class="repuestos">
-        <h4>MATERIALES, REPUESTOS E INSUMOS UTILIZADOS</h4>
-        <table class="table">
-          <tr>
-            <th class="first"></th>
-            <th>Referencia</th>
-            <th>Cantidad</th>
-            <th class="last">Descripción</th>
-          </tr>
-          <% @reporte.repuesto_equipos.each do |repuesto_equipo| %>
-            <%= render :partial => 'reportes/repuestos', :locals => {:repuesto_equipo => repuesto_equipo} %>
-          <% end %>
-        </table>
+	    <fieldset>
+          <legend>MATERIALES, REPUESTOS E INSUMOS UTILIZADOS</legend>
+          <table class="table">
+            <tr>
+              <th class="first"></th>
+              <th>Referencia</th>
+              <th>Cantidad</th>
+              <th class="last">Descripción</th>
+            </tr>
+            <% @reporte.repuesto_equipos.each do |repuesto_equipo| %>
+              <%= render :partial => 'reportes/repuestos', :locals => {:repuesto_equipo => repuesto_equipo} %>
+            <% end %>
+          </table>
+	    </fieldset>
       </div>
       <div class="prestador">
-        <h4>PRESTADOR DEL MANTENIMIENTO</h4>
-        <table class="table">
-          <tr>
-            <th class="first"></th>
-            <th>Empresa</th>
-            <th>Nombre</th>
-            <th>Cargo</th>
-            <th class="last">Documento</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td><%= @reporte.prestador_mantenimiento.empresa %></td>
-            <td><%= @reporte.prestador_mantenimiento.nombre %></td>
-            <td><%= @reporte.prestador_mantenimiento.cargo %></td>
-            <td><%= @reporte.prestador_mantenimiento.documento %></td>
-          </tr>
-        </table>
+	    <fieldset>
+          <legend>PRESTADOR DEL MANTENIMIENTO</legend>
+          <table class="table">
+            <tr>
+              <th class="first"></th>
+              <th>Empresa</th>
+              <th>Nombre</th>
+              <th>Cargo</th>
+              <th class="last">Documento</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><%= @reporte.prestador_mantenimiento.empresa %></td>
+              <td><%= @reporte.prestador_mantenimiento.nombre %></td>
+              <td><%= @reporte.prestador_mantenimiento.cargo %></td>
+              <td><%= @reporte.prestador_mantenimiento.documento %></td>
+            </tr>
+          </table>
+	    </fieldset>
       </div>
       <%- if @reporte.responsable %>
       <div class="responsable">
-        <h4>RECIBIDO POR</h4>
-        <table class="table">
-          <tr>
-            <th class="first"></th>
-            <th>Nombre</th>
-            <th>Cargo</th>
-            <th class="last">Documento</th>
-          </tr>
-          <tr>
-            <td></td>
-            <td><div id="responsable-nombre"><%= @reporte.responsable.nombre %></div></td>
-            <td><div id="responsable-cargo"><%= @reporte.responsable.cargo %></div></td>
-            <td><div id="responsable-documento"><%= @reporte.responsable.documento %></div></td>
-          </tr>
-        </table>
+	    <fieldset>
+          <legend>RECIBIDO POR</legend>
+          <table class="table">
+            <tr>
+              <th class="first"></th>
+              <th>Nombre</th>
+              <th>Cargo</th>
+              <th class="last">Documento</th>
+            </tr>
+            <tr>
+              <td></td>
+              <td><div id="responsable-nombre"><%= @reporte.responsable.nombre %></div></td>
+              <td><div id="responsable-cargo"><%= @reporte.responsable.cargo %></div></td>
+              <td><div id="responsable-documento"><%= @reporte.responsable.documento %></div></td>
+            </tr>
+          </table>
+        </fieldset>
       </div>
+      <br style="clear:both;" />
       <% else %>
       <div class="success" style="display:none;" id="aprobar-mensaje"></div>
       <input type="button" value="Aprobar" id="aprobar-reporte" data-remote="<%= @reporte.id %>"
