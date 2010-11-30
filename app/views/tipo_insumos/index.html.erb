@@ -25,9 +25,9 @@
           <td><%= tipo_insumo.presentacion %></td>
           <td><%= tipo_insumo.proveedor_insumo.nombre %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", tipo_insumo_path(tipo_insumo) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_tipo_insumo_path(tipo_insumo) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_insumo_path(tipo_insumo), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", tipo_insumo_path(tipo_insumo), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_tipo_insumo_path(tipo_insumo), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_insumo_path(tipo_insumo), :class => "sexybutton sexysimple sexyblue sexysmall" , :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>
