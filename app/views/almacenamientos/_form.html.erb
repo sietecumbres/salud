@@ -15,8 +15,7 @@
 
   <div class="group">
     <%= f.label :insumo_id, t("activerecord.attributes.almacenamiento.insumo_id", :default => "Insumo"), :class => :label %>
-    <!-- ToDo: Need Distinct? --> 
-    <%= f.select :insumo_id, options_for_select(Insumo.all.collect{|i| [i.tipo_insumo.nombre, i.id]}) %>
+    <%= f.select :insumo_id, options_for_select(Insumo.all.collect{|i| [i.tipo_insumo.nombre+" - Lote: "+i.lote, i.id]}) %>
   </div>
         
 <div class="group navform wat-cf">
