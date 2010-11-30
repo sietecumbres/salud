@@ -1,2 +1,48 @@
-<h1>Kardex#show</h1>
-<p>Find me in app/views/kardex/show.html.erb</p>
+<h3>Kardex</h3>
+<p>
+	<span>Producto:</span>
+	<span><%= @insumo.nombre %></span>
+</p>
+<p>
+	<span>Clasificaci&oacute;n de almacenamiento:</span>
+	<span>TODO</span>
+</p>
+<p>
+	<span>C&oacute;digo almacenamiento:</span>
+	<span>TODO</span>
+</p>
+
+<table border="1" cellspacing="0" cellpadding="0">
+	<thead>
+		<tr>
+			<th colspan="2" rowspan="2">Marca</th>
+			<th colspan="2" rowspan="2">Lote</th>
+			<th colspan="2" rowspan="2">Presentaci&oacute;n</th>
+			<th colspan="2">Ingreso</th>
+			<th colspan="2">Egreso</th>
+			<th colspan="2" rowspan="2">Saldo</th>
+			<th colspan="2" rowspan="2">Duranci&oacute;n &uacute;ltimo saldo</th>
+		</tr>
+		<tr>
+			<th>Fecha</th>
+			<th>Cantidad</th>
+			<th>Fecha</th>
+			<th>Cantidad</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%- @movimientos.each_with_index do |movimiento, index| %>
+		<tr>
+			<td colspan="2"><%= @insumo.nombre %></td>
+			<td colspan="2"><%= movimiento.insumo.lote %></td>
+			<td colspan="2"><%= @insumo.presentacion %></td>
+			<td><%= movimiento.fecha if movimiento.tipo_movimiento_id == 1 %></td>
+			<td><%= movimiento.cantidad if movimiento.tipo_movimiento_id == 1 %></td>
+			<td><%= movimiento.fecha if movimiento.tipo_movimiento_id == 2 %></td>
+			<td><%= movimiento.cantidad if movimiento.tipo_movimiento_id == 2 %></td>
+			<td colspan="2"><%= @balance[index + 1] %></td>
+			<td colspan="2">Anterior</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

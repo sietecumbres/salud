@@ -18,7 +18,7 @@
 			<td>Duración proyectada</td>
 			<td class="alert-<%= insumo.alerta_vencimiento.alert_level(insumo) %>"><%= Insumo.days_remaining_closest_date(insumo) %></td>
 			<td><%= insumo.proveedor_insumo.nombre if insumo.proveedor_insumo %></td>
-			<td></td>
+			<td><%= link_to 'Ver Kardex', kardex_path(insumo) %></td>
 		</tr>
 	<% end %>
 </table>
