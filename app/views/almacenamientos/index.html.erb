@@ -20,7 +20,7 @@
         <% @almacenamientos.each do |almacenamiento| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td></td>
-          <td><%= almacenamiento.insumo_id %></td>
+          <td><%= almacenamiento.insumo.tipo_insumo.nombre %></td>
           <td><%= almacenamiento.zona %></td>
           <td><%= almacenamiento.vitrina %></td>
           <td><%= almacenamiento.posicion %></td>
