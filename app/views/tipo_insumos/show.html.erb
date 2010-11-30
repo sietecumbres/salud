@@ -8,6 +8,8 @@
   </div>          
   <div class="content">
     <div class="inner">
+	  <fieldset class="fieldset_tipo_insumos">
+		<legend>INFORMACIÓN DEL TIPO DE INSUMO</legend>
       
         <p>
           <b><%= t("activerecord.attributes.tipo_insumo.nombre", :default => t("activerecord.labels.nombre", :default => "Nombre")) %>:</b>
@@ -28,10 +30,11 @@
           <b><%= t("activerecord.attributes.tipo_insumo.proveedor_id", :default => t("activerecord.labels.proveedor_id", :default => "Proveedor")) %>:</b>
           <%= @tipo_insumo.proveedor_insumo.nombre %>
         </p>
+	  </fieldset>
       <div class="wat-cf">
         <%= link_to image_tag("web-app-theme/icons/application_edit.png", :alt => "#{t("web-app-theme.edit", :default=> "Editar")}") + " " + t("web-app-theme.edit", :default=> "Editar"), edit_tipo_insumo_path(@tipo_insumo), :class => "button" %>
         <%= link_to image_tag("web-app-theme/icons/cross.png", :alt => "#{t("web-app-theme.delete", :default=> "Eliminar")}") + " " + t("web-app-theme.delete", :default => "Eliminar"), tipo_insumo_path(@tipo_insumo), :method => "delete", :class => "button", :confirm => "#{t("web-app-theme.confirm", :default => "Are you sure?")}" %>
-      </div>      
+      </div>     
     </div>
   </div>
 </div>

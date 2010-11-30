@@ -294,3 +294,21 @@ form label.valores {
   color: #4F8A10;
   background-color: #DFF2BF;
 }
+/************************************** TIPO INSUMOS ***********************************/
+.fieldset_tipo_insumos {
+	float:left;
+	margin-top:20px;
+	margin-bottom:20px;
+	padding: 10px;
+    width: 97%;
+}
+.fieldset_tipo_insumos b {
+	float: left;
+    font-size: 14px;
+    font-weight: bold;
+    width: 200px;
+}
+.fieldset_tipo_insumos p {
+	border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 2px;
+}
