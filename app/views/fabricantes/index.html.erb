@@ -1,0 +1,42 @@
+<div class="block">
+  <div class="secondary-navigation">
+    <ul class="wat-cf">
+      <li class="first active"><%= link_to "#{t("web-app-theme.list", :default => "Lista")}", fabricantes_path  %></li>
+      <li><%= link_to "#{t("web-app-theme.new", :default => "Nuevo")}", new_fabricante_path %></li>
+    </ul>
+  </div>          
+  <div class="content">          
+    <h2 class="title">Fabricantes</h2>
+    <div class="inner">
+      <table class="table">
+        <tr>             
+          <th class="first"></th>
+          <th>
+            <%= t("activerecord.attributes.fabricante.nombre", :default => t("activerecord.labels.nombre", :default => "Nombre")) %>
+          </th>
+          <th class="last">&nbsp;</th>
+        </tr>
+        <% @fabricantes.each do |fabricante| -%>
+        <tr class="<%= cycle("odd", "even") %>">
+          <td>
+          </td>
+          <td>
+            <%= link_to fabricante.nombre, fabricante_path(fabricante) %>
+          </td>
+          <td class="last">
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_fabricante_path(fabricante) %> |
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", fabricante_path(fabricante), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+          </td>
+        </tr>          
+        <% end -%>
+      </table>
+      <div class="actions-bar wat-cf">
+        <div class="actions">
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>

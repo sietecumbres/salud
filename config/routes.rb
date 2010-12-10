@@ -1,5 +1,11 @@
 Salud::Application.routes.draw do
 
+  resources :fabricantes
+
+  resources :subtipo_equipos
+
+  resources :areas
+
   #resources :movimiento_insumos
   get "movimiento_insumos/entrada"
   post "movimiento_insumos/crear_entrada"

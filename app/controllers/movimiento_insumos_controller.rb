@@ -19,7 +19,16 @@ class MovimientoInsumosController < ApplicationController
   end
 
   def crear_salida
-    
+    @movimiento_insumo = MovimientoInsumo.new(params[:movimiento_insumo])
+    @insumos = TipoInsumo.find(params[:tipo_insumo])
+
+#    "tipo_insumo"=>"1"
+#      "movimiento_insumo"=>{"laboratorio_id"=>"1",
+#      "unidad"=>"cm3",
+#      "area_id"=>"1",
+#      "tipo_movimiento_id"=>"2",
+#      "cantidad"=>"100",
+#      "fecha"=>"30/11/2010"}
   end
 
 end
