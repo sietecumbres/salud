@@ -1,5 +1,5 @@
 class EquiposController < ApplicationController
-  before_filter :get_options, :only => [:index, :search]
+  before_filter :get_options, :only => [:index, :search, :filter, :list]
   before_filter :require_user
 
   def index
@@ -41,10 +41,31 @@ class EquiposController < ApplicationController
   end
 
 	def list
-    #@busqueda = Equipo.new params[:equipo] unless params[:equipo]
-    #@busqueda ||= Equipo.new
-		@equipos = Equipo.all
+    @busqueda = Equipo.new params[:equipo] unless params[:equipo]
+    @busqueda ||= Equipo.new
+		#@equipos = Equipo.all
 	end
+	
+	def filter
+    @busqueda = Equipo.new params[:equipo]
+    logger.debug "Equipo => #{@busqueda.inspect}"
+    adquisicion = params[:equipo][:tipo_adquisicion_id].empty? ?  params[:otro_adquisicion] :  params[:equipo][:tipo_adquisicion_id]
+    condiciones = {}
+    condiciones = condiciones.merge({:area_id => params[:equipo][:area_id]}) unless params[:equipo][:area_id].empty?
+    condiciones = condiciones.merge({:nombre => params[:equipo][:nombre]}) unless params[:equipo][:nombre].empty?
+    condiciones = condiciones.merge({:tipo_equipo_id => params[:equipo][:tipo_equipo_id]}) unless params[:equipo][:tipo_equipo_id].empty?
+    condiciones = condiciones.merge({:subtipo_equipo_id => params[:equipo][:subtipo_equipo_id]}) unless params[:equipo][:subtipo_equipo_id].empty?
+    condiciones = condiciones.merge({:tipo_adquisicion_id => adquisicion}) unless adquisicion.empty?
+    condiciones = condiciones.merge({:responsable_id => params[:equipo][:responsable_id]}) unless params[:equipo][:responsable_id].empty?
+    condiciones = condiciones.merge({:modelo => params[:equipo][:modelo]}) unless params[:equipo][:modelo].empty?
+    condiciones = condiciones.merge({:marca => params[:equipo][:marca]}) unless params[:equipo][:marca].empty?
+    condiciones = condiciones.merge({:serial => params[:equipo][:serial]}) unless params[:equipo][:serial].empty?
+    condiciones = condiciones.merge({:placa => params[:equipo][:placa]}) unless params[:equipo][:placa].empty?
+    @equipos = Equipo.where(condiciones).all
+    @equipos.reject!{|equipo| equipo.valor < params[:valor_min].to_i or equipo.valor > params[:valor_max].to_i} unless params[:valor_min].empty? and params[:valor_max].empty?
+		@colors = Equipo.colors @equipos
+    render :action => :list
+  end
 
 	def create
 		area = current_lab.areas.where(:id => params[:equipo][:area_id]).first
