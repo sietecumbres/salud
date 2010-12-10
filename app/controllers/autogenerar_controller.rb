@@ -1,4 +1,6 @@
 class AutogenerarController < ApplicationController
+
+  before_filter :require_user
   
 	def new
 		@tipos = TipoMantenimiento.all

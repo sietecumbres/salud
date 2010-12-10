@@ -1,5 +1,7 @@
 class TipoAdquisicionsController < ApplicationController
 
+  before_filter :require_user
+  
   def index
     @tipo_adquisicions = TipoAdquisicion.all
   end

@@ -1,4 +1,7 @@
 class TipoInsumosController < ApplicationController
+
+  before_filter :require_user
+  
   # GET /tipo_insumos
   # GET /tipo_insumos.xml
   def index
