@@ -156,7 +156,7 @@
             <th class="last">Ver detalle</th>
           </tr>
 	  <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>
-	    <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} %>
+	    <%= render :partial => 'hoja_vida/reportes', :locals => {:reporte_mantenimiento => reporte_mantenimiento} if reporte_mantenimiento && reporte_mantenimiento.finalizado %>
 	  <% end %>
         </table>
       </div>
