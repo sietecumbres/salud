@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :fabricantes
+
   resources :subtipo_equipos
 
   resources :areas
