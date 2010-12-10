@@ -99,9 +99,9 @@
       <br/>
       <div class="group wat-cf">
         <div class="left">
-          <label class="label">Seleccione el tipo de mantenimiento:</label>
+          <label class="label man_cal">Seleccione el tipo de mantenimiento o calibración:</label>
         </div>
-        <div class="right">
+        <div class="right man_cal">
           <%= select_tag :year, options_for_select((Date.today.year..(Date.today.year + 10)).to_a, params[:anio]) %>
           <%= select_tag :tipos_mantenimiento, options_for_select(@tipos.collect{|tipom| [tipom.nombre, tipom.id]}, @tipo) %>
           <input type="button" value="Mostrar" id="mostrar-comparativo" />
@@ -120,7 +120,7 @@
   <div class="secondary-navigation">
   </div>
   <div class="content">
-    <h2 class="title">Reportes de mantenimientos</h2>
+    <h2 class="title">Reportes de mantenimientos y calibraciones</h2>
     <div class="inner">
       <div class="reportes">
         <h4 class="title filter-head sexybutton sexysimple sexyblue">Busqueda por Fechas</h4>
@@ -151,8 +151,6 @@
             <th class="first"></th>
             <th>Fecha de mantenimiento</th>
             <th>Tipo de mantenimiento</th>
-            <th>Evaluación</th>
-            <th>Descripción</th>
             <th class="last">Ver detalle</th>
           </tr>
 	  <% @equipo.reporte_mantenimientos.each do |reporte_mantenimiento| %>

@@ -1,6 +1,10 @@
 <fieldset>
 	<legend>Informaci&oacute;n</legend>
 <div class="group">
+  <%= f.label :nombre, "Nombre", :class => :label %>
+  <%= f.text_field :nombre, :class => 'text_field required' %>
+</div>
+<div class="group">
   <%= f.label :modelo, "Modelo", :class => :label %>
   <%= f.text_field :modelo, :class => 'text_field required' %>
 </div>

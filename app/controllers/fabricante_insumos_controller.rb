@@ -1,5 +1,7 @@
 class FabricanteInsumosController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @fabricante_insumos = FabricanteInsumo.all
   end

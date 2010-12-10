@@ -1,5 +1,7 @@
 class AlmacenamientosController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @almacenamientos = Almacenamiento.all
   end

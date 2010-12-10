@@ -41,6 +41,8 @@ class EquiposController < ApplicationController
   end
 
 	def list
+    #@busqueda = Equipo.new params[:equipo] unless params[:equipo]
+    #@busqueda ||= Equipo.new
 		@equipos = Equipo.all
 	end
 
