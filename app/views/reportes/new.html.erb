@@ -6,6 +6,7 @@
   <div class="content">
     <h2 class="title">INGRESAR REPORTE</h2>
     <h3 style="padding-left: 20px">Reporte elaborado para el equipo <strong><%= @equipo.nombre %></strong> de marca <strong><%= @equipo.marca %></strong>, modelo <strong><%= @equipo.modelo %></strong> y serial <strong><%= @equipo.serial %></strong></h3>
+	<h3 style="padding-left: 20px">Tipo de mantenimiento a realizar: <strong><%= @agenda.tipo_mantenimiento.nombre %></strong></h3>
     <div class="inner form">
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]), :html => { :class => 'form to-validate'} do |f| %>
         <div class="forms">
