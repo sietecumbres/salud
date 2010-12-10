@@ -1,7 +1,7 @@
 class MovimientoEquipo < ActiveRecord::Base
 	order('created_at DESC')
 	belongs_to :equipo
-	belongs_to :laboratorio
+	belongs_to :area
 	
 	def transaction_type
 		case

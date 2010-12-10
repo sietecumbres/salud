@@ -92,12 +92,27 @@ class EquiposController < ApplicationController
 	end
 
 	def dar_salida
-		lab = Laboratorio.where(:id => params[:destino]).first
+		unless params[:destino].blank?
+			movimiento = SalidaEquipo.new :equipo_id => current_equipo.id,
+																		:laboratorio => params[:destino],
+																		:fecha_movimiento => Date.today
+			if movimiento.save
+				flash[:notice] = "Se ha dado salida al equipo #{current_equipo.placa} al laboratorio #{movimiento.laboratorio}"
+				redirect_to list_equipos_path
+			end
+		else
+			flash[:notice] = "Debe definir un destino para poder dar salida"
+			redirect_to list_equipos_path
+		end
+	end
+	
+	def cambiar_area
+		area = Area.where(:id => params[:destino]).first
 		movimiento = SalidaEquipo.new :equipo_id => current_equipo.id,
-																	:laboratorio_id => lab.id,
+																	:area_id => area.id,
 																	:fecha_movimiento => Date.today
 		if movimiento.save
-			flash[:notice] = "Se ha dado salida al equipo #{current_equipo.placa} al laboratorio #{lab.nombre}"
+			flash[:notice] = "Se ha cambiado de área al equipo #{current_equipo.placa} a #{area.nombre}"
 			redirect_to list_equipos_path
 		end
 	end

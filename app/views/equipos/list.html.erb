@@ -15,7 +15,7 @@
 	    			<th>Marca</th>
 	    			<th>Serial</th>
 	    			<th>Placa</th>
-      			<th class="last" colspan=4>Opciones</th>
+      			<th class="last" colspan="5">Opciones</th>
 	  			</tr>
 				</thead>
 				<tbody>
@@ -30,8 +30,15 @@
 <% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
 <div id="dar-salida" style="display: none;">
   <%= form_for :equipo, :url => '#', :html => {:id => 'dar-salida-form'} do |f| %>
-    <%= label_tag :destino, 'Seleccione el destino' %>
-    <%= select_tag :destino, options_for_select(Laboratorio.all.collect{|lab| [lab.nombre, lab.id]}) %>
+    <%= label_tag :destino, 'Laboratorio de destino' %>
+    <%= text_field_tag :destino %>
     <%= submit_tag 'Dar Salida' %>
+  <% end %>
+</div>
+<div id="cambiar-area" style="display: none;">
+  <%= form_for :equipo, :url => '#', :html => {:id => 'cambiar-area-form'} do |f| %>
+    <%= label_tag :destino, 'Seleccione el destino' %>
+    <%= select_tag :destino, options_for_select(Area.all.collect{|area| [area.nombre, area.id]}) %>
+    <%= submit_tag 'Cambiar' %>
   <% end %>
 </div>

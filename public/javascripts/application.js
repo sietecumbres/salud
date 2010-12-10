@@ -226,7 +226,13 @@ $(document).ready(function(){
   $(".dar-salida").click(function(){
     var action = $(this).attr("data-remote");
     $.facebox({div: "#dar-salida"});
-    $("form").get(1).setAttribute("action", action);
+    $("form").get(2).setAttribute("action", action);
+  });
+
+	$(".cambiar-area").click(function(){
+    var action = $(this).attr("data-remote");
+    $.facebox({div: "#cambiar-area"});
+    $("form").get(2).setAttribute("action", action);
   });
 
 	var color = "";
