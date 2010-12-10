@@ -1,9 +1,9 @@
 class AddColumnFinalizadoToReportes < ActiveRecord::Migration
   def self.up
-		add_column :reporte_mantenimientos, :finalizado, :string
+		add_column :reporte_mantenimientos, :finalizado, :boolean
   end
 
   def self.down
-		remove column :reporte_mantenimientos, :finalizado
+		remove_column :reporte_mantenimientos, :finalizado
   end
 end
