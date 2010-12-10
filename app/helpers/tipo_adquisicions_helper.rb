@@ -1,0 +1,2 @@
+module TipoAdquisicionsHelper
+end
