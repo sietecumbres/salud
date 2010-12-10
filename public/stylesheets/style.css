@@ -111,6 +111,14 @@ form label.valores {
     padding-bottom: 2px;
     width: 250px;
 }
+#agenda_fecha_programacion {
+	float:left;
+    width: 150px;
+}
+#agenda_tipo_mantenimiento_id {
+	float:left;
+	width: 157px;
+}
 .form div.man_cal {
     float: right;
     width: 65%;
@@ -136,6 +144,11 @@ form label.valores {
     width: auto;
 }
 .form .group {
+    height: auto;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+.form .manual_operacion {
     height: 20px;
     margin-bottom: 5px;
     margin-left: 10px;
@@ -291,6 +304,7 @@ form label.valores {
 }
 .inventario {
 	float:left;
+    margin-top: 40px;
 	width:100%;
 }
 .convenciones {
