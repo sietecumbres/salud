@@ -25,9 +25,9 @@
           <td><%= almacenamiento.vitrina %></td>
           <td><%= almacenamiento.posicion %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", almacenamiento_path(almacenamiento) %> |
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_almacenamiento_path(almacenamiento) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", almacenamiento_path(almacenamiento), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.show", :default => "Ver")}", almacenamiento_path(almacenamiento), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_almacenamiento_path(almacenamiento), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", almacenamiento_path(almacenamiento), :class => "sexybutton sexysimple sexyblue sexysmall", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>

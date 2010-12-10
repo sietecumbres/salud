@@ -18,11 +18,11 @@
         <% @pruebas.each do |prueba| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td>
-            <%= link_to prueba.nombre, prueba_path(prueba) %>
+            <%= prueba.nombre %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_prueba_path(prueba) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", prueba_path(prueba), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_prueba_path(prueba), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", prueba_path(prueba), :class => "sexybutton sexysimple sexyblue sexysmall", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>
