@@ -5,168 +5,162 @@
       <li><%= link_to "Nuevo", new_equipo_path %></li>
     </ul>
   </div>
-	    <div class="content">
-	        <h2 class="title filter-head">Equipos&nbsp;<a href="#"><%= icon :arrow_down, "Expandir" %></a></h2>
-	        <br />
-	        <div class="inner filter">
-	        <% form_for @busqueda, :url => filter_equipos_url, :html => { :class => :form } do |f| %>
-	        <div class="forms">
-	            <div class="group wat-cf">
-	                <div class="left">
-	                    <label class = "label">Área</label>
-	                </div>
-	                <div class="right">
-	                <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
-	                <span class="description"></span>
-	            </div>
-	        </div>
-	        <div class="group wat-cf">
-	            <div class="left">
-	                <label class = "label">Nombre</label>
-	            </div>
-	            <div class="right">
-	            <%= f.text_field(:nombre, :class => 'autocomplete text_field', 'data-remote' => 'nombre') %>
-	            <span class="description"></span>
-	        </div>
-	    </div>
-	    <div class="group wat-cf">
-	        <div class="left">
-	            <label class = "label">Tipo</label>
-	        </div>
-	        <div class="right">
-	        <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}), {:include_blank => 'Seleccionar'} %>
-	        <span class="description"></span>
-	    </div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Subtipo</label>
-	    </div>
-	    <div class="right">
-	    <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}), {:include_blank => 'Seleccionar'} %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Tipo de Adquisición</label>
-	    </div>
-	    <div class="right">
-	    <%= f.select 'tipo_adquisicion_id', options_for_select(@adquisiciones.collect{|adquisicion| [adquisicion.nombre, adquisicion.id]}), {:include_blank => 'Seleccionar'}, :html => {:class => 'tipo-adquisicion'} %>
-	    <div id="otro-adquisicion" style="display:none;">
-	        <label class = "label">Cual </label>
-	        <%= text_field_tag(:otro_adquisicion) %>
-	    </div>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Responsable</label>
-	    </div>
-	    <div class="right">
-	    <%= f.select 'responsable_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Modelo</label>
-	    </div>
-	    <div class="right">
-	    <%= f.text_field(:modelo, :class => 'autocomplete text_field', 'data-remote' => 'modelo') %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Marca</label>
-	    </div>
-	    <div class="right">
-	    <%= f.text_field(:marca, :class => 'autocomplete text_field', 'data-remote' => 'marca') %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Serial</label>
-	    </div>
-	    <div class="right">
-	    <%= f.text_field(:serial, :class => 'autocomplete text_field numeric', 'data-remote' => 'serial') %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Placa</label>
-	    </div>
-	    <div class="right">
-	    <%= f.text_field(:placa, :class => 'autocomplete text_field', 'data-remote' => 'placa') %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<label class = "valores">Entre valores: </label>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Mínimo</label>
-	    </div>
-	    <div class="right">
-	    <%= text_field_tag :valor_min, nil, :class => "text_field numeric" %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group wat-cf">
-	    <div class="left">
-	        <label class = "label">Máximo</label>
-	    </div>
-	    <div class="right">
-	    <%= text_field_tag :valor_max, nil, :class => "text_field numeric" %>
-	    <span class="description"></span>
-	</div>
-	</div>
-	<div class="group navform wat-cf">
-	    <div class="right">
-	        <button class="button" type="submit">
-	        <%= image_tag("web-app-theme/icons/tick.png") %> <%= "Buscar" %>
-	    </button>
-	</div>
-	</div>
-	</div>
-	<% end %>
-	</div>
-	</div>
-	</div>
-
-
-
-
-
-
-
-
-
   <div class="content">
-      <h2 class="title">Listado de Equipos</h2>
+    <h2 class="title filter-head">Equipos&nbsp;<a href="#"><%= icon :arrow_down, "Expandir" %></a></h2>
+    <br />
+    <div class="inner filter">
+      <% form_for @busqueda, :url => filter_equipos_url, :html => { :class => :form } do |f| %>
+        <div class="forms">
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Área</label>
+            </div>
+            <div class="right">
+              <%= f.select 'area_id', options_for_select(@areas.collect{|area| [area.nombre, area.id]}), {:include_blank => 'Seleccionar'} %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Nombre</label>
+            </div>
+            <div class="right">
+              <%= f.text_field(:nombre, :class => 'autocomplete text_field', 'data-remote' => 'nombre') %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Tipo</label>
+            </div>
+            <div class="right">
+              <%= f.select 'tipo_equipo_id', options_for_select(@tipos.collect{|tipo| [tipo.nombre, tipo.id]}), {:include_blank => 'Seleccionar'} %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Subtipo</label>
+            </div>
+            <div class="right">
+              <%= f.select 'subtipo_equipo_id', options_for_select(@subtipos.collect{|subtipo| [subtipo.nombre, subtipo.id]}), {:include_blank => 'Seleccionar'} %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Tipo de Adquisición</label>
+            </div>
+            <div class="right">
+              <%= f.select 'tipo_adquisicion_id', options_for_select(@adquisiciones.collect{|adquisicion| [adquisicion.nombre, adquisicion.id]}), {:include_blank => 'Seleccionar'}, :html => {:class => 'tipo-adquisicion'} %>
+              <div id="otro-adquisicion" style="display:none;">
+                <label class = "label">Cual </label>
+                <%= text_field_tag(:otro_adquisicion) %>
+              </div>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Responsable</label>
+            </div>
+            <div class="right">
+              <%= f.select 'responsable_id', options_for_select(@responsables.collect{|responsable| [responsable.nombre, responsable.id]}), {:include_blank => 'Seleccionar'} %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Modelo</label>
+            </div>
+            <div class="right">
+              <%= f.text_field(:modelo, :class => 'autocomplete text_field', 'data-remote' => 'modelo') %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Marca</label>
+            </div>
+            <div class="right">
+              <%= f.text_field(:marca, :class => 'autocomplete text_field', 'data-remote' => 'marca') %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Serial</label>
+            </div>
+            <div class="right">
+              <%= f.text_field(:serial, :class => 'autocomplete text_field numeric', 'data-remote' => 'serial') %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Placa</label>
+            </div>
+            <div class="right">
+              <%= f.text_field(:placa, :class => 'autocomplete text_field', 'data-remote' => 'placa') %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <label class = "valores">Entre valores: </label>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Mínimo</label>
+            </div>
+            <div class="right">
+              <%= text_field_tag :valor_min, nil, :class => "text_field numeric" %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group wat-cf">
+            <div class="left">
+              <label class = "label">Máximo</label>
+            </div>
+            <div class="right">
+              <%= text_field_tag :valor_max, nil, :class => "text_field numeric" %>
+              <span class="description"></span>
+            </div>
+          </div>
+          <div class="group navform wat-cf">
+            <div class="right">
+              <button class="button" type="submit">
+                <%= image_tag("web-app-theme/icons/tick.png") %> <%= "Buscar" %>
+              </button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="block">
+  <div class="content">
+    <h2 class="title">Listado de Equipos</h2>
     <div class="inner">
- 			<table class="table">
-				<thead>
-	  			<tr>
-      			<th class="first">Modelo</th>
-	    			<th>Marca</th>
-	    			<th>Serial</th>
-	    			<th>Placa</th>
-      			<th class="last" colspan="5">Opciones</th>
-	  			</tr>
-				</thead>
-				<tbody>
-	  			<%- @equipos.each do |equipo| %>
-	    			<%= render :partial => 'equipos/equipo', :locals => {:equipo => equipo} %>
-	  			<% end %>
-				</tbody>
+      <table class="table">
+        <thead>
+          <tr>
+            <th class="first">Modelo</th>
+            <th>Marca</th>
+            <th>Serial</th>
+            <th>Placa</th>
+            <th class="last" colspan="5">Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%- @equipos.each do |equipo| %>
+            <%= render :partial => 'equipos/equipo', :locals => {:equipo => equipo} %>
+          <% end %>
+        </tbody>
       </table>
     </div>
   </div>
 </div>
+
 <% content_for :sidebar, render(:partial => 'layouts/sidebar') -%>
 <div id="dar-salida" style="display: none;">
   <%= form_for :equipo, :url => '#', :html => {:id => 'dar-salida-form'} do |f| %>
