@@ -104,6 +104,17 @@ form label.valores {
     padding-bottom: 2px;
     width: 200px;
 }
+.form label.man_cal {
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding-bottom: 2px;
+    width: 250px;
+}
+.form div.man_cal {
+    float: right;
+    width: 65%;
+}
 .table {
     border-collapse: collapse;
     margin-bottom: 15px;
@@ -125,6 +136,7 @@ form label.valores {
     width: auto;
 }
 .form .group {
+    height: 20px;
     margin-bottom: 5px;
     margin-left: 10px;
 }
