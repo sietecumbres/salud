@@ -2,7 +2,7 @@
 	<table>
 		<tr>
 			<td>Proveedor:</td>
-			<td><%= f.select :proveedor_id, options_for_select(Proveedor.all.collect{|p| [p.nombre, p.id]}), {:include_blank => 'Seleccionar'} %></td>
+			<td><%= f.select :proveedor_id, options_for_select(ProveedorEquipo.all.collect{|p| [p.nombre, p.id]}), {:include_blank => 'Seleccionar'} %></td>
 			<td>Fabricante:</td>
 			<td><%= f.select :fabricante_id, options_for_select(Fabricante.all.collect{|fab| [fab.nombre, fab.id]}), {:include_blank => 'Seleccionar'} %></td>
 		</tr>

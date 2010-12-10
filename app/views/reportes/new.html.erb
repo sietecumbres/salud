@@ -10,12 +10,6 @@
       <%= form_for :reporte, @reporte, create_reporte_url(params[:equipo_id],params[:id]), :html => { :class => 'form to-validate'} do |f| %>
         <div class="forms">
           <input type="hidden" id="reporte-id" value="<%= @reporte.id %>" />
-          <div class="finalizacion">
-	        <fieldset>
-		      <legend>INGRESO DE LA FECHA DE FINALIZACIÓN DEL MANTENIMIENTO</legend>
-              <div class="extra"><%= text_field_tag 'fecha_finalizacion', nil, :class => 'datepicker required' %></div>
-		    </fieldset>	        
-	      </div>
           <div class="estados">
 	        <fieldset>
 		      <legend>INGRESO DE ESTADOS</legend>
@@ -82,10 +76,10 @@
           <div id="lista-repuestos"></div>
           <br />
 	</div>
-	<button class="button" type="submit">
-          <%= image_tag("web-app-theme/icons/tick.png", :alt => "Guardar") %>
-          Guardar
-        </button>
+				<button class="button" type="submit">
+					<%= image_tag("web-app-theme/icons/tick.png", :alt => "Finalizar") %>
+					Finalizar
+				</button>
         <br /><br />
       <% end %>
     </div>

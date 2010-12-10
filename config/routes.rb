@@ -63,6 +63,7 @@ Salud::Application.routes.draw do
   match '/reportes/autocomplete_repuestos' => 'reportes#autocomplete_repuestos', :via => :get
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#new', :via => :get, :as => :new_reporte
   match '/equipo/:equipo_id/agenda/:id/reporte/new' => 'reportes#create', :via => :post, :as => :create_reporte
+	match '/equipo/:equipo_id/agenda/:id/reporte/start' => 'reportes#start', :via => :get, :as => :start_reporte
   match '/equipo/:equipo_id/agenda/:agenda_id/reporte/:id' => 'reportes#show', :via => :get, :as => :reporte
 	match '/equipo/:equipo_id/agenda/:agenda_id/reporte/:id/approve' => 'reportes#approve', :via => :post, :as => :approve_reporte
 	match '/find_by_cc' => 'reportes#find_by_cc', :via => :post, :as => :find_by_cc
