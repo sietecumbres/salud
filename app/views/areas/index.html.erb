@@ -19,10 +19,10 @@
         <% @areas.each do |area| -%>
         <tr class="<%= cycle("odd", "even") %>">
           <td></td>
-          <td><%= link_to area.nombre, area_path(area) %></td>
+          <td><%= area.nombre %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_area_path(area) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", area_path(area), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_area_path(area), :class => "sexybutton sexysimple sexyblue" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", area_path(area), :class => "sexybutton sexysimple sexyblue", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>

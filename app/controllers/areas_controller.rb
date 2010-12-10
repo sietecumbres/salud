@@ -32,6 +32,10 @@ class AreasController < ApplicationController
     end
   end
 
+  def show
+  	@area = Area.find(params[:id])
+  end
+
   def destroy
     @area = Area.find(params[:id])
     @area.destroy

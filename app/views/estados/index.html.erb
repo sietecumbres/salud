@@ -21,11 +21,11 @@
           <td>
           </td>
           <td>
-            <%= link_to estado.nombre, estado_path(estado) %>
+            <%= estado.nombre %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_estado_path(estado) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", estado_path(estado), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_estado_path(estado), :class => "sexybutton sexysimple sexyblue" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", estado_path(estado), :class => "sexybutton sexysimple sexyblue", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>

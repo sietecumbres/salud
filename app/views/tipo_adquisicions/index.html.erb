@@ -20,11 +20,11 @@
         <tr class="<%= cycle("odd", "even") %>">
           <td></td>
           <td>
-            <%= link_to tipo_adquisicion.nombre, tipo_adquisicion_path(tipo_adquisicion) %>
+            <%= tipo_adquisicion.nombre %>
           </td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_tipo_adquisicion_path(tipo_adquisicion) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_adquisicion_path(tipo_adquisicion), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_tipo_adquisicion_path(tipo_adquisicion), :class => "sexybutton sexysimple sexyblue" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_adquisicion_path(tipo_adquisicion), :class => "sexybutton sexysimple sexyblue", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>
