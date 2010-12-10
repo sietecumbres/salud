@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :subtipo_equipos
+
   resources :areas
 
   #resources :movimiento_insumos
