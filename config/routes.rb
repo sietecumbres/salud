@@ -52,6 +52,7 @@ Salud::Application.routes.draw do
 		collection do
 			get 'list'
 			post 'search'
+			post 'filter'
 			get 'autocomplete'
 		end
 
