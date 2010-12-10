@@ -4,6 +4,7 @@ class ReportesController < ApplicationController
   
   def show
     @reporte = ReporteMantenimiento.find(params[:id])
+    @equipo = Equipo.find(params[:equipo_id])
   end
 
   def new
