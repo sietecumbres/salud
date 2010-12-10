@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :proveedor_equipos
+
   resources :estados
 
   resources :tipo_adquisicions
