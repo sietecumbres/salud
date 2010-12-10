@@ -2,7 +2,5 @@
   <td></td>
   <td><%= reporte_mantenimiento.agenda.fecha_ejecucion %></td>
   <td><%= reporte_mantenimiento.tipo_mantenimiento.nombre %></td>
-  <td><%= reporte_mantenimiento.evaluacion_diagnostico[0...20] %>...</td>
-  <td><%= reporte_mantenimiento.descripcion_servicio[0...20] %>...</td>
   <td><%= link_to 'Reporte', reporte_path(params[:id],reporte_mantenimiento.agenda_id,reporte_mantenimiento.id) %></td>
 </tr>
