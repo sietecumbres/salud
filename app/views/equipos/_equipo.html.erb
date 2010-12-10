@@ -13,6 +13,9 @@
 		<%= link_to 'Eliminar', equipo_path(equipo), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro ?")}", :class => 'sexybutton sexysimple sexyblue sexysmall' %>
 	</td>
 	<td>
+		<a href="#" data-remote='<%= cambiar_area_equipo_path(equipo) %>' class='cambiar-area sexybutton sexysimple sexyblue sexysmall'>Cambiar &Aacute;rea</a>
+	</td>
+	<td>
 		<a href="#" data-remote='<%= dar_salida_equipo_path(equipo) %>' class='dar-salida sexybutton sexysimple sexyblue sexysmall'>Dar Salida</a>
 	</td>
 </tr>

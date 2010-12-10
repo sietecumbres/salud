@@ -108,7 +108,7 @@
 			          <td></td>
 			          <td><%= movimiento.transaction_type %></td>
 			          <td><%= movimiento.equipo.placa %></td>
-			          <td><%= movimiento.laboratorio.nombre %></td>
+			          <td><%= movimiento.laboratorio.blank? ? movimiento.area.nombre : movimiento.laboratorio %></td>
 			          <td><%= movimiento.fecha_movimiento %></td>
 		            </tr>
 		         <% end %>

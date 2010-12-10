@@ -1,5 +1,7 @@
 Salud::Application.routes.draw do
 
+  resources :proveedor_equipos
+
   resources :estados
 
   resources :tipo_adquisicions
@@ -55,6 +57,7 @@ Salud::Application.routes.draw do
 
 		member do
 			post 'dar_salida'
+			post 'cambiar_area'
 		end
 	end
   match '/equipo/:id/hojavida' => 'hoja_vida#show', :via => :get, :as => :hoja_vida
