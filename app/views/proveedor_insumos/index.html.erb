@@ -19,8 +19,8 @@
           <td></td>
           <td><%= proveedor_insumo.nombre %></td>
           <td class="last">
-            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_proveedor_insumo_path(proveedor_insumo) %> |
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", proveedor_insumo_path(proveedor_insumo), :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "#{t("web-app-theme.edit", :default => "Editar")}", edit_proveedor_insumo_path(proveedor_insumo), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", proveedor_insumo_path(proveedor_insumo), :class => "sexybutton sexysimple sexyblue sexysmall", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>

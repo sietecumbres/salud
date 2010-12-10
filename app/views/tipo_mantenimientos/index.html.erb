@@ -26,9 +26,9 @@
 			<span style="background-color: <%= tipo_mantenimiento.color %>; width: 100px; height: 15px; float: left;"></span>
           </td>
           <td class="last">
-            <%= link_to "Detalles", tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue" %>
-            <%= link_to "Editar", edit_tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue" %>
-            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
+            <%= link_to "Detalles", tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "Editar", edit_tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue sexysmall" %>
+            <%= link_to "#{t("web-app-theme.delete", :default => "Eliminar")}", tipo_mantenimiento_path(tipo_mantenimiento), :class => "sexybutton sexysimple sexyblue sexysmall", :method => :delete, :confirm => "#{t("web-app-theme.confirm", :default => "Esta seguro?")}" %>
           </td>
         </tr>          
         <% end -%>
