@@ -1,5 +1,7 @@
 class SubtipoEquiposController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @subtipo_equipos = SubtipoEquipo.all
   end

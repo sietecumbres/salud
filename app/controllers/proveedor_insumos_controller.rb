@@ -1,4 +1,7 @@
 class ProveedorInsumosController < ApplicationController
+
+  before_filter :require_user
+  
   # GET /proveedor_insumos
   # GET /proveedor_insumos.xml
   def index

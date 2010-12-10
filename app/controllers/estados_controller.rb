@@ -1,5 +1,7 @@
 class EstadosController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @estados = Estado.all
   end

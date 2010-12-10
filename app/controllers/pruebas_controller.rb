@@ -1,5 +1,7 @@
 class PruebasController < ApplicationController
 
+  before_filter :require_user
+
   def index
     @pruebas = Prueba.all
   end
