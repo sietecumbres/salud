@@ -1,0 +1,35 @@
+<ul id="nav" class="wat-cf dropdown dropdown-horizontal">
+  <li><%= link_to "INICIO", :login %></li>
+  <% if logged_in? %>
+    <li class="dir">EQUIPOS
+      <ul>
+        <li><%= link_to "Equipos", equipos_path %></li>
+        <li><%= link_to "Agenda General", agenda_general_path %></li>
+        <li><%= link_to "Ver Equipos", list_equipos_path  %></li>
+        <li><%= link_to "Tipos de Mantenimiento", tipo_mantenimientos_path  %></li>
+        <li><%= link_to "Areas", areas_path  %></li>
+        <li><%= link_to "Subtipos de Equipos", subtipo_equipos_path  %></li>
+        <li><%= link_to "Fabricantes", fabricantes_path  %></li>
+        <li><%= link_to "Tipos de Adquisición", tipo_adquisicions_path  %></li>
+        <li><%= link_to "Estados", estados_path  %></li>
+        <li><%= link_to "Proveedores de Equipos", proveedor_equipos_path  %></li>
+      </ul>
+    </li>
+    <li class="dir">INSUMOS
+      <ul>
+        <li><%= link_to "Tipos de Insumos", tipo_insumos_path  %></li>
+        <li><%= link_to "Fabricantes de Insumos", fabricante_insumos_path  %></li>
+        <li><%= link_to "Proveedores de Insumos", proveedor_insumos_path  %></li>
+        <li><%= link_to "Pruebas a Insumos", pruebas_path  %></li>
+        <li><%= link_to "Almacenamiento de Insumos", almacenamientos_path  %></li>
+        <li><%= link_to "Movimientos de Entrada de Insumos", movimiento_insumos_entrada_path  %></li>
+        <li><%= link_to "Movimientos de Salida de Insumos", movimiento_insumos_salida_path  %></li>
+      </ul>
+    </li>
+    <li><%= link_to "CERRAR SESION", :logout %></li>
+  <% end %>
+</ul>
+
+
+
+            
